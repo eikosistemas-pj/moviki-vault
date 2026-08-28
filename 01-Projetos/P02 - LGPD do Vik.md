@@ -1,6 +1,6 @@
 ---
 type: projeto
-status: bloqueado
+status: ativo
 prioridade: 1
 area: A10 — Conformidade e LGPD
 prazo: 
@@ -12,6 +12,8 @@ atualizado: 2026-08-28
 
 ## Resultado esperado
 `privacidade.html` declara que o Moviki mantém, sobre cada lojista, um resumo de atendimento gerado por IA — com base legal e prazo de retenção.
+
+> **Nota de status (28/08):** este projeto **não está bloqueado — ele bloqueia.** Nada externo impede executá-lo; o trabalho é redigir e publicar. O que ele trava é ligar o Vik em escala. `status: bloqueado` estava semanticamente invertido e foi corrigido para `ativo`.
 
 ## Por que agora
 **Bloqueia escala.** Enquanto o Vik é ligado conversa a conversa, o risco é pequeno. Ligar para clientes reais em escala com a política omissa é sujar uma conformidade que foi fechada no mesmo dia com Meta e Google.
