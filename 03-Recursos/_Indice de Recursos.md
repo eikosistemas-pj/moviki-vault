@@ -16,6 +16,6 @@ Referência. Não exige ação — se exigir, virou projeto.
 
 **IA:** [[R - Vik - travas, prompt, memoria e ofertas]]
 
-**Meta:** [[R - Sync do vault (Obsidian Git)]]
+**Meta:** [[R - Sync do vault (Obsidian Git)]] · [[R - Protocolo Claude e vault]]
 
 **Transversal:** [[R - Regras de ouro]] · [[R - Regras de conteudo e tom]] · [[R - Links e identificadores]] · [[R - Glossario]] · [[R - Mapa Mestre (ponteiro)]]
