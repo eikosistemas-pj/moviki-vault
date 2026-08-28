@@ -36,4 +36,4 @@ O que a tela promete, o banco entrega. **Número inventado é propaganda enganos
 [[P07 - Aviso de mensagem nova para o lojista]] · [[P12 - Metricas por ponto no Enterprise]]
 
 ## Recursos
-[[R - Planos e precos]] · [[R - Marcas de versao no ar]] · [[ARQ - Redesign 2.0 (Fases 0 a 6)]]
+[[R - Planos e precos]] · [[R - Marcas de versao no ar]] · [[ARQ - Redesign 2.0 Fases 0 a 6]]

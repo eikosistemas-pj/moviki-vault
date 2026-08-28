@@ -77,7 +77,7 @@ git config --global user.name "eikosistemas-pj"
 ```
 Nenhum dos dois responde nada. **Silencio e sucesso.**
 
--> **Maquina nova com git: configurar identidade ANTES do primeiro commit.** Ver [[R - Sync do vault (Obsidian Git)]].
+-> **Maquina nova com git: configurar identidade ANTES do primeiro commit.** Ver [[R - Sync do vault Obsidian Git]].
 
 ## 28/08 - o navegador remove hifens do nome no download
 `moviki-vault-repo.zip` chegou como `movikivaultrepo.zip`. A regra ja existia no projeto, mas o vault a torna critica: **todo wikilink aponta pelo nome do arquivo**, entao `R - Regras de ouro.md` chegando como `R  Regras de ouro.md` viraria uma nota diferente, com todos os links apontando para ela orfaos.

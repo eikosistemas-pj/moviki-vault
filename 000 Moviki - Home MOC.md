@@ -23,7 +23,7 @@ Produto pronto e medido de ponta a ponta. **O gargalo é aquisição.** → [[P0
 - 📦 [[_Indice do Arquivo]] — concluído ou inativo.
 
 ## Áreas
-[[A1 - Produto e Paineis]] · [[A2 - Infraestrutura e Deploy]] · [[A3 - Dados e Regras]] · [[A4 - Financeiro]] · [[A5 - Programa de Parceiros]] · [[A6 - Medicao e Analytics]] · [[A7 - Aquisicao e Midia Paga]] · [[A8 - Conteudo e Social]] · [[A9 - IA e Atendimento (Vik)]] · [[A10 - Conformidade e LGPD]] · [[A11 - Marca e Design System]]
+[[A1 - Produto e Paineis]] · [[A2 - Infraestrutura e Deploy]] · [[A3 - Dados e Regras]] · [[A4 - Financeiro]] · [[A5 - Programa de Parceiros]] · [[A6 - Medicao e Analytics]] · [[A7 - Aquisicao e Midia Paga]] · [[A8 - Conteudo e Social]] · [[A9 - IA e Atendimento Vik]] · [[A10 - Conformidade e LGPD]] · [[A11 - Marca e Design System]]
 
 ## Referência de uso diário
 [[R - Regras de ouro]] · [[R - Stack e repositorios]] · [[R - Colecoes do Firestore]] · [[R - Marcas de versao no ar]] · [[R - Links e identificadores]] · [[R - Checklist conformidade Meta e Google]] · [[R - Checklist de deploy]]

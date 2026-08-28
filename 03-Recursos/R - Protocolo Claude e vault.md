@@ -74,4 +74,4 @@ O plugin Git commita em até 10 minutos.
 
 Mudou o protocolo aqui? **Mude lá também**, ou o Claude segue o antigo.
 
-→ [[R - Sync do vault (Obsidian Git)]] · [[R - Mapa Mestre (ponteiro)]] · [[LEIA-ME - Como usar este vault]]
+→ [[R - Sync do vault Obsidian Git]] · [[R - Mapa Mestre ponteiro]] · [[LEIA-ME - Como usar este vault]]

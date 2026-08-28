@@ -24,4 +24,4 @@ O Paulo contratou um **PABX** no número oficial **(41) 2018-6848**, e a **IA do
 O atendente do painel **sabe quem está falando**. Lê `parceiros/{uid}`, `comissoes`, `saques` e `assinaturas` daquela pessoa e responde *"sua comissão de agosto é R$ 34,15 e libera dia 12"*.
 **A IA do WhatsApp não tem esse dado e nunca vai ter.**
 
-→ [[A9 - IA e Atendimento (Vik)]] · [[ARQ - Vik no ar (rodadas 7 e 8)]]
+→ [[A9 - IA e Atendimento Vik]] · [[ARQ - Vik no ar rodadas 7 e 8]]

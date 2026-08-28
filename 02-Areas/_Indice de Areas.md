@@ -16,6 +16,6 @@ Responsabilidade contínua, sem data de fim. Se uma nota daqui ganhou prazo e cr
 - [[A6 - Medicao e Analytics]]
 - [[A7 - Aquisicao e Midia Paga]]
 - [[A8 - Conteudo e Social]]
-- [[A9 - IA e Atendimento (Vik)]]
+- [[A9 - IA e Atendimento Vik]]
 - [[A10 - Conformidade e LGPD]]
 - [[A11 - Marca e Design System]]

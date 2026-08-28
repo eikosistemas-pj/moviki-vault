@@ -27,4 +27,4 @@ Sem pixel de navegador: **sem remarketing e sem público semelhante**. A campanh
 [[P01 - Aquisicao - campanha de trafego pago]] · [[P03 - Primeiro disparo de newsletter]] · [[P08 - Aquecimento do Instagram]]
 
 ## Recursos
-[[R - Meta Business - ativos e contas]] · [[R - Checklist conformidade Meta e Google]] · [[ARQ - Preview e SEO (api og.js)]]
+[[R - Meta Business - ativos e contas]] · [[R - Checklist conformidade Meta e Google]] · [[ARQ - Preview e SEO api og]]

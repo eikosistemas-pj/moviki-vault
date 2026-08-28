@@ -12,10 +12,10 @@ Referência. Não exige ação — se exigir, virou projeto.
 
 **Produto e comercial:** [[R - Planos e precos]] · [[R - Design system e icones]] · [[R - Custos e cotas]]
 
-**Medição e marketing:** [[R - Eventos GA4 (dicionario)]] · [[R - Meta Business - ativos e contas]] · [[R - Checklist conformidade Meta e Google]]
+**Medição e marketing:** [[R - Eventos GA4 dicionario]] · [[R - Meta Business - ativos e contas]] · [[R - Checklist conformidade Meta e Google]]
 
 **IA:** [[R - Vik - travas, prompt, memoria e ofertas]]
 
-**Meta:** [[R - Sync do vault (Obsidian Git)]] · [[R - Protocolo Claude e vault]]
+**Meta:** [[R - Sync do vault Obsidian Git]] · [[R - Protocolo Claude e vault]]
 
-**Transversal:** [[R - Regras de ouro]] · [[R - Regras de conteudo e tom]] · [[R - Links e identificadores]] · [[R - Glossario]] · [[R - Mapa Mestre (ponteiro)]]
+**Transversal:** [[R - Regras de ouro]] · [[R - Regras de conteudo e tom]] · [[R - Links e identificadores]] · [[R - Glossario]] · [[R - Mapa Mestre ponteiro]]

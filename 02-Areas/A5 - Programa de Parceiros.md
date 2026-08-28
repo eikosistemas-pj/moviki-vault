@@ -19,7 +19,7 @@ atualizado: 2026-08-28
 | F2 | Cadastro + aprovação automática (Actions a cada 5 min) | ✅ |
 | F3 | Painel do parceiro | ✅ |
 | F4 | Motor de comissão | ✅ |
-| F5/F6 | Virou o atendente de dentro do sistema | → [[A9 - IA e Atendimento (Vik)]] |
+| F5/F6 | Virou o atendente de dentro do sistema | → [[A9 - IA e Atendimento Vik]] |
 
 ## Rastreio
 - `/p/{apelido}` → `comerciantes.html` com UTM

@@ -26,7 +26,7 @@ A página pública lia **todas** as avaliações a cada visita. Negócio com 200
 
 **Medido: de 204 para 4 leituras por visita — e agora é constante.**
 
-Esse mesmo `{n, soma}` virou o `aggregateRating` do JSON-LD em [[ARQ - Preview e SEO (api og.js)]].
+Esse mesmo `{n, soma}` virou o `aggregateRating` do JSON-LD em [[ARQ - Preview e SEO api og]].
 
 ## TTL
 Ligado em 26/08 no **Console do Google Cloud** (não existe no Console do Firebase): grupo `dias`, campo `expiraEm`, adiamento 0, retenção de 13 meses.

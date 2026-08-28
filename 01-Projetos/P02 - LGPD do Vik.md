@@ -29,4 +29,4 @@ atualizado: 2026-08-28
 - [ ] Só então: ligar o Vik em escala
 
 ## Ligações
-[[A9 - IA e Atendimento (Vik)]] · [[A10 - Conformidade e LGPD]] · [[R - Vik - travas, prompt, memoria e ofertas]]
+[[A9 - IA e Atendimento Vik]] · [[A10 - Conformidade e LGPD]] · [[R - Vik - travas, prompt, memoria e ofertas]]

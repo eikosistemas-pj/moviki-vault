@@ -31,4 +31,4 @@ atualizado: 2026-08-28
 - Dedup do `purchase`: `faturamento/{uid}/ga/{payId}.create()` — o Asaas manda 2 eventos por pagamento, e a mesma trava protege GA e Meta.
 
 ## Recursos
-[[R - Eventos GA4 (dicionario)]] · [[ARQ - GA4 levas 1, 2 e 3]] · [[ARQ - Meta CAPI]] · [[ARQ - Medicao por negocio (contador)]]
+[[R - Eventos GA4 dicionario]] · [[ARQ - GA4 levas 1, 2 e 3]] · [[ARQ - Meta CAPI]] · [[ARQ - Medicao por negocio contador]]

@@ -23,4 +23,4 @@ Confiança de que o Vik guarda o que vale e oferece na hora certa.
 - [ ] Registro do ajuste em [[R - Vik - travas, prompt, memoria e ofertas]]
 
 ## Ligações
-[[A9 - IA e Atendimento (Vik)]]
+[[A9 - IA e Atendimento Vik]]

@@ -32,7 +32,7 @@ atualizado: 2026-08-28
 `#armadilha` marca tudo que já custou tempo e vai voltar a acontecer. Busque por ela antes de caçar bug.
 
 ## Sync
-O vault é um repositório git. Ver [[R - Sync do vault (Obsidian Git)]].
+O vault é um repositório git. Ver [[R - Sync do vault Obsidian Git]].
 
 ## Plugins recomendados
 - **Dataview** — as tabelas automáticas deste vault dependem dele.

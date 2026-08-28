@@ -29,4 +29,4 @@ atualizado: 2026-08-28
 [[P02 - LGPD do Vik]] · [[P05 - Calibrar o Vik]] · [[P06 - Camada 3 do Vik]]
 
 ## Recursos
-[[R - Vik - travas, prompt, memoria e ofertas]] · [[ARQ - Vik no ar (rodadas 7 e 8)]] · [[R - Custos e cotas]]
+[[R - Vik - travas, prompt, memoria e ofertas]] · [[ARQ - Vik no ar rodadas 7 e 8]] · [[R - Custos e cotas]]

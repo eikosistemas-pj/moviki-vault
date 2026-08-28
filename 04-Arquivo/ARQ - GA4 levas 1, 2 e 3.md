@@ -24,4 +24,4 @@ atualizado: 2026-08-28
 ## Decisão de arquitetura mantida
 **O `mvmetrica.js` NÃO foi alterado nas levas 2 e 3.** Ele é idêntico nos dois repos e está no caminho do dinheiro. A medição das landings é **inline** — sem arquivo novo e sem requisição a mais.
 
-→ [[R - Eventos GA4 (dicionario)]] · [[A6 - Medicao e Analytics]]
+→ [[R - Eventos GA4 dicionario]] · [[A6 - Medicao e Analytics]]

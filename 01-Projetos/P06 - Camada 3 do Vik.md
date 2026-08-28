@@ -24,4 +24,4 @@ Pesquisa de produto contínua e de graça.
 Memória acumulada em pelo menos algumas dezenas de contas ativas.
 
 ## Ligações
-[[A9 - IA e Atendimento (Vik)]] · [[P05 - Calibrar o Vik]]
+[[A9 - IA e Atendimento Vik]] · [[P05 - Calibrar o Vik]]
