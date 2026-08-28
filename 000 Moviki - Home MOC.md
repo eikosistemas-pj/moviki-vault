@@ -10,11 +10,16 @@ atualizado: 2026-08-28
 > Empresa: EIKO SISTEMAS DESENVOLVIMENTO DE SOFTWARE LTDA · CNPJ 68.289.841/0001-02 · Curitiba/PR.
 
 ## Estado em uma linha
-Produto pronto e medido de ponta a ponta. **O gargalo é aquisição.** → [[P01 - Aquisicao - campanha de trafego pago]]
+Produto pronto, medido de ponta a ponta e **em conformidade**. **O gargalo é aquisição — e agora é o único.** → [[P01 - Aquisicao - campanha de trafego pago]]
 
-## Bloqueios críticos
-- 🔴 [[P01 - Aquisicao - campanha de trafego pago]] — nada de produto bloqueia; falta trazer gente.
-- 🔴 [[P02 - LGPD do Vik]] — `vik_memoria` não está declarada na política. Bloqueia escalar o Vik.
+## Bloqueio crítico
+- 🔴 [[P01 - Aquisicao - campanha de trafego pago]] — prazo **2026-09-04**. Nada de produto bloqueia; falta trazer gente.
+
+## Fechado em 28/08
+- ✅ **LGPD do Vik** — `privacidade.html` declara a `vik_memoria` (seção 5). → [[ARQ - LGPD do Vik na politica de privacidade]]
+
+## O que ainda segura o Vik em escala
+Não é mais conformidade, é **calibragem**. O padrão global está DESLIGADO de propósito: ele multiplica qualquer erro de extração de memória por todas as conversas de uma vez. → [[P05 - Calibrar o Vik]]
 
 ## PARA
 - 🎯 [[_Indice de Projetos]] — esforço com fim e data.

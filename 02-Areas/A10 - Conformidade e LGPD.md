@@ -24,6 +24,8 @@ Achou no projeto qualquer coisa que vá contra regra da Meta ou do Google, **cor
 - **Antes de instalar rastreador, ler a própria política de privacidade.** O pixel da Meta foi barrado pela frase que o próprio Moviki publicou.
 - **Descadastro de e-mail pede confirmação, não sai em um clique** — cliente de e-mail que pré-carrega links desinscreveria gente sem querer.
 - A seção "Isso não é pirâmide?" é **ativo, não problema** — é a distinção legal que um revisor quer ver.
+- **Declare o MECANISMO, não a intenção.** Na política do Vik, dizer que CPF, CNPJ, chave Pix e sequências de 8+ dígitos são filtrados **por regex no `memoria.js`** — e não só proibidos no prompt — é o que separa promessa de trava. Prompt não é trava de segurança.
+- **Afirmação que depende de contrato de terceiro não se publica sem conferir o contrato.** "A Anthropic não treina modelo com este conteúdo" está no ar e precisa ser confirmada nos termos da conta.
 
 ## LGPD — estado
 | Item | Estado |
@@ -31,7 +33,9 @@ Achou no projeto qualquer coisa que vá contra regra da Meta ou do Google, **cor
 | Consentimento e descadastro da newsletter | ✅ no ar |
 | Base legal da medição por servidor (Meta) | ✅ na política |
 | Exclusão de conta limpando Storage e subcoleções | ✅ no ar |
-| **`vik_memoria` declarada na política** | 🔴 **falta** → [[P02 - LGPD do Vik]] |
+| `vik_memoria` declarada na política (seção 5) | ✅ **no ar em 28/08** → [[ARQ - LGPD do Vik na politica de privacidade]] |
+| Não automatização de decisão (Art. 20) declarada | ✅ no ar — e verdadeira no código |
+| Termos da Anthropic conferidos quanto a treino de modelo | 🟠 **pendente** → [[P11 - Pendencias operacionais do dono]] |
 
 ## Recursos
-[[R - Checklist conformidade Meta e Google]] · [[ARQ - Conformidade Meta e Google nas landings]]
+[[R - Checklist conformidade Meta e Google]] · [[ARQ - Conformidade Meta e Google nas landings]] · [[R - Vik - travas, prompt, memoria e ofertas]]

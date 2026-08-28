@@ -13,6 +13,7 @@ Checklist de ações que só o Paulo pode executar.
 
 - [ ] Desligar a campanha de Reconhecimento (→ [[P01 - Aquisicao - campanha de trafego pago]])
 - [ ] Conferir se o `META_TEST_CODE` foi apagado da Vercel — com ele, o evento **não conta como conversão**
+- [ ] **Conferir nos termos da conta Anthropic que o conteúdo não é usado para treinar modelo** — a política de privacidade já afirma isso publicamente (→ [[ARQ - LGPD do Vik na politica de privacidade]])
 - [ ] Revisar os 2 convites pendentes no Meta
 - [ ] Confirmar o Secret `CRON_SECRET` no repositório `moviki-robo` (mesmo valor da env na Vercel)
 - [ ] Salvar os códigos de recuperação do 2FA do GitHub
