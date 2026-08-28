@@ -1,0 +1,15 @@
+# Estado local do Obsidian — muda a cada clique, não versionar
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.obsidian/graph.json
+.trash/
+
+# Plugins e temas (baixáveis; descomente se quiser versionar)
+.obsidian/plugins/
+.obsidian/themes/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
