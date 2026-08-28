@@ -65,5 +65,24 @@ Passaram por 46 testes, 2 dry-runs e um verificador verde. Detalhe em [[ARQ - Ro
 `—` lido como cp850 pelo Explorer do Windows na descompactação. 59 de 71 arquivos, e **todos os wikilinks**. Detalhe em [[ARQ - Incidente - nomes de arquivo corrompidos no Windows]].
 → **Nome de arquivo só com ASCII.**
 
-## Recorrente — a landing crua
+## 28/08 - o git recem-instalado nao tinha identidade
+Primeiro commit do vault falhou com `fatal: unable to auto-detect email address (got 'Paulo@PC-PAULO.(none)')`. **Git instalado do zero nao sabe quem voce e**, e sem `user.name` e `user.email` ele recusa qualquer commit.
+
+Pior: o **plugin Git do Obsidian mostra so um aviso vermelho na barra de baixo**, com a mensagem em ingles cortada. Os arquivos ja estavam salvos e no lugar certo - so o commit nao saiu, o que e facil de confundir com "o sync nao funcionou".
+
+Conserto, uma vez por maquina:
+```
+git config --global user.email "suporte@moviki.com.br"
+git config --global user.name "eikosistemas-pj"
+```
+Nenhum dos dois responde nada. **Silencio e sucesso.**
+
+-> **Maquina nova com git: configurar identidade ANTES do primeiro commit.** Ver [[R - Sync do vault (Obsidian Git)]].
+
+## 28/08 - o navegador remove hifens do nome no download
+`moviki-vault-repo.zip` chegou como `movikivaultrepo.zip`. A regra ja existia no projeto, mas o vault a torna critica: **todo wikilink aponta pelo nome do arquivo**, entao `R - Regras de ouro.md` chegando como `R  Regras de ouro.md` viraria uma nota diferente, com todos os links apontando para ela orfaos.
+
+Conserto estrutural: o `SincronizarVaultMoviki.bat` **reconstroi o nome antes de salvar** - troca o duplo espaco por ` - ` e restaura `LEIA-ME` e `T-`. Testado contra os 72 arquivos do vault, nos dois cenarios (nome intacto e nome mutilado): 72/72.
+
+## Recorrente - a landing crua
 `moviki-ui.css` (com hífen) subiu no lugar de `movikiui.css`. A duplicata byte a byte ainda está no repo → [[P09 - Faxina do repositorio moviki]].
