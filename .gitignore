@@ -1,3 +1,7 @@
+# Embeddings do Smart Connections — pesados e regeneráveis
+.smart-env/
+.smart-connections/
+
 # Estado local do Obsidian — muda a cada clique, não versionar
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
