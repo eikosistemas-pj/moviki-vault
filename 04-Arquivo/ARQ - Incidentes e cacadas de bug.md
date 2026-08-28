@@ -84,5 +84,16 @@ Nenhum dos dois responde nada. **Silencio e sucesso.**
 
 Conserto estrutural: o `SincronizarVaultMoviki.bat` **reconstroi o nome antes de salvar** - troca o duplo espaco por ` - ` e restaura `LEIA-ME` e `T-`. Testado contra os 72 arquivos do vault, nos dois cenarios (nome intacto e nome mutilado): 72/72.
 
+## 28/08 - o script que inventou um erro que nao existia
+O `.bat` de sincronizacao anunciou `[X] Git: To https://github.com/...` e depois `[X] Git: From https://...`. Duas rodadas foram gastas cacando um push e um pull que **nunca falharam** - rodados a mao, os dois respondiam `Current branch main is up to date.`
+
+**Causa:** o git escreve mensagem informativa no **stderr**, nao no stdout - `From https://...`, `To https://...`, contagem de objetos, tudo. O script combinava `$ErrorActionPreference = 'Stop'` com `2>&1`, entao o PowerShell tratava essa saida normal como excecao terminante. O `[X]` era a mensagem do `catch`, nao do git.
+
+**O dano real nao foi o alarme falso, foi o que ele abortou.** O `catch` matou o bloco antes do `git push`, e o commit da renomeacao ficou parado como `[ahead 1]` - o script gritou sobre um problema inexistente e criou um de verdade em silencio.
+
+**Conserto:** quem decide se falhou e o **codigo de saida** (`$LASTEXITCODE`), nunca a presenca de texto no stderr. E todo run termina imprimindo `git status -sb`, que e a verdade nua sobre a sincronizacao.
+
+-> Ver a regra sobre `catch` em [[R - Regras de ouro]]. E a mesma familia do `catch` vazio do Vik, com o sinal trocado: la engolia erro real, aqui inventava erro que nao existia. **Nos dois casos a tela para de refletir a realidade, e voce conserta o que nao esta quebrado.**
+
 ## Recorrente - a landing crua
 `moviki-ui.css` (com hífen) subiu no lugar de `movikiui.css`. A duplicata byte a byte ainda está no repo → [[P09 - Faxina do repositorio moviki]].

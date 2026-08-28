@@ -36,6 +36,7 @@ atualizado: 2026-08-28
 - **A Vercel não deixa mais reler env salva** → rotacionar nos dois lados, ou o código aceita dois valores.
 - **Domínio novo no jogo? A CSP é a primeira suspeita.** Fetch bloqueado por CSP **não aparece no Network**.
 - **CSP não é só do arquivo novo** — página que passa a mostrar imagem do Storage precisa de `firebasestorage.googleapis.com` no `img-src`.
+- **A tela tem que refletir a realidade — nos dois sentidos.** `catch` vazio engole erro real; `catch` que grita sem checar o código de saída inventa erro que não existe. Em script, quem decide se falhou é o **código de saída do processo**, nunca a presença de texto no stderr — **o git escreve informação no stderr** (`From ...`, `To ...`, contagem de objetos). Já custou duas rodadas caçando um push que nunca falhou.
 - **`catch` vazio em chamada de rede é uma hora de caçada esperando acontecer.** Falhar calado para o usuário pode; para o console, não. *(Exceção deliberada: os ouvintes da caixa de mensagens — painel de lojista não pode cair por causa de mensagem.)*
 - **Modelo de IA tem validade.** Fixar o id na env, que troca sem deploy.
 - **404 é rota de produção.** Domínio sem `vercel.json` serve o `404.html` do repo em todo endereço inválido.
