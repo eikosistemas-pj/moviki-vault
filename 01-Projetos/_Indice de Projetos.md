@@ -9,7 +9,6 @@ atualizado: 2026-08-31
 | # | Projeto | Prioridade | Área |
 | --- | --- | --- | --- |
 | P01 | [[P01 - Aquisicao - campanha de trafego pago]] | 🔴 1 | Aquisição |
-| P02 | [[P02 - LGPD do Vik]] | 🔴 1 | Conformidade |
 | P03 | [[P03 - Primeiro disparo de newsletter]] | 🟠 2 | Aquisição |
 | P04 | [[P04 - Decisao fiscal do Programa de Parceiros]] | 🟠 2 | Financeiro |
 | P05 | [[P05 - Calibrar o Vik]] | 🟡 3 | IA |
@@ -21,3 +20,5 @@ atualizado: 2026-08-31
 | P11 | [[P11 - Pendencias operacionais do dono]] | 🟠 2 | Operação |
 | P12 | [[P12 - Metricas por ponto no Enterprise]] | 🟡 3 | Produto |
 | P13 | [[P13 - Video institucional da landing]] | 🟠 2 | Conteúdo |
+
+**P02 — LGPD do Vik** foi concluído em 2026-08-28 e vive em [[ARQ - LGPD do Vik na politica de privacidade]]. O número não se reaproveita.
