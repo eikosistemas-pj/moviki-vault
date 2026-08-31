@@ -1,7 +1,7 @@
 ---
 type: moc
 tags: [recursos]
-atualizado: 2026-08-28
+atualizado: 2026-08-31
 ---
 
 # Índice de Recursos
@@ -13,6 +13,8 @@ Referência. Não exige ação — se exigir, virou projeto.
 **Produto e comercial:** [[R - Planos e precos]] · [[R - Design system e icones]] · [[R - Custos e cotas]]
 
 **Medição e marketing:** [[R - Eventos GA4 dicionario]] · [[R - Meta Business - ativos e contas]] · [[R - Checklist conformidade Meta e Google]]
+
+**Filme institucional (P13):** [[R - Roteiro do video institucional]] · [[R - Filme institucional - biblia visual e continuidade]] · [[R - Filme institucional - inventario de takes]] · [[R - Filme institucional - gate de assets]] · [[R - Filme institucional - conta demo]]
 
 **IA:** [[R - Vik - travas, prompt, memoria e ofertas]]
 
