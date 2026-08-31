@@ -69,6 +69,36 @@ foi realmente salva. **Esta e a forma de conferir preenchimento, nao a pagina.**
 | `whatsapp` | numero de demonstracao | 🟠 `4120186848` — conferir se e pessoal |
 | `nome` | ficticio, sem colidir com marca real | 🟠 "Hamburguer Master" e generico |
 
+## Limites reais do documento (regras v16 publicadas)
+
+Conferidos em `negocioValido()` — **o painel nao avisa, a escrita simplesmente e
+negada**:
+
+| Campo | Limite duro |
+| --- | --- |
+| `fotos` | lista, **maximo 12** |
+| `cardapio` / `promocoes` / `eventos` | lista, maximo 60 cada |
+| `nome` | 1 a 80 caracteres |
+| `recado` | ate 280 |
+| `horario` | ate 120 |
+| `endereco` | ate 200 |
+| `entrega` | ate 60 |
+| `precoMedio` | numero, 0 a 100000 |
+| `whatsapp` | ate 20 caracteres |
+| `cor` | **tem que casar `^#[0-9a-fA-F]{6}$`** — 3 digitos ou `rgb()` e negado |
+| `markerLogo` | URL de ate 500 caracteres |
+
+`negocioValido()` usa `hasOnly` sobre o documento **inteiro mesclado**: campo
+fora da lista derruba o save inteiro, nao so aquele campo.
+
+**Leitura publica confirmada nas regras:** `/negocios` tem `allow read: if true`
+e `/assinaturas` tambem. A auditoria por REST descrita acima e uso previsto, nao
+contorno.
+
+**Multi-ponto nao se preenche pelo painel:** `/pontos` e `/ponto_slugs` tem
+`allow write: if false` — so o Admin SDK cria unidade. Se o filme precisar de
+multi-ponto em tela, isso passa pelo robo.
+
 ## Tres consequencias que quebram o filme
 
 1. **`fotos: []` mata a capa.** `aplicarCapa()` so usa foto da galeria; sem ela

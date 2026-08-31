@@ -2,7 +2,7 @@
 type: recurso
 status: referencia
 tags: [armadilha, regra]
-atualizado: 2026-08-28
+atualizado: 2026-08-31
 ---
 
 # R — Regras de ouro
@@ -28,6 +28,11 @@ atualizado: 2026-08-28
 - **Apagar o documento não apaga a subcoleção, nem o apelido, nem o arquivo.**
 - **Ler o documento ANTES de apagá-lo** quando algo depende do que está dentro.
 - **TTL do Firestore só existe no Console do Google Cloud.**
+- **`hasOnly` em coleção que SÓ o admin escreve é segurança de mentira.** Não barra ninguém que já não esteja barrado e quebra o painel a cada campo novo. Validar **tipo**, nunca conjunto fechado. *(v16, `configuracoes/sistema`.)*
+- **`allow write` cobre delete, e em delete `request.resource` é NULO** — a expressão erra e nega. Separar `create, update` de `delete` sempre.
+- **Campo dentro de `hasOnly` sem `is <tipo>` e sem `.size()` não está validado** — só está na lista. *(É o caso de `comentario` na avaliação hoje.)*
+- **`create` anônimo de documento agregado precisa travar o VALOR INICIAL, não só o incremento.** Travar o `update` em +1 não serve de nada se o `create` aceita começar em 100.000. *(É o caso de `resumo/avaliacoes` hoje — ver [[ARQ - Furos nas regras v16]].)*
+- **`match /{documento=**}` com `read: if true` publica toda subcoleção FUTURA.** Subcoleção nova de negócio nasce pública — decidir antes de criar, não depois. *(Foi por isso que `metricas` virou coleção de topo.)*
 
 ## Deploy e diagnóstico
 - **Antes de caçar bug, conferir a marca de versão** (`MOVIKI_VERSAO` no Console + o arquivo no GitHub).
@@ -45,6 +50,7 @@ atualizado: 2026-08-28
 - **Upload por arrastar ignora pastas com ponto.**
 - **Nome de arquivo não pode depender de hífen** no download — **mas o nome vira o endereço na Vercel**.
 - **Proxy git bloqueia push.** Claude entrega arquivos; upload é manual.
+- **O proxy também bloqueia LEITURA do GitHub e o domínio `moviki.com.br`.** `github.com`, `raw.githubusercontent.com` e conexão direta ao site são negados; o que passa é o WebFetch, e ele **não executa JavaScript**. Consequência: o Claude não audita página montada no navegador e não clona o vault — leitura de dado do produto sai da **REST do Firestore**, que é pública em `/negocios` e `/assinaturas`.
 - **Nome de arquivo só com ASCII.** Travessão, acento e til nos NOMES quebram: o Explorer do Windows lê os nomes de dentro do `.zip` como cp850, e `—` vira `ÔÇö`. Já aconteceu com o vault inteiro — 59 de 71 arquivos e todos os wikilinks. O conteúdo pode ter acento à vontade; o nome, não.
 - LF, sem CR.
 
@@ -59,6 +65,7 @@ atualizado: 2026-08-28
 - **HEIC/HEIF do iPhone sobe e não abre** — recusar na entrada.
 - **Ação sem volta pede confirmação DIGITADA**, não `confirm()`.
 - **Busca de pessoa procura por nome, apelido e e-mail.**
+- **Página montada no navegador não pode ser auditada por leitura de HTML.** O HTML estático traz todas as seções, inclusive as ocultas e os textos de estado vazio — uma leitura crua parece cheia ou vazia sem relação com o dado. A verdade é o `updateTime` do documento.
 
 ## Medição
 - **Medição nunca derruba cobrança — e tráfego pago nunca antes da medição.**
@@ -83,6 +90,7 @@ atualizado: 2026-08-28
 - **Conformidade tem que chegar até a página do FORMULÁRIO.**
 - **Antes de instalar rastreador, ler a própria política de privacidade.**
 - **Autorização permanente:** achou violação de Meta/Google, conserta direto.
+- **Opt-in de um lugar não vale para outro.** O `autorizaDivulgacao` promete "nunca publicamos seu endereço exato — só a cidade": ele autoriza a vitrine social, **não** o filme institucional, que mostra o mapa. Material que exibe tela do produto sai de **conta demo própria**, nunca de cliente real.
 
 ## IA
 - **Robô que fala com o cliente nasce DESLIGADO, conversa a conversa.**
@@ -90,9 +98,25 @@ atualizado: 2026-08-28
 - **Prompt não é trava de segurança.** Filtro em código também.
 - **Ativação antes de venda.**
 
+## Produção de vídeo e geração por IA
+- **Nenhuma geração antes da bíblia visual escrita e aprovada.** Direção de arte mandada gerar sem validação já custou mais de 200 créditos numa rodada.
+- **Keyframe still primeiro, vídeo depois.** Still aprovado → image-to-video → inspeção humana → próxima cena. Uma cena por vez, sem variação automática.
+- **Em image-to-video, o `first_frame` governa a POSIÇÃO; o prompt só governa o MOVIMENTO.** Enquadramento errado se conserta no keyframe, nunca no texto.
+- **Física não se conserta por prompt.** Modelo de vídeo não simula corpo rígido. Objeto que atravessa objeto só tem uma solução: remover o objeto.
+- **Veo aceita 4, 6 ou 8 segundos. 5 s não existe.**
+- **Timeout do MCP não significa geração cancelada** — ela continua e é cobrada. Conferir por `get_credits` + `list_my_gallery` antes de qualquer retentativa.
+- **Toda UI do filme é captura real.** Nunca gerar interface, logo ou pino por IA; nunca reconstruir interface em After Effects.
+- **Asset ausente é PENDENTE, não improviso.** Não inventar UI, logo, telas, depoimentos, métricas ou resultados.
+- **Autenticidade não significa precariedade.**
+- **Prioridade que decide empate:** qualidade cinematográfica > consistência > eficiência de créditos > velocidade.
+- **Buscar antes de pedir. Usar o oficial antes de recriar. Produto real antes de mockup. Precisão antes de velocidade.**
+
 ## Testes
 - **Dry-run valida conteúdo; só a publicação real valida integração.**
 - Sandbox do Claude não alcança CDN nem emulador do Firebase. O que funciona: `prev/` com stub de Leaflet e do Firestore/Auth/Storage, `python3 -m http.server`, Playwright no Chromium local. **O emulador de regras NÃO roda.**
 - Clique sintético no Playwright precisa de `cancelable:true`.
 - Checkbox de switch é invisível (`opacity:0;width:0`) — clique no trilho (`.swT`).
 - `node --check` não pega erro de escopo.
+
+## Ligações
+[[ARQ - Furos nas regras v16]] · [[ARQ - Armadilhas de geracao por IA]] · [[ARQ - Incidentes e cacadas de bug]] · [[A3 - Dados e Regras]] · [[P13 - Video institucional da landing]]
