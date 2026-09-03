@@ -10,7 +10,7 @@ atualizado: 2026-09-03
 
 ⚠️ **Esta tabela envelhece sozinha. A fonte de verdade é o repositório no GitHub.**
 
-*Reconferida arquivo por arquivo em 03/09/2026, fim do dia, clonando os repositórios.
+*Reconferida arquivo por arquivo em 03/09/2026, fim do dia, clonando os repositórios. O `parceiro.html` foi atualizado depois disso, com a abertura do parceiro.
 A coluna "no ar" é o que o código publicado diz. A coluna "entregue" é o que o Mapa
 Mestre afirma — quando as duas divergem, é arquivo que foi produzido e não subiu.*
 
@@ -41,7 +41,7 @@ Valor antigo ou `undefined` é cache: **Ctrl+Shift+R**. Não existe service work
 | Arquivo | No ar | Entregue |
 | --- | --- | --- |
 | `index.html` (painel do lojista) | `2026-09-03-authdominio` | **`2026-09-03-atendentes`** ⚠️ |
-| `parceiro.html` | `2026-09-03-appcheck` | **`2026-09-03-cracha`** ⚠️ |
+| `parceiro.html` | **`2026-09-03-abertura`** | `2026-09-03-cracha` ⚠️ (falta o crachá) |
 | `eikoadm01.html` | `2026-09-03-appcheck` | **`2026-09-03-atendentes`** ⚠️ |
 | `seja-parceiro.html` | `2026-09-03-appcheck` | — |
 | `404.html` | `2026-08-28-404vik` | — |

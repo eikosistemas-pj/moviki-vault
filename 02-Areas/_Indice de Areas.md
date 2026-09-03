@@ -1,7 +1,7 @@
 ---
 type: moc
 tags: [areas]
-atualizado: 2026-08-28
+atualizado: 2026-09-03
 ---
 
 # Índice de Áreas
@@ -19,3 +19,4 @@ Responsabilidade contínua, sem data de fim. Se uma nota daqui ganhou prazo e cr
 - [[A9 - IA e Atendimento Vik]]
 - [[A10 - Conformidade e LGPD]]
 - [[A11 - Marca e Design System]]
+- [[A12 - Atendimento e vozes do Moviki]]
