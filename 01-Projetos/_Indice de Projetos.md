@@ -1,7 +1,7 @@
 ---
 type: moc
 tags: [projetos]
-atualizado: 2026-08-31
+atualizado: 2026-09-03
 ---
 
 # Índice de Projetos
@@ -9,6 +9,7 @@ atualizado: 2026-08-31
 | # | Projeto | Prioridade | Área |
 | --- | --- | --- | --- |
 | P01 | [[P01 - Aquisicao - campanha de trafego pago]] | 🔴 1 | Aquisição |
+| P02 | [[P02 - LGPD do Vik]] | 🔴 1 | Conformidade |
 | P03 | [[P03 - Primeiro disparo de newsletter]] | 🟠 2 | Aquisição |
 | P04 | [[P04 - Decisao fiscal do Programa de Parceiros]] | 🟠 2 | Financeiro |
 | P05 | [[P05 - Calibrar o Vik]] | 🟡 3 | IA |
@@ -19,6 +20,11 @@ atualizado: 2026-08-31
 | P10 | [[P10 - Vitrine - terceiro negocio autorizado]] | 🟡 3 | Conteúdo |
 | P11 | [[P11 - Pendencias operacionais do dono]] | 🟠 2 | Operação |
 | P12 | [[P12 - Metricas por ponto no Enterprise]] | 🟡 3 | Produto |
-| P13 | [[P13 - Video institucional da landing]] | 🟠 2 | Conteúdo |
+| P14 | [[P14 - Verificacao de parceiro]] | 🔴 1 | Programa de Parceiros |
+| P15 | [[P15 - Enforcement do App Check]] | 🔴 1 | Infra |
 
-**P02 — LGPD do Vik** foi concluído em 2026-08-28 e vive em [[ARQ - LGPD do Vik na politica de privacidade]]. O número não se reaproveita.
+**P13** é o vídeo institucional. A nota dele ainda não foi trazida para o vault — o material está no Project, em `claude/moviki-p13-*`.
+
+## Ligações
+
+[[000 Moviki - Home MOC]] · [[_Indice de Areas]] · [[_Indice de Recursos]] · [[_Indice do Arquivo]]
