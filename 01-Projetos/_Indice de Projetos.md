@@ -22,9 +22,9 @@ atualizado: 2026-09-03
 | P12 | [[P12 - Metricas por ponto no Enterprise]] | pausado | 🟡 3 | Produto |
 | P14 | [[P14 - Verificacao de parceiro]] | ativo | 🔴 1 | Programa de Parceiros |
 | P15 | [[P15 - Enforcement do App Check]] | bloqueado | 🔴 1 | Infra |
-| P16 | [[P16 - Rodada da credibilidade]] | quase completo — falta o painel do lojista | 🔴 1 | Programa de Parceiros |
+| P16 | [[P16 - Rodada da credibilidade]] | ✅ concluído — falta só a marca do `eikoadm01` | 🔴 1 | Programa de Parceiros |
 | P17 | [[P17 - Videos novos do parceiro]] | ativo — P00 no ar, P09 por gravar | 🟠 2 | Videoaulas |
-| P18 | [[P18 - Conformidade do simulador de ganhos]] | **ativo** | 🔴 1 | Conformidade |
+| P18 | [[P18 - Conformidade do simulador de ganhos]] | ✅ concluído | 🔴 1 | Conformidade |
 
 ⚠️ **P16 ainda não fechou.** A página `/v/`, o espelho, o selo do certificado, os
 atendentes no painel do dono e do parceiro e agora o **crachá com QR** estão no ar.

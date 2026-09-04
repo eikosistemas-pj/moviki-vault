@@ -40,14 +40,14 @@ Valor antigo ou `undefined` é cache: **Ctrl+Shift+R**. Não existe service work
 
 | Arquivo | No ar | Entregue |
 | --- | --- | --- |
-| `index.html` (painel do lojista) | `2026-09-03-authdominio` | **`2026-09-03-atendentes`** ⚠️ |
-| `parceiro.html` | **`2026-09-03-cracha`** | ✅ igual — crachá e abertura no ar |
-| `eikoadm01.html` | `2026-09-03-appcheck` | **`2026-09-03-atendentes`** ⚠️ |
+| `index.html` (painel do lojista) | **`2026-09-03-atendentes`** | ✅ em dia |
+| `parceiro.html` | **`2026-09-03-cracha-aulas`** | ✅ em dia |
+| `eikoadm01.html` | `2026-09-03-appcheck` | conteúdo dos atendentes já está no ar ⚠️ marca antiga |
 | `seja-parceiro.html` | `2026-09-03-appcheck` | — |
 | `404.html` | `2026-08-28-404vik` | — |
 | `regulamento.html` | **sem marca** | — |
 
-⚠️ **Os quatro arquivos marcados estão em [[ARQ - Entregue e nao subiu 03092026]].**
+⚠️ **Sobrou um:** o `eikoadm01.html` tem os atendentes no ar carregando a marca antiga. Ver [[ARQ - Entregue e nao subiu 03092026]].
 Três deles já têm conteúdo novo no ar carregando a marca ANTIGA — diagnosticar por
 marca, neles, dá a resposta errada.
 
