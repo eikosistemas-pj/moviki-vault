@@ -1,92 +1,82 @@
 ---
 type: projeto
-status: ativo
+status: concluido
 prioridade: 2
 area: A12 — Atendimento e vozes do Moviki
-prazo: 2026-09-10
+prazo: 2026-09-04
 tags: [moviki, videoaulas, parceiros, narracao]
-atualizado: 2026-09-03
+atualizado: 2026-09-04
 ---
 
 # P17 — Vídeos novos do parceiro
 
-Duas peças novas, pelas mudanças de 03/09 no painel do parceiro.
+**As duas peças estão prontas.**
 
-| Cena | O que é | Duração | Estado |
-| --- | --- | --- | --- |
-| `P00-abertura-parceiro` | A abertura que o parceiro não tinha | 2:54 | ✅ **NO AR** — `fQqR9ae5vnI` |
-| `P09-cracha-verificacao` | O crachá e a página que confirma ele | ~1:05 | roteiro pronto, sem narração |
+| Cena | Duração | Estado |
+| --- | --- | --- |
+| `P00-abertura-parceiro` | 2:54 | ✅ **no ar** — `fQqR9ae5vnI` |
+| `P09-cracha-verificacao` | 1:18 | ✅ **produzida e aprovada** — aguarda subir |
 
-## A P00 está no ar (03/09/2026)
+## A P09 foi feita inteira aqui dentro
 
-Subida no YouTube como não listada, id **`fQqR9ae5vnI`**, e já apontada no
-`parceiro.html` (marca `2026-09-03-abertura`).
+Primeira peça do projeto em que **narração e vídeo saíram do mesmo lugar**. O
+Paulo não gravou nada.
 
-**Entrou como módulo próprio, sem `sel`.** A abertura não pertence a nenhuma
-seção do painel — se tivesse `sel`, ela substituiria a aula daquela seção no
-bloco embutido, porque o `embutir()` pega só a primeira aula de cada módulo.
-Sem `sel`, ela aparece na tela de aulas e conta para a trava, e nenhuma seção
-perde a sua própria aula.
+**Narração:** MCP do Kairogen com a voz `JPaHP82NTgRbDP91t8zP`, 10 blocos, menos
+de 20 créditos. Cada bloco foi aparado nas pontas e normalizado em **−16 LUFS**,
+o padrão do YouTube — saíam em −22, e o pipeline precisa deles justos.
 
-**Conferido no Chromium antes de entregar:** 9 aulas publicadas, a abertura em
-primeiro, 8 caixas embutidas nas 8 seções de sempre, nenhum erro de página, e o
-aviso da trava já lendo *"Assista as 9 aulas para liberar o seu link"* — o texto
-é montado do total publicado, não de um número escrito à mão.
+**Vídeo:** 22 quadros montados quadro a quadro no ritmo medido de cada MP3, o
+mesmo método da P00. Sai idêntico toda vez e casa com a fala no milésimo.
 
-## Por que a abertura precisava existir
+**Tem `.srt`**, ao contrário da P00 — o texto saiu daqui, então a legenda é o
+que foi falado. Na P00 o Paulo alterou a fala durante a gravação e o sandbox não
+alcança modelo de transcrição.
 
-O lojista é recebido pela T00, com o Vik. **O parceiro era recebido por um
-cadeado** — entrava e a primeira coisa que via era a faixa laranja e a
-Divulgação borrada.
+## O que aparece na tela é real
 
-A trava está certa e fica. Mas ordem importa: **cadeado sem explicação parece
-desconfiança; cadeado depois da explicação parece cuidado.**
+- O **painel** é o `parceiro.html` publicado, rodando contra um Firebase de mentira
+- O **crachá** é o render de verdade, com o QR desenhado pelo `mvQR`
+- A **imagem 1080×1350** foi baixada pelo botão — o clique foi dado e o arquivo capturado
+- A **página `/v/`** é o `v.html` do repositório, com o espelho semeado
 
-## O efeito colateral, que é o desenho funcionando
+Nome, arroba e data são inventados: **Carlos Mendes · @carlosmendes**.
 
-Com 9 publicadas em vez de 8:
+## Duas correções que vieram do Paulo, e ficam registradas
 
-- **O selo de todo parceiro vira laranja: "1 aula nova".** Primeira prova real
-  do mecanismo. Ninguém é retrancado, o link continua aberto, mas todos ficam
-  sabendo.
-- **A trava passa a exigir as 9 dos novatos** — o código compara com o que está
-  publicado, não com o número 8.
+**1. "João da Feira" estava errado.** Não pelo som: o crachá é do **parceiro**,
+que apresenta o Moviki — ele não é o dono da barraca. Apelido de negócio numa
+credencial diz a coisa errada sobre quem está ali. **Nome de exemplo em
+credencial é nome de pessoa.**
 
-Quando a P09 subir, vira 10, e o mesmo acontece de novo.
+**2. A mira da câmera não caía sobre o QR** — defeito visto na P00. Aqui, em vez
+de jogar o crachá inteiro na tela do celular e torcer para a mira acertar, entra
+**só o recorte do QR**, centralizado: mira e código ocupam o mesmo lugar por
+construção, não por ajuste de olho. **A P00 não será regravada por causa disso**
+— decisão do Paulo.
 
-## Como a P00 foi feita
+## Pronúncia: o dicionário desta voz nasceu aqui
 
-Narração gravada pelo Paulo no **ElevenLabs**, voz `JPaHP82NTgRbDP91t8zP`, 9
-blocos MP3 — mono 44,1 kHz, −16,8 LUFS, pico −0,4 dBTP, todos entrando direto
-sem silêncio na frente. Total 2:54.
+Ver [[A12 - Atendimento e vozes do Moviki]]. Em resumo: escrever **`Movíqui`** no
+áudio, em **todos** os blocos que citam a marca; e nada de frase começando com
+"E". A legenda mantém a grafia certa.
 
-Vídeo montado **quadro a quadro**, não gravado: 26 quadros repartidos entre os 9
-blocos por peso, com a duração exata de cada MP3. O `recordVideo` do Playwright
-entrega webm de taxa variável e obriga a adivinhar onde cortar — quadro a quadro
-o vídeo bate com o áudio no milésimo. Detalhe em
-`claude/moviki-estudio-p00-abertura.md`.
+E uma armadilha que não é do motor: *"que ele não paga nada a você"* inverte de
+sentido quando falado — vira "ele não paga nada… só você". Numa frase que existe
+para dizer que o comerciante não desembolsa nada, é o pior erro possível. O
+conserto é estrutural, não de entonação.
 
-**O áudio é a fonte de verdade, não o roteiro.** Durante a gravação o Paulo
-alterou vários trechos — principalmente 6, 8, 11, 12, 13, 14 e 15 — para deixar
-a fala natural e, na parte das aulas, **atemporal: a narração não diz que
-existem exatamente oito aulas**. Isso corrigiu um defeito real, porque o roteiro
-escrito nasceria errado no dia em que a própria P00 subisse. Virou regra de
-ouro: *texto de vídeo nunca cita a quantidade de itens de uma lista que pode
-crescer.*
+## O que acontece quando a P09 subir
 
-**A P00 não tem `.srt`.** O sandbox não alcança o HuggingFace, então não há
-modelo de transcrição, e a redação final está no áudio. Ou o Paulo manda o texto
-final de cada bloco, ou o vídeo fica sem legenda embutida.
+As aulas do parceiro vão de **9 para 10**:
 
-## O que falta para a P09
+- **O selo de todo parceiro vira laranja: "1 aula nova".** Ninguém é retrancado,
+  o link continua aberto, mas todos ficam sabendo.
+- **Parceiro novo passa a precisar das 10** — o código compara com o que está
+  publicado, não com um número escrito à mão.
 
-1. Gravar a narração (roteiro pronto em `claude/moviki-roteiros-parceiro-cracha.md`).
-2. **O crachá precisa estar no `parceiro.html`** — a P09 mostra o crachá e o QR
-   sendo lido, e o `mvQR` ainda não subiu ao repositório. Ver
-   [[ARQ - Entregue e nao subiu 03092026]].
-3. Montar a cena e entregar o `.mp4`.
-4. Paulo sobe no YouTube e manda o link; o id entra no painel e na tabela.
+**Nada é apagado do YouTube:** a P09 é aula nova, não substitui nenhuma.
 
 ## Ligações
 
-[[A12 - Atendimento e vozes do Moviki]] · [[P16 - Rodada da credibilidade]] · [[ARQ - Entregue e nao subiu 03092026]] · [[R - Marcas de versao no ar]]
+[[A12 - Atendimento e vozes do Moviki]] · [[P16 - Rodada da credibilidade]] · [[R - Verificacao publica de parceiro]] · [[R - Marcas de versao no ar]]

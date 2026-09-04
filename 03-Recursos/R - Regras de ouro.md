@@ -3,7 +3,7 @@ type: recurso
 status: referencia
 area: A3 — Dados e Regras
 tags: [armadilha, regra]
-atualizado: 2026-09-03
+atualizado: 2026-09-04
 ---
 
 # R — Regras de ouro
@@ -113,6 +113,7 @@ atualizado: 2026-09-03
 
 ## Conformidade e credibilidade
 - **Descreva a REGRA, nunca o RESULTADO.**
+- **Não existe defesa técnica contra print de tela** — nem contra foto feita por outra pessoa. Se a tela pode virar problema num print, a defesa é o **conteúdo**, nunca um bloqueio. *(Foi o que decidiu a saída do simulador de ganhos dos dois painéis.)*
 - **Conformidade tem que chegar até a página do FORMULÁRIO.**
 - **Antes de instalar rastreador, ler a própria política de privacidade.**
 - **Autorização permanente:** achou violação de Meta/Google, conserta direto.
@@ -132,6 +133,9 @@ atualizado: 2026-09-03
 - **Ativação antes de venda.**
 
 ## Vídeo e narração
+- **Dicionário de pronúncia é por MOTOR de voz** — e a correção fonética entra em **todos** os blocos que citam a palavra, não só onde o erro apareceu: motor neural erra de forma intermitente. *(Voz `JPaHP82NTgRbDP91t8zP`: escrever `Movíqui`; nada de frase começando com "E".)*
+- **Frase com "não … a você" no fim é armadilha de prosódia.** Em texto lê-se bem; em fala o sentido inverte. O conserto é estrutural — nomear o sujeito, ou quebrar em duas afirmações curtas.
+- **Nome de exemplo em credencial é nome de PESSOA.** Apelido de negócio num crachá de parceiro diz a coisa errada sobre quem está ali.
 - **Texto de vídeo nunca cita a quantidade de itens de uma lista que pode crescer.** Falar da lista, nunca do número. **Vídeo não se corrige com um deploy.** *(A P00 dizia "oito aulas"; no dia em que ela mesma subir, viram dez.)*
 - **Dicionário de pronúncia é por motor de voz.** O `PRONUNCIA` do `narrar.py` foi feito para o Kokoro; trocando a voz, ele não vale mais.
 - **O áudio é a fonte de verdade quando a narração foi regravada** — a estrutura fica no roteiro, a redação final está no áudio.
@@ -149,6 +153,9 @@ atualizado: 2026-09-03
 - **Prioridade que decide empate:** qualidade cinematográfica > consistência > eficiência de créditos > velocidade.
 
 ## Testes
+- **Sem implementação de referência, escreva o INVERSO.** Um decodificador independente pega a mesma classe de erro que a comparação pegaria — desde que não compartilhe uma linha com o codificador. *(Nasceu do `mvQR`: o PyPI daqui não tem `segno` nem `qrcode`, o npm recusa o pacote, e o `BarcodeDetector` do Chromium headless não existe.)*
+- **Callback que às vezes é assíncrono e às vezes não é armadilha.** Quando o caminho lento esconde uma dependência de ordem, o caminho rápido a expõe — e o defeito aparece só **a partir da segunda vez**, que é quando ninguém está mais olhando. *(O visto verde das videoaulas: só a primeira ficava verde, nos dois painéis.)*
+- **API que precisa de um elemento no documento tem que conferir se ele está lá.** Não confie na ordem em que quem chamou faz o `appendChild`.
 - **Dry-run valida conteúdo; só a publicação real valida integração.**
 - Sandbox do Claude não alcança CDN nem emulador do Firebase. O que funciona: stubs de Leaflet/Firestore/Auth/Storage, `python3 -m http.server`, Playwright no Chromium local. **O emulador de regras NÃO roda** — regra se confere à mão.
 - **O sandbox não alcança o HuggingFace**: não dá para baixar modelo de transcrição. **Áudio entregue só se confere por medição** (duração, loudness, silêncio, formato) — conteúdo e pronúncia dependem do Paulo ouvir e confirmar.

@@ -1,7 +1,7 @@
 ---
 type: moc
 tags: [projetos]
-atualizado: 2026-09-03
+atualizado: 2026-09-04
 ---
 
 # Índice de Projetos
@@ -20,16 +20,19 @@ atualizado: 2026-09-03
 | P10 | [[P10 - Vitrine - terceiro negocio autorizado]] | ativo | 🟡 3 | Conteúdo |
 | P11 | [[P11 - Pendencias operacionais do dono]] | ativo | 🟠 2 | Operação |
 | P12 | [[P12 - Metricas por ponto no Enterprise]] | pausado | 🟡 3 | Produto |
-| P14 | [[P14 - Verificacao de parceiro]] | ativo | 🔴 1 | Programa de Parceiros |
+| P14 | [[P14 - Verificacao de parceiro]] | ✅ concluído — o crachá virou a porta de entrada | 🔴 1 | Programa de Parceiros |
 | P15 | [[P15 - Enforcement do App Check]] | bloqueado | 🔴 1 | Infra |
-| P16 | [[P16 - Rodada da credibilidade]] | ✅ concluído — falta só a marca do `eikoadm01` | 🔴 1 | Programa de Parceiros |
-| P17 | [[P17 - Videos novos do parceiro]] | ativo — P00 no ar, P09 por gravar | 🟠 2 | Videoaulas |
+| P16 | [[P16 - Rodada da credibilidade]] | ✅ concluído | 🔴 1 | Programa de Parceiros |
+| P17 | [[P17 - Videos novos do parceiro]] | ✅ concluído — P00 no ar, P09 pronta | 🟠 2 | Videoaulas |
 | P18 | [[P18 - Conformidade do simulador de ganhos]] | ✅ concluído | 🔴 1 | Conformidade |
 
-⚠️ **P16 ainda não fechou.** A página `/v/`, o espelho, o selo do certificado, os
-atendentes no painel do dono e do parceiro e agora o **crachá com QR** estão no ar.
-Falta o painel do **lojista**: os cinco atendentes e o rodapé institucional.
-Ver [[ARQ - Entregue e nao subiu 03092026]].
+**A rodada da credibilidade fechou em 04/09.** Página `/v/`, espelho, selo do
+certificado, crachá com QR, os cinco atendentes nos três painéis e o rodapé
+institucional — tudo no ar e conferido no GitHub.
+
+🔴 **O próximo passo é [[P01 - Aquisicao - campanha de trafego pago]].** Não há
+mais nada de produto bloqueando. A pendência técnica que sobra é
+[[P15 - Enforcement do App Check]].
 
 **P13** é o vídeo institucional. A nota dele ainda não foi trazida para o vault — o
 material está no Project, em `claude/moviki-p13-*`.

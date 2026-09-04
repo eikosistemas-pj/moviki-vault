@@ -3,14 +3,14 @@ type: recurso
 status: referencia
 area: A2 — Infraestrutura e Deploy
 tags: [deploy, infra, armadilha]
-atualizado: 2026-09-03
+atualizado: 2026-09-04
 ---
 
 # R — Marcas de versão no ar
 
 ⚠️ **Esta tabela envelhece sozinha. A fonte de verdade é o repositório no GitHub.**
 
-*Reconferida arquivo por arquivo em 03/09/2026, fim do dia, clonando os repositórios. O `parceiro.html` foi atualizado duas vezes depois disso: a abertura do parceiro e o crachá com QR.
+*Reconferida arquivo por arquivo em 04/09/2026, clonando os repositórios. O `parceiro.html` foi atualizado duas vezes depois disso: a abertura do parceiro e o crachá com QR.
 A coluna "no ar" é o que o código publicado diz. A coluna "entregue" é o que o Mapa
 Mestre afirma — quando as duas divergem, é arquivo que foi produzido e não subiu.*
 
@@ -42,12 +42,12 @@ Valor antigo ou `undefined` é cache: **Ctrl+Shift+R**. Não existe service work
 | --- | --- | --- |
 | `index.html` (painel do lojista) | **`2026-09-03-atendentes`** | ✅ em dia |
 | `parceiro.html` | **`2026-09-03-cracha-aulas`** | ✅ em dia |
-| `eikoadm01.html` | `2026-09-03-appcheck` | conteúdo dos atendentes já está no ar ⚠️ marca antiga |
+| `eikoadm01.html` | `2026-09-03-appcheck` | **`2026-09-03-atendentes`** ⚠️ |
 | `seja-parceiro.html` | `2026-09-03-appcheck` | — |
 | `404.html` | `2026-08-28-404vik` | — |
 | `regulamento.html` | **sem marca** | — |
 
-⚠️ **Sobrou um:** o `eikoadm01.html` tem os atendentes no ar carregando a marca antiga. Ver [[ARQ - Entregue e nao subiu 03092026]].
+⚠️ **Os quatro arquivos marcados estão em [[ARQ - Entregue e nao subiu 03092026]].**
 Três deles já têm conteúdo novo no ar carregando a marca ANTIGA — diagnosticar por
 marca, neles, dá a resposta errada.
 
