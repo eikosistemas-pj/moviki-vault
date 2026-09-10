@@ -8,9 +8,10 @@ atualizado: 2026-09-10
 
 # R - Marcas de versao no ar
 
-**Conferido clonando os repositorios em 10/09/2026.** Esta tabela envelhece
-sozinha: a fonte de verdade e o repositorio, nunca este arquivo. No navegador,
-`F12` > Console > `MOVIKI_VERSAO`; valor antigo e cache, `Ctrl+Shift+R`.
+**Conferido clonando os repositorios em 10/09/2026, depois do upload dos
+icones.** Esta tabela envelhece sozinha: a fonte de verdade e o repositorio,
+nunca este arquivo. No navegador, `F12` > Console > `MOVIKI_VERSAO`; valor
+antigo e cache, `Ctrl+Shift+R`.
 
 ## Repo `moviki` (moviki.com.br)
 
@@ -34,12 +35,14 @@ sozinha: a fonte de verdade e o repositorio, nunca este arquivo. No navegador,
 | Arquivo | Marca |
 | --- | --- |
 | `index.html` (painel do lojista) | `2026-09-10-videos` |
-| `parceiro.html` | `2026-09-10-linkfechado` |
+| `parceiro.html` | `2026-09-10-linkfechado` no ar · **`2026-09-10-icones-nivel` entregue, aguardando upload** |
 | `eikoadm01.html` (painel do dono) | `2026-09-04-cracha-busca` |
 | `seja-parceiro.html` | `2026-09-04-conta-existente` |
 | `mvqr.js` | `2026-09-04-mvqr1` |
 | `404.html` | `2026-08-28-404vik` |
 | `quiz/quiz-segmentos.js` | com Suplementos, Sushi e Otica (10 abas / 31 opcoes) |
+| `quiz/icones/` | 38 PNG — os 4 que faltavam subiram em 10/09 |
+| `icones/` | + 12 PNG dos niveis e do selo do parceiro, subidos em 10/09 |
 | `regulamento.html` | **sem marca** (conteudo na versao 1.1) |
 
 ## Repo `moviki-robo`
@@ -47,7 +50,8 @@ sozinha: a fonte de verdade e o repositorio, nunca este arquivo. No navegador,
 `lib/meta.js` e `api/novo-cliente.js` com a revisao de 05/09: timeout de 6 s no
 `Lead`, 2,5 s no `Purchase`, e a linha do resultado da medicao no aviso do
 Telegram. `api/webhook.js` com `NIVEIS_PARCEIRO`, `contarAtivosDoMes`,
-`creditarMarco` e `guardarNivel`. `api/upload-imagem.js`, `api/novo-parceiro.js` e
+`creditarMarco` e `guardarNivel`. `api/novo-parceiro.js` com
+`DELAY_MIN_MINUTOS = 5` e `aprovarParceiro()`. `api/upload-imagem.js` e
 `lib/espelhoParceiro.js` com o campo `foto` do parceiro. **12 funcoes em `api/` —
 no teto do plano Hobby.**
 
@@ -58,19 +62,20 @@ Firestore, consome `moviki.com.br/api/vitrine`.
 
 ## Alertas desta leitura
 
+- O alerta anterior sobre o `parceiro.html` **esta resolvido**: o arquivo no ar
+  tem o conserto do player e os avisos de link fechado
+  (`2026-09-10-linkfechado`), e o `novo-parceiro.js` esta com
+  `DELAY_MIN_MINUTOS = 5` e `aprovarParceiro()`
+- **Fica um `parceiro.html` entregue e nao subido** (`2026-09-10-icones-nivel`,
+  os icones dos niveis e o selo). Enquanto nao subir, os 12 PNG novos da pasta
+  `icones/` estao no repositorio sem ninguem que os mostre — nao quebra nada,
+  so nao aparece
 - **`premium.html` continua sem marca nenhuma**, e e a landing que recebe
   trafego pago
 - `regulamento.html` dos dois repos esta em conteudo 1.1 mas **sem marca de
   versao** — diagnosticar por marca ali da a resposta errada
-- `eikoadm01.html` esta em `2026-09-04-cracha-busca`: nao recebeu nada de 10/09
-
-## O que subiu em 10/09 as 16h11
-
-`parceiro.html` `2026-09-10-linkfechado` e `api/novo-parceiro.js` com
-`DELAY_MIN_MINUTOS = 5` e `aprovarParceiro()`. Conferido no repositorio: o
-conserto do player, os avisos de link fechado, os niveis, os olhinhos, a foto e
-o aceite de conduta estao todos no mesmo arquivo — a juncao funcionou. Ver
-[[ARQ - Player e liberacao do link no ar]].
+- `eikoadm01.html` esta em `2026-09-04-cracha-busca`: nao recebeu os cinco
+  atendentes nem nada de 10/09
 
 ## Regra de ouro que sustenta esta nota
 
@@ -84,5 +89,6 @@ o aceite de conduta estao todos no mesmo arquivo — a juncao funcionou. Ver
 ## Ligacoes
 
 [[A2 - Infraestrutura e Deploy]] · [[R - Regras de ouro]] ·
+[[ARQ - Icones 3D do quiz e dos niveis]] ·
 [[ARQ - Incidente - colisao de entregas no painel do parceiro]] ·
 [[ARQ - App Check enforcement ligado]]
