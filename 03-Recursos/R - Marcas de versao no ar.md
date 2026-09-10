@@ -34,7 +34,7 @@ sozinha: a fonte de verdade e o repositorio, nunca este arquivo. No navegador,
 | Arquivo | Marca |
 | --- | --- |
 | `index.html` (painel do lojista) | `2026-09-10-videos` |
-| `parceiro.html` | `2026-09-10-niveis-olhinhos` |
+| `parceiro.html` | `2026-09-10-linkfechado` |
 | `eikoadm01.html` (painel do dono) | `2026-09-04-cracha-busca` |
 | `seja-parceiro.html` | `2026-09-04-conta-existente` |
 | `mvqr.js` | `2026-09-04-mvqr1` |
@@ -58,18 +58,19 @@ Firestore, consome `moviki.com.br/api/vitrine`.
 
 ## Alertas desta leitura
 
-- **`parceiro.html` no ar NAO tem o conserto do player nem os avisos de link
-  fechado.** A entrega `2026-09-10-linkfechado` foi atropelada. Ver
-  [[P20 - Conserto do player e liberacao do link]] e
-  [[ARQ - Incidente - colisao de entregas no painel do parceiro]]
-- **`novo-parceiro.js` no ar esta com `DELAY_MIN_MINUTOS = 10`** e sem
-  `aprovarParceiro()` — a versao publicada e a da foto do parceiro
-- **`premium.html` continua sem marca nenhuma**, e e a landing que recebe trafego
-  pago
+- **`premium.html` continua sem marca nenhuma**, e e a landing que recebe
+  trafego pago
 - `regulamento.html` dos dois repos esta em conteudo 1.1 mas **sem marca de
   versao** — diagnosticar por marca ali da a resposta errada
-- `eikoadm01.html` esta em `2026-09-04-cracha-busca`: nao recebeu os cinco
-  atendentes nem nada de 10/09
+- `eikoadm01.html` esta em `2026-09-04-cracha-busca`: nao recebeu nada de 10/09
+
+## O que subiu em 10/09 as 16h11
+
+`parceiro.html` `2026-09-10-linkfechado` e `api/novo-parceiro.js` com
+`DELAY_MIN_MINUTOS = 5` e `aprovarParceiro()`. Conferido no repositorio: o
+conserto do player, os avisos de link fechado, os niveis, os olhinhos, a foto e
+o aceite de conduta estao todos no mesmo arquivo — a juncao funcionou. Ver
+[[ARQ - Player e liberacao do link no ar]].
 
 ## Regra de ouro que sustenta esta nota
 

@@ -29,7 +29,6 @@ Conferido em 10/09/2026, com a numeracao fechada depois da colisao tripla de
 | P17 | [[P17 - Descobrir o CPA real do lojista]] | 1 | Aquisicao |
 | P18 | [[P18 - Aula de conduta do divulgador]] | 2 | Conformidade |
 | P19 | [[P19 - Plano de niveis do parceiro]] | 2 | Parceiros |
-| P20 | [[P20 - Conserto do player e liberacao do link]] | 1 | Produto |
 | P21 | [[P21 - Google Ads campanha de pesquisa]] | 1 | Aquisicao |
 | P22 | [[P22 - Icones 3D pendentes do quiz]] | 3 | Marca |
 | P23 | [[P23 - Acesso do Claude ao Google Ads]] | 3 | Medicao |
@@ -46,6 +45,9 @@ diferentes. Quem chegou primeiro ao vault ficou com o numero:
 | P16 | Perfil do criador (numero estava livre) | - |
 
 `P13` permanece reservado ao video institucional / conta demo.
+
+**P20 saiu desta lista em 10/09:** o conserto do player subiu e virou
+[[ARQ - Player e liberacao do link no ar]]. O numero nao volta a ser usado.
 
 **Regra que fica:** o indice so vale se for lido **antes** de nomear a nota, e a
 fila de notas ainda nao sincronizadas conta como ocupada.
