@@ -1,65 +1,65 @@
 ---
 type: recurso
 status: referencia
-area: A2 — Infraestrutura e Deploy
-tags: [deploy, infra, armadilha]
-atualizado: 2026-09-04
+area: A2 - Infraestrutura e Deploy
+tags: [deploy, versao, armadilha]
+atualizado: 2026-09-10
 ---
 
-# R — Marcas de versão no ar
+# R - Marcas de versao no ar
 
-⚠️ **Esta tabela envelhece sozinha. A fonte de verdade é o repositório no GitHub.**
+**Conferido clonando os repositorios em 10/09/2026.** Esta tabela envelhece
+sozinha: a fonte de verdade e o repositorio, nunca este arquivo. No navegador,
+`F12` > Console > `MOVIKI_VERSAO`; valor antigo e cache, `Ctrl+Shift+R`.
 
-*Reconferida arquivo por arquivo em 04/09/2026, clonando os repositórios. O `parceiro.html` foi atualizado duas vezes depois disso: a abertura do parceiro e o crachá com QR.
-A coluna "no ar" é o que o código publicado diz. A coluna "entregue" é o que o Mapa
-Mestre afirma — quando as duas divergem, é arquivo que foi produzido e não subiu.*
+## Repo `moviki` (moviki.com.br)
 
-**Para conferir ao vivo:** abrir a página → F12 → Console → `MOVIKI_VERSAO` → Enter.
-Valor antigo ou `undefined` é cache: **Ctrl+Shift+R**. Não existe service worker.
+| Arquivo | Marca |
+| --- | --- |
+| `index.html` (landing) | `2026-09-09-video` |
+| `404.html` (pagina publica) | `2026-09-10-videos` |
+| `v.html` (verificacao) | `2026-09-10-foto-parceiro` |
+| `comerciantes.html` | `2026-09-09-video` |
+| `descadastro.html` | `2026-09-03-appcheck` |
+| `enterprise.html` | `2026-08-27-ga4l2` |
+| `parceiros.html` | `2026-08-28-vikparceiros` |
+| `parceiros-ganhos.html` | `2026-08-27-conformidade` |
+| `premium.html` · `regulamento.html` · `termos.html` · `privacidade.html` · `excluir-conta.html` · `p.html` · `pp.html` | **sem marca** |
 
-## Repositório `moviki` — o site
+## Repo `moviki-app` (app.moviki.com.br)
 
-| Arquivo | No ar | Entregue |
-| --- | --- | --- |
-| `index.html` (landing) | `2026-09-03-appcheck` | — |
-| `404.html` (página pública) | `2026-09-03-appcheck` | **`2026-09-03-frescor`** ⚠️ |
-| `descadastro.html` | `2026-09-03-appcheck` | — |
-| `v.html` (verificação) | `2026-09-03-verificacao-appcheck` | ✅ igual |
-| `enterprise.html` | `2026-08-27-ga4l2` | — |
-| `comerciantes.html` | `2026-08-27-ga4l2` | — |
-| `parceiros.html` | `2026-08-28-vikparceiros` | — |
-| `parceiros-ganhos.html` | `2026-08-27-conformidade` | — |
-| `premium.html` | **sem marca** | — |
-| `excluir-conta.html` | **sem marca** | — |
-| `termos.html` · `privacidade.html` · `regulamento.html` | **sem marca** | — |
-| `p.html` / `pp.html` | sem marca (redirecionadores de 20 linhas) | — |
+| Arquivo | Marca |
+| --- | --- |
+| `index.html` (painel do lojista) | `2026-09-10-videos` |
+| `parceiro.html` | `2026-09-10-niveis-olhinhos` |
+| `eikoadm01.html` (painel do dono) | `2026-09-04-cracha-busca` |
+| `seja-parceiro.html` | `2026-09-04-conta-existente` |
+| `404.html` | `2026-08-28-404vik` |
+| `regulamento.html` | **sem marca** (conteudo na versao 1.1) |
 
-## Repositório `moviki-app` — os painéis
+## Alertas desta leitura
 
-*Último commit: 03/09 às **15h35**, antes da rodada da noite.*
+- **`parceiro.html` no ar NAO tem o conserto do player nem os avisos de link
+  fechado.** A entrega `2026-09-10-linkfechado` foi atropelada. Ver
+  [[P20 - Conserto do player e liberacao do link]] e
+  [[ARQ - Incidente - colisao de entregas no painel do parceiro]]
+- **`novo-parceiro.js` no ar esta com `DELAY_MIN_MINUTOS = 10`** e sem
+  `aprovarParceiro()` — a versao publicada e a da foto do parceiro
+- **`premium.html` continua sem marca nenhuma**, e e a landing que recebe trafego
+  pago
+- `regulamento.html` dos dois repos esta em conteudo 1.1 mas **sem marca de
+  versao** — diagnosticar por marca ali da a resposta errada
 
-| Arquivo | No ar | Entregue |
-| --- | --- | --- |
-| `index.html` (painel do lojista) | **`2026-09-03-atendentes`** | ✅ em dia |
-| `parceiro.html` | **`2026-09-03-cracha-aulas`** | ✅ em dia |
-| `eikoadm01.html` | `2026-09-03-appcheck` | **`2026-09-03-atendentes`** ⚠️ |
-| `seja-parceiro.html` | `2026-09-03-appcheck` | — |
-| `404.html` | `2026-08-28-404vik` | — |
-| `regulamento.html` | **sem marca** | — |
+## Regra de ouro que sustenta esta nota
 
-⚠️ **Os quatro arquivos marcados estão em [[ARQ - Entregue e nao subiu 03092026]].**
-Três deles já têm conteúdo novo no ar carregando a marca ANTIGA — diagnosticar por
-marca, neles, dá a resposta errada.
+> **Marca de versao so vale se sobe junto com o conteudo.** Arquivo que ganha
+> funcionalidade e mantem a marca antiga e pior que arquivo sem marca: afirma um
+> estado falso e o diagnostico comeca no lugar errado.
+>
+> **"Entregue" e "no ar" sao estados diferentes, e so o repositorio sabe qual e
+> qual.**
 
-## O que "sem marca" custa
+## Ligacoes
 
-Página sem `window.MOVIKI_VERSAO` não dá para diagnosticar: não há como distinguir
-"o arquivo certo está no ar" de "o navegador guardou o antigo". O `premium.html` é o
-caso que mais dói — é a landing do tráfego pago, a página que vai receber a campanha.
-
-**Regra:** todo arquivo grande carrega marca de versão, e **a marca sobe junto com o
-conteúdo**. Marca antiga em arquivo novo é pior que marca nenhuma.
-
-## Ligações
-
-[[A2 - Infraestrutura e Deploy]] · [[R - Checklist de deploy]] · [[R - Regras de ouro]] · [[ARQ - Entregue e nao subiu 03092026]] · [[P09 - Faxina do repositorio moviki]]
+[[A2 - Infraestrutura e Deploy]] · [[R - Regras de ouro]] ·
+[[ARQ - Incidente - colisao de entregas no painel do parceiro]]

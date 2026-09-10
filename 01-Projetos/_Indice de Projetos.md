@@ -1,42 +1,51 @@
 ---
 type: moc
 tags: [projetos]
-atualizado: 2026-09-04
+atualizado: 2026-09-10
 ---
 
-# Índice de Projetos
+# Indice de Projetos
 
-| # | Projeto | Estado | Prioridade | Área |
-| --- | --- | --- | --- | --- |
-| P01 | [[P01 - Aquisicao - campanha de trafego pago]] | ativo | 🔴 1 | Aquisição |
-| P02 | [[P02 - LGPD do Vik]] | ativo | 🔴 1 | Conformidade |
-| P03 | [[P03 - Primeiro disparo de newsletter]] | ativo | 🟠 2 | Aquisição |
-| P04 | [[P04 - Decisao fiscal do Programa de Parceiros]] | ativo | 🟠 2 | Financeiro |
-| P05 | [[P05 - Calibrar o Vik]] | ativo | 🟡 3 | IA |
-| P06 | [[P06 - Camada 3 do Vik]] | pausado | 🟠 2 | IA |
-| P07 | [[P07 - Aviso de mensagem nova para o lojista]] | ativo | 🟠 2 | Produto |
-| P08 | [[P08 - Aquecimento do Instagram]] | ativo | 🟠 2 | Conteúdo |
-| P09 | [[P09 - Faxina do repositorio moviki]] | ativo | 🟡 3 | Infra |
-| P10 | [[P10 - Vitrine - terceiro negocio autorizado]] | ativo | 🟡 3 | Conteúdo |
-| P11 | [[P11 - Pendencias operacionais do dono]] | ativo | 🟠 2 | Operação |
-| P12 | [[P12 - Metricas por ponto no Enterprise]] | pausado | 🟡 3 | Produto |
-| P14 | [[P14 - Verificacao de parceiro]] | ✅ concluído — o crachá virou a porta de entrada | 🔴 1 | Programa de Parceiros |
-| P15 | [[P15 - Enforcement do App Check]] | bloqueado | 🔴 1 | Infra |
-| P16 | [[P16 - Rodada da credibilidade]] | ✅ concluído | 🔴 1 | Programa de Parceiros |
-| P17 | [[P17 - Videos novos do parceiro]] | ✅ concluído — P00 no ar, P09 pronta | 🟠 2 | Videoaulas |
-| P18 | [[P18 - Conformidade do simulador de ganhos]] | ✅ concluído | 🔴 1 | Conformidade |
+Conferido em 10/09/2026, com a numeracao fechada depois da colisao tripla de
+`P14`/`P15`/`P16`. **Antes de criar um `P<nn>` novo, ler esta tabela inteira.**
 
-**A rodada da credibilidade fechou em 04/09.** Página `/v/`, espelho, selo do
-certificado, crachá com QR, os cinco atendentes nos três painéis e o rodapé
-institucional — tudo no ar e conferido no GitHub.
+| # | Projeto | Prioridade | Area |
+| --- | --- | --- | --- |
+| P01 | [[P01 - Aquisicao - campanha de trafego pago]] | 1 | Aquisicao |
+| P02 | [[P02 - LGPD do Vik]] | 1 | Conformidade |
+| P03 | [[P03 - Primeiro disparo de newsletter]] | 2 | Aquisicao |
+| P04 | [[P04 - Decisao fiscal do Programa de Parceiros]] | 2 | Financeiro |
+| P05 | [[P05 - Calibrar o Vik]] | 3 | IA |
+| P06 | [[P06 - Camada 3 do Vik]] | 2 | IA |
+| P07 | [[P07 - Aviso de mensagem nova para o lojista]] | 2 | Produto |
+| P08 | [[P08 - Aquecimento do Instagram]] | 2 | Conteudo |
+| P09 | [[P09 - Faxina do repositorio moviki]] | 3 | Infra |
+| P10 | [[P10 - Vitrine - terceiro negocio autorizado]] | 3 | Conteudo |
+| P11 | [[P11 - Pendencias operacionais do dono]] | 2 | Operacao |
+| P12 | [[P12 - Metricas por ponto no Enterprise]] | 3 | Produto |
+| P14 | [[P14 - Verificacao de parceiro]] | 2 | Parceiros |
+| P15 | [[P15 - Enforcement do App Check]] | 2 | Infra |
+| P16 | [[P16 - Perfil do criador de conteudo no quiz]] | 2 | Parceiros |
+| P17 | [[P17 - Descobrir o CPA real do lojista]] | 1 | Aquisicao |
+| P18 | [[P18 - Aula de conduta do divulgador]] | 2 | Conformidade |
+| P19 | [[P19 - Plano de niveis do parceiro]] | 2 | Parceiros |
+| P20 | [[P20 - Conserto do player e liberacao do link]] | 1 | Produto |
+| P21 | [[P21 - Google Ads campanha de pesquisa]] | 1 | Aquisicao |
+| P22 | [[P22 - Icones 3D pendentes do quiz]] | 3 | Marca |
+| P23 | [[P23 - Acesso do Claude ao Google Ads]] | 3 | Medicao |
 
-🔴 **O próximo passo é [[P01 - Aquisicao - campanha de trafego pago]].** Não há
-mais nada de produto bloqueando. A pendência técnica que sobra é
-[[P15 - Enforcement do App Check]].
+## A colisao de numeracao, resolvida em 10/09
 
-**P13** é o vídeo institucional. A nota dele ainda não foi trazida para o vault — o
-material está no Project, em `claude/moviki-p13-*`.
+Tres linhas de trabalho paralelas criaram `P14`, `P15` e `P16` para coisas
+diferentes. Quem chegou primeiro ao vault ficou com o numero:
 
-## Ligações
+| Numero | Ficou com | Foi renumerado |
+| --- | --- | --- |
+| P14 | Verificacao de parceiro (no vault desde 03/09) | CPA do lojista virou **P17** · Plano de niveis virou **P19** |
+| P15 | Enforcement do App Check (no vault desde 03/09) | Aula de conduta virou **P18** · Conserto do player virou **P20** |
+| P16 | Perfil do criador (numero estava livre) | - |
 
-[[000 Moviki - Home MOC]] · [[_Indice de Areas]] · [[_Indice de Recursos]] · [[_Indice do Arquivo]] · [[ARQ - Entregue e nao subiu 03092026]] · [[P18 - Conformidade do simulador de ganhos]]
+`P13` permanece reservado ao video institucional / conta demo.
+
+**Regra que fica:** o indice so vale se for lido **antes** de nomear a nota, e a
+fila de notas ainda nao sincronizadas conta como ocupada.
