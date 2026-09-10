@@ -1,96 +1,78 @@
 ---
 type: decisao
 status: concluido
-data: 2026-09-04
-area: A6 — Medicao e Analytics
-tags: [medicao, meta-ads, capi, lgpd]
-atualizado: 2026-09-04
+area: A6 - Medicao e Analytics
+tags: [meta-ads, capi, medicao, atribuicao, armadilha]
+atualizado: 2026-09-10
 ---
 
-# ARQ — Atribuicao do Lead ao anuncio: fbc, fbp e IP
+# ARQ - Atribuicao do Lead ao anuncio - fbc e fbp
 
-## O furo
+Rodada de 05/09/2026. No ar e conferido no repositorio em 10/09.
 
-A CAPI estava no ar desde 27/08. O `Lead` chegava na Meta e era marcado como
-**processado**, com quatro chaves de correspondencia reconhecidas. Mesmo assim a
-campanha de Joao Pessoa marcava **zero conversao**.
+## O que faltava
 
-Motivo: o `user_data` ia sem **`fbc`** — o identificador do clique de anuncio.
-Sem ele a Meta recebe o cadastro, aceita, e nao tem como saber de qual anuncio
-ele veio. O evento nao credita campanha nenhuma e o algoritmo otimiza no escuro.
+O evento `Lead` chegava a Meta pela API de Conversoes, mas **sem os campos que
+dizem de qual anuncio a pessoa veio**. Sem `fbc`, a Meta recebe uma conversao que
+nao consegue amarrar a nenhum clique — e campanha que nao recebe conversao
+atribuida nunca sai do aprendizado.
 
-Um evento aceito nao e um evento atribuido. **"Processado" no Gerenciador de
-Eventos nao significa que a campanha esta medindo.**
+## A cadeia, ponta a ponta
 
-Havia ainda tres buracos menores na mesma cadeia:
+1. `mvmetrica.js` (identico nos repos `moviki` e `moviki-app`) captura o
+   **`fbclid`** da URL e guarda
+2. o salto de dominio (`moviki.com.br` para `app.moviki.com.br`) preserva o valor
+3. o wrapper de fetch leva o campo ate o robo
+4. `api/novo-cliente.js` repassa e `lib/meta.js` monta **`fbc`, `fbp` e IP** no
+   evento
 
-- `client_ip_address` nunca era preenchido, embora `lib/meta.js` ja aceitasse
-  `o.ip`. E uma das chaves de correspondencia mais fortes e esta de graca no `req`.
-- `event_source_url` do `Lead` estava fixo em `https://app.moviki.com.br/`.
-- `comerciantes.html` manda para `https://app.moviki.com.br` **puro**, sem
-  repassar `fbclid` nem UTM. A origem morria no salto entre os dominios.
+**Sem pixel no navegador, de proposito:** o `privacidade.html` declara que o site
+nao usa cookie de publicidade, e subir o pixel contradiria a politica publicada.
+O evento nasce no servidor.
 
-## A decisao: sessionStorage, nao cookie
+## A prova
 
-O `privacidade.html`, secao 9, diz que o site **nao usa cookie de publicidade** —
-foi essa frase que decidiu, em 27/08, pela CAPI em vez do pixel. Gravar o cookie
-`_fbc` contradiria a mesma politica e reabriria a discussao do banner.
+05/09, 02:06 — cadastro de teste "Eiko Jato" (`eikovida2021@gmail.com`) feito com
+`fbclid` manual na URL, e o aviso do Telegram veio com **"Origem: anuncio da Meta"**.
+Isso prova que o valor atravessou a landing, o salto de dominio, o wrapper de
+fetch e chegou ao `novo-cliente.js`.
 
-`sessionStorage` nao e cookie: nao viaja em requisicao automatica, morre ao
-fechar a aba, e cobre o cadastro feito na mesma sessao — que e a quase totalidade
-de quem chega por anuncio. **A politica publicada continua verdadeira.**
+05/09, 07:27 — **CAPI confirmada funcionando**: 2 eventos `Lead` recebidos no
+conjunto `2114417739495816`, qualidade de correspondencia **7,7/10**. Nunca esteve
+quebrada.
 
-O custo: quem clica no anuncio hoje e so cria a conta amanha, em outra aba, perde
-a atribuicao. Aceito — esse caso e minoria e o preco alternativo era um banner de
-consentimento na frente de todo visitante.
+## As armadilhas que custaram a madrugada
 
-## O salto entre dominios
+- **Lead de teste com `fbclid` inventado NAO aparece em `actions_lead` da
+  campanha** — so no Gerenciador de Eventos do conjunto. Confundir os dois faz
+  parecer que falhou.
+- **A Visao geral do Gerenciador de Eventos demora HORAS**, apesar de a propria
+  tela prometer 30 minutos. Duas horas olhando tela vazia levaram a um
+  diagnostico errado. Para conferir envio na hora, usar a aba **Eventos de teste**.
+- **Log sem erro e ambiguo.** O `lib/meta.js` so grava `console.error` em falha:
+  silencio significa sucesso **ou** envio nao tentado. Foi o que motivou a linha
+  de resultado da medicao no aviso do Telegram (`enviada`, `sem env`,
+  `recusada HTTP xxx`, `tempo esgotado`).
+- **Nunca reusar nome de variavel ja usado no escopo.** Um `let corpo` colidiu com
+  o corpo do POST e teria derrubado **todos** os eventos em producao, com sintoma
+  identico ao bug que estava sendo cacado. Pego no teste.
 
-`sessionStorage` de `moviki.com.br` **nao** e visivel em `app.moviki.com.br`.
-Solucao: o `mvmetrica.js` decora os links que levam ao painel com `mvfbc`,
-`mvfbp` e as UTMs, e o painel le da URL na chegada. **Conserta o buraco do
-`comerciantes.html` sem tocar no HTML dele** — e link novo ja nasce corrigido.
+## Timeout: dois numeros diferentes de proposito
 
-## Por que o wrapper de fetch, e nao o index.html
+O `Lead` subiu de 2,5 s para **6 s** — cadastro nao tem a pressa do webhook. O
+`Purchase` **fica em 2,5 s**: o contrato do webhook do Asaas nao pode ser
+esticado. `lead()` e `purchase()` seguem devolvendo booleano e nunca lancam —
+**medicao nunca derruba cobranca**.
 
-Existem **cinco pontos de criacao de conta** no painel, todos chamando
-`/api/novo-cliente` ou `/api/novo-parceiro` de dentro de um arquivo enorme.
-Envolver o `window.fetch` no `mvmetrica.js` cobre os cinco de uma vez, num
-arquivo pequeno. Falha no wrapper = a chamada original segue intacta.
-**Cadastro nunca quebra por causa de medicao.**
+## Em aberto
 
-## Regras que nascem daqui
+- [ ] `Purchase` sem `fbc`: o `lib/meta.js` ja aceita o campo — falta o
+      `criar-assinatura.js` gravar em `faturamento/{uid}` e o `webhook.js` repassar
+- [ ] Tirar o `META_TEST_CODE` da Vercel: enquanto existir, o evento nao conta
+      como conversao de verdade
+- [ ] Apagar a conta de teste `eikovida2021@gmail.com` pelo `eikoadm01.html`
 
-- **`fbc` e `fbp` vao em TEXTO PURO.** Manda-los em SHA-256 faz a Meta aceitar o
-  evento e ignorar o parametro, em silencio — o pior tipo de falha.
-- **Formato errado suja tanto quanto campo vazio.** O `lib/meta.js` valida
-  `fb.<n>.<ts>.<valor>` e descarta o que nao casar.
-- **Cadastro organico chega sem `fbc` e o `Lead` vai do mesmo jeito**, so sem
-  credito de campanha. Nenhum dos tres campos novos pode barrar um cadastro.
+## Ligacoes
 
-## Arquivos
-
-- `mvmetrica.js` — repos `moviki` e `moviki-app`, SUBSTITUI (identico nos dois)
-- `lib/meta.js` — repo `moviki-robo`, SUBSTITUI
-- `api/novo-cliente.js` — repo `moviki-robo`, SUBSTITUI
-
-Bonus do `novo-cliente.js`: o aviso do Telegram passa a dizer **"Origem: anuncio
-da Meta"** quando o cadastro veio de campanha, e `avisos_cliente/{uid}` guarda
-`origemAnuncio`. Da pra saber se a campanha entrega gente sem abrir o Gerenciador.
-
-## Testes
-
-18 casos no `lib/meta.js` e 17 no `mvmetrica.js`, todos passando: formato de
-`fbc`/`fbp`, `fbclid` cru rejeitado, IP invalido descartado, lista de proxy
-pegando so o primeiro, visita organica sem gravar nada, link organico intacto,
-heranca pelo salto de dominio, corpo nao-JSON passando sem lancar, e `fetch`
-lancando excecao devolvendo `false` sem propagar.
-
-## Pendencia que fica aberta
-
-O `Purchase` continua sem `fbc`. `lib/meta.js` **ja aceita** o campo — falta o
-`criar-assinatura.js` gravar o `fbc` em `faturamento/{uid}`, junto do `client_id`
-do GA, e o `webhook.js` repassar. Enquanto isso, a venda e medida mas nao e
-atribuida ao anuncio.
-
-→ [[ARQ - Meta CAPI]] · [[ARQ - Anuncios com marcacao vazada no ar]] · [[A6 - Medicao e Analytics]]
+[[A6 - Medicao e Analytics]] · [[A7 - Aquisicao e Midia Paga]] ·
+[[P17 - Descobrir o CPA real do lojista]] · [[R - Regras de ouro]]

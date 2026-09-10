@@ -1,103 +1,71 @@
 ---
 type: arquivo
 status: concluido
-data: 2026-09-04
-area: A4 — Programa de Parceiros
-tags: [conformidade, videoaula, parceiro, conar, aceite]
-atualizado: 2026-09-04
+area: A10 - Conformidade e LGPD
+tags: [conar, parceiros, conformidade, aceite, regra-firestore]
+atualizado: 2026-09-10
 ---
 
-# ARQ — Conduta do divulgador: aula P10, aceite e aviso — 04/09/2026
+# ARQ - Conduta do divulgador no ar
 
-## O trio, e por que nenhum dos tres sozinho resolve
+Entregue em 05/09/2026 e **no ar** — conferido no repositorio em 10/09: o
+`parceiro.html` publicado carrega `aceiteConduta`, e as regras estao na v21 (hoje
+v22, aditiva).
 
-**A aula ensina. O aceite registra. O aviso chega a tempo.**
+## As duas pecas
 
-- A aula so alcanca quem assiste — e influenciador quer o link, nao o curso.
-- Se der problema com a Meta ou com um parceiro que se sentiu enganado, o que
-  vale e o **aceite com versao e data**, nao a visualizacao.
-- O aviso de tres linhas fica no ponto exato onde ele pega o link e o cracha.
+1. **Videoaula P10** — "Como falar do Moviki sem prometer o que nao pode",
+   YouTube `T5QdBjl9Y1k`, 2:29, chave `mod-parc-conduta`, no modulo "Comece por
+   aqui". Entrou em 04/09 e levou o painel do parceiro a **11 aulas**.
+2. **Aceite versionado** — campo `aceiteConduta { versao, em }` em
+   `parceiros/{uid}`, com o texto do compromisso de tres linhas ao lado do botao
+   "Li e concordo", na aba Divulgacao.
 
-## O furo que ninguem tinha no radar: CONAR e responsabilidade solidaria
+## Por que o aceite existe, e nao so a aula
 
-O Guia CONAR 2026 trata conteudo **comissionado** como publicidade, e exige
-identificacao **ostensiva, em primeiro plano, visivel sem clicar em "ver mais"**.
-Todo parceiro do Moviki e comissionado — logo **todo post de parceiro sobre o
-Moviki e publicidade e precisa de `#publi`**.
+O **Guia CONAR 2026** trata conteudo **comissionado** como publicidade e poe sobre
+o **anunciante** o dever de informar o divulgador das normas e de monitorar o que
+ele publica, sob risco de **responsabilizacao solidaria**. Todo parceiro daqui e
+comissionado.
 
-E o guia poe sobre o **anunciante** o dever de informar o influenciador das
-normas e de **monitorar ativamente** o que ele publica, sob risco de
-**responsabilizacao solidaria**. Se um parceiro postar "ganhe R$ 500 por mes
-indicando" sem `#publi`, quem responde nao e so ele — e a Eiko Sistemas.
+**A aula ensina; o aceite prova.** Visualizacao de video nao e prova de que o
+dever de informar foi cumprido. Se um parceiro postar "ganhe tanto por mes
+indicando", quem responde nao e so ele — e a Eiko Sistemas.
 
-A aula e o aceite deixam de ser zelo e viram a prova de que o dever de informar
-foi cumprido.
+A **versao** na chave existe para o dia em que o compromisso mudar: quem aceitou
+a 1.0 nao conta como tendo aceitado a 2.0, e o painel volta a pedir.
 
-## P10 no ar
+## Regras v21
 
-`P10-conduta-divulgador` · **2:29** · YouTube **T5QdBjl9Y1k** · chave
-`mod-parc-conduta` · modulo **"Comece por aqui"**, logo depois da abertura.
+Uma mudanca so: `aceiteConduta` entrou no `hasOnly` do `allow update` de
+`parceiros/{uid}`, **opcional** e com **forma fechada** (`versao` e `em`, tamanhos
+limitados), para o campo nao virar deposito de texto qualquer dentro do cadastro.
 
-Titulo no painel: **"Como falar do Moviki sem prometer o que nao pode"** —
-"conduta do divulgador" soa a manual de RH e ninguem clica com vontade.
+**Nao afrouxa nada:** dinheiro, status e slug continuam fora do `hasOnly`. O
+maximo que um parceiro esperto consegue forjando o campo e liberar os proprios
+botoes de copiar link e baixar cracha — material de apoio, nao valor. E, ao
+forjar, ele grava a declaracao de que se comprometeu: **contra ele, nao a favor**.
 
-Mora em "Comece por aqui" e nao em Divulgacao de proposito: e a aula que diz o
-que NAO pode ser falado, e isso precisa ser sabido antes de qualquer coisa
-sobre como divulgar.
+## A ordem que nao pode inverter
 
-**Conteudo:** as tres frases proibidas (ganho, garantido, prazo) escritas na
-tela em vermelho com o X; o que PODE ser dito (a regra da comissao); a ressalva
-sobre o produto — nao prometer que os clientes acham o negocio pelo mapa,
-porque ainda ha cidade com pouca gente; e o `#publi` obrigatorio.
+**Regras ANTES do `parceiro.html`.** Sem o campo no `hasOnly`, a gravacao e negada
+e o botao "Li e concordo" responde "Nao deu certo" para sempre. Mesma armadilha da
+v18.
 
-**Nenhum valor, percentual, prazo ou quantidade de aulas na narracao.**
+## O que o aceite NAO faz
 
-## O gate: proporcional, e nao retranca ninguem
+**Nao retranca nada.** Ele so desabilita, ate um clique, os botoes que levam link
+e cracha para fora do painel. A trava das aulas segue intacta por cima.
 
-O aceite **nao cobre a secao** e **nao mexe na trava das aulas**. O unico efeito
-e segurar os botoes que levam o material PARA FORA — copiar link, WhatsApp,
-Facebook, compartilhar, copiar link de parceiro e baixar o cracha — ate um
-clique em "Li e concordo".
+## A armadilha do dia
 
-Quem ja divulga mantem o painel inteiro e precisa de um clique. Isso respeita a
-regra de que **aula nova nao retranca parceiro**.
+`conduta()` roda **tres vezes** no `parceiro.html`. **Funcao de painel chamada
+mais de uma vez nao pode guardar estado em variavel local**: um `var` local fez o
+aceite gravar no banco e a tela voltar a pedir aceite. O estado vive na ponte
+`window.__mvParceiroTut`.
 
-## Armadilha paga nesta rodada
+## Ligacoes
 
-`conduta()` e chamada tres vezes (na entrada, no timeout de 1400 ms e no evento
-`mv-parceiro-pronto`). Com um `var aceito` **local**, cada chamada criava um
-escopo novo: o listener do clique fechava sobre o escopo VELHO enquanto o
-repintar do clique global lia o NOVO. Resultado no teste: **o aceite gravava no
-banco e a tela voltava a pedir aceite.**
-
-Conserto: o estado mora num lugar so — a ponte `window.__mvParceiroTut`. A
-funcao le sempre de la, nunca de copia local.
-
-**Regra que nasce daqui:** *funcao de painel que e chamada mais de uma vez nao
-pode guardar estado em variavel local — o estado vive na ponte.*
-
-## Testado com Playwright e Firestore de mentira
-
-- Parceiro aprovado sem aceite: bloco laranja, os sete botoes bloqueados.
-- Clique em "Li e concordo": grava `aceiteConduta {versao, em}` em
-  `parceiros/{uid}`, bloco fica verde, botoes liberam.
-- Parceiro que ja aceitou: entra verde, com a data do aceite.
-- Parceiro que nunca viu aula: cadeado das aulas continua funcionando por cima.
-- Parceiro nao aprovado: bloco escondido pelo `soAprovado`.
-- Nenhum erro de pagina em nenhum cenario.
-
-## BLOQUEIO — a regra do Firestore precisa entrar ANTES
-
-`aceiteConduta` e campo NOVO. Enquanto ele nao estiver no `hasOnly` que o
-cliente atravessa em `parceiros/{uid}`, **a gravacao e negada** e o botao
-responde "Nao deu certo — tentar de novo".
-
-Entra como **opcional**, pela regra de ouro: campo novo nunca e exigido antes
-de o codigo que grava estar no ar.
-
-## Arquivo
-
-`parceiro.html` — repo `moviki-app`, raiz, **SUBSTITUI**.
-Marca de versao: `2026-09-04-conduta`.
-
-→ [[P15 - Aula de conduta do divulgador]] · [[ARQ - Atribuicao do Lead ao anuncio - fbc e fbp]] · [[R - Regras de ouro]]
+[[A10 - Conformidade e LGPD]] · [[A5 - Programa de Parceiros]] ·
+[[P18 - Aula de conduta do divulgador]] · [[R - Regras de ouro]] ·
+[[R - Historico de regras do Firestore]]

@@ -1,9 +1,9 @@
 ---
 type: recurso
 status: referencia
-area: A3 — Dados e Regras
+area: A3 - Dados e Regras
 tags: [armadilha, regra]
-atualizado: 2026-09-04
+atualizado: 2026-09-10
 ---
 
 # R — Regras de ouro
@@ -39,18 +39,27 @@ atualizado: 2026-09-04
 - **Campo dentro de `hasOnly` sem `is <tipo>` e sem `.size()` não está validado** — só está na lista.
 - **`create` anônimo de documento agregado precisa travar o VALOR INICIAL, não só o incremento.** Travar o `update` em +1 não serve de nada se o `create` aceita começar em 100.000. *(v19, `resumo/avaliacoes`.)*
 - **`match /{documento=**}` com `read: if true` publica toda subcoleção FUTURA.** Subcoleção nova de negócio nasce pública — decidir antes de criar, não depois.
+- **Regra do Firestore não entra dentro de mapa dentro de lista.** Lista de objetos (`videos`, `cardapio`) só aceita `is list` e `size()`. O que valida cada item é o HTML — e por isso essa validação é **duplicada**, no painel ao gravar e na página pública ao publicar. *(v22, 10/09.)*
+- **Antes de entregar regra do Firestore, pedir a ATUAL a ele.** O `.txt` guardado no Project estava na v19 enquanto o ar já tinha v21 — a entrega da v22 quase apagou duas versões publicadas. **O Console é a verdade; arquivo salvo não é prova.**
 - **Escrita negada pelas regras falha CALADA.** A barra anda na tela e ao recarregar volta do zero, sem erro nenhum. Conferir a regra antes de culpar o código.
 
 ## App Check
 - **Só se enforça depois que TODA página que fala com o Firebase o inicializa.** Enforçar com uma página de fora derruba aquela página inteira, calada.
 - **Página nova que fala com o Firebase nasce fora do App Check.** Toda página nova leva o bloco no mesmo dia. *(O `v.html` nasceu depois da rodada que instalou nas sete e ficou de fora.)*
 - **App Check não vê só o navegador.** Todo pedaço que fala com o Firebase **de servidor** (`api/og.js` lê por REST) não carrega token e vira "não verificado". Antes de enforçar, listar quem fala de fora do navegador e dar a esses o Admin SDK.
+- **Storage NUNCA é enforçado.** As fotos e logos são servidas por URL direta do `firebasestorage.googleapis.com` com `?alt=media` — não passam pelo SDK e nunca carregam token. O painel mostra **0% verificadas** por motivo estrutural. Ligar apagaria a imagem de todas as páginas públicas de negócio, sem erro visível. Deixar em **Monitoramento**, permanentemente. *(05/09.)*
+- **Conta de serviço do site é somente leitura e nunca é a do robô.** Não existe papel do IAM por coleção no Firestore — o isolamento é **por conta**, não por permissão fina. `moviki-site-leitura` tem só `roles/datastore.viewer`; a do `moviki-robo` tem escrita total e não chega perto do repositório mais exposto do projeto.
+- **Enforcement ligado no Cloud Firestore desde 05/09.** Leitura ou escrita negada agora falha calada — antes de caçar bug de tela, olhar o App Check. **A métrica é de 7 dias por padrão: trocar para 1 dia antes de concluir qualquer coisa.**
 - **App Check traz a insígnia do reCAPTCHA junto.** Nasce colada no canto inferior direito e bate em barra fixa de rodapé. Escondê-la obriga a texto de atribuição visível (regra do Google) — mais simples é reposicionar por CSS.
 
 ## Deploy e diagnóstico
 - **Antes de caçar bug, conferir a marca de versão** (`MOVIKI_VERSAO` no Console + o arquivo no GitHub).
 - **A marca sobe JUNTO com o conteúdo.** Arquivo que ganha funcionalidade e mantém a marca antiga é pior que arquivo sem marca: afirma um estado falso e o diagnóstico começa no lugar errado. *(03/09 à noite: três arquivos assim.)*
 - **"Entregue" e "no ar" são estados diferentes, e só o repositório sabe qual é qual.** Documento registra o que foi produzido. Antes de dar rodada por encerrada, conferir o código publicado. *(Ver [[ARQ - Entregue e nao subiu 03092026]].)*
+- **Antes de entregar arquivo grande, ler a marca de versão no GitHub e montar a entrega SOBRE ela.** Duas conversas no mesmo arquivo no mesmo dia se atropelam, e o sintoma é silêncio: a tela abre e o recurso simplesmente não está lá. Em 10/09 quatro entregas disputaram o `parceiro.html` e a última apagou o conserto do player. *(Ver [[ARQ - Incidente - colisao de entregas no painel do parceiro]].)*
+- **Existem DOIS `regulamento.html`** — repo `moviki` e repo `moviki-app`. O link dentro do painel é relativo, então quem está logado lê o do `moviki-app`. Mexeu num, mexe no outro.
+- **`.js` solto o navegador dele bloqueia no download** — mandar sempre dentro de um `.zip`.
+- **Pasta nova no GitHub web** nasce digitando o caminho dentro do nome do arquivo (`lib/gauth.js`), ou renomeando um arquivo já enviado.
 - **Tela antiga quase sempre é cache.** Ctrl+Shift+R. Não existe service worker.
 - **Env criada depois do deploy não vale para o deploy existente.**
 - **A Vercel não deixa mais reler env salva** → rotacionar nos dois lados, ou o código aceita dois valores.
@@ -79,6 +88,7 @@ atualizado: 2026-09-04
 - **Componente novo leva CSS próprio.** Reusar classe de outro arquivo do projeto é como o botão laranja das aulas do parceiro nasceu quebrado.
 - **Teste de janela mede GEOMETRIA, não classe.** `position:fixed`, cobrir a tela, `z-index` alto.
 - `grid-template-columns:1fr` estoura no celular → `minmax(0,1fr)` + `min-width:0`.
+- **Link que o usuário digita e vira `href` precisa de lista FECHADA de domínios**, ancorada em `^https://`, conferida nos dois lados (ao gravar e ao publicar). Sem isso um `javascript:` colado no campo executa na página do cliente dele. *(Galeria de vídeos, 10/09.)*
 - **Escape de XSS (`esc()`)** em todo texto do lojista na página pública **e** em toda mensagem da caixa.
 - **`data-ev` sem ouvinte não mede nada.** O `mvmetrica.js` não faz delegação — cada página traz o seu próprio ouvinte inline. Copiar o atributo sem copiar o ouvinte deixa o CTA mudo no GA4.
 - **Foto de usuário entra como `background-image`**, nunca como `<img>` dentro de elemento que também recebe `textContent`.
@@ -118,6 +128,9 @@ atualizado: 2026-09-04
 - **Antes de instalar rastreador, ler a própria política de privacidade.**
 - **Autorização permanente:** achou violação de Meta/Google, conserta direto.
 - **Opt-in de um lugar não vale para outro.** O `autorizaDivulgacao` autoriza a vitrine social, **não** o filme institucional. Material que exibe tela do produto sai de **conta demo própria**, nunca de cliente real.
+- **QR nunca leva direto ao formulário.** Leva a uma página onde a pessoa lê quem está na frente dela e decide, com dois botões (conhecer / cadastrar). Vale para o crachá do parceiro e para o do dono. *(Regra declarada em 04/09.)*
+- **Proibida a palavra "trial" em tudo que o cliente lê ou ouve** — e qualquer outro termo em inglês. "Teste grátis" / "período de teste"; o gratuito é "plano Básico". O valor `periodo:'trial'` no Firestore e os nomes de arquivo e rota **não** mudam: renomear exige migração de dados.
+- **Nunca prometer o RESULTADO de suplemento** (emagrece, ganha massa, imunidade) nem oferecer **exame de vista** em ótica: ANVISA RDC 243/2018 e as políticas de anúncio do Meta e do Google. *(Quiz, 10/09.)*
 - **Selo só vale quando existe quem NÃO tem.** Selo que todo mundo ganha não informa nada.
 - **Nada de nível, medalha ou ranking de parceiro** — é a estética exata do multinível.
 - **Número que ninguém contou destrói o resto.** Quando o lojista percebe que um número não bate, ele deixa de acreditar em todo o painel.
@@ -129,11 +142,13 @@ atualizado: 2026-09-04
 - A resposta nunca nasce como `'admin'` — sem `'bot'`, não há como separar robô de gente depois.
 - **Nome de gente é só para gente.** Os cinco atendentes valem apenas para `de:'admin'`; o robô continua assinando "Vik - assistente". Nome humano em resposta automática faz a pessoa achar que falou com alguém quando não falou — destrói autoridade em vez de construir.
 - **Nome de atendente é determinístico, nunca sorteado.** Sorteio mudaria o nome a cada F5 e o lojista veria um nome enquanto o dono veria outro na MESMA mensagem.
+- **Texto que só a IA lê também é texto que o cliente lê.** O `contextoUsuario.js` injetava `Periodicidade: trial` no contexto do Vik, e o robô repetia a palavra ao lojista com a tela inteira dizendo "teste grátis". Todo dado cru injetado em prompt passa pelo mesmo filtro de vocabulário da interface — ver [[R - Terminologia visivel ao cliente]].
 - **Prompt não é trava de segurança.** Filtro em código também.
 - **Ativação antes de venda.**
 
 ## Vídeo e narração
 - **Dicionário de pronúncia é por MOTOR de voz** — e a correção fonética entra em **todos** os blocos que citam a palavra, não só onde o erro apareceu: motor neural erra de forma intermitente. *(Voz `JPaHP82NTgRbDP91t8zP`: escrever `Movíqui`; nada de frase começando com "E".)*
+- **Voz oficial desde 10/09: Malu — Casual Explainer (`fhtZMBwha5du5OxuvexO`), no Kairogen.** Vale para toda peça nova; aula já publicada não é regravada por causa disso. Cinco vozes foram recusadas antes e não voltam a ser oferecidas. Narração agora **custa crédito** — conferir saldo antes de prometer regravação em lote. Ver [[R - Voz oficial das videoaulas]].
 - **Frase com "não … a você" no fim é armadilha de prosódia.** Em texto lê-se bem; em fala o sentido inverte. O conserto é estrutural — nomear o sujeito, ou quebrar em duas afirmações curtas.
 - **Nome de exemplo em credencial é nome de PESSOA.** Apelido de negócio num crachá de parceiro diz a coisa errada sobre quem está ali.
 - **Texto de vídeo nunca cita a quantidade de itens de uma lista que pode crescer.** Falar da lista, nunca do número. **Vídeo não se corrige com um deploy.** *(A P00 dizia "oito aulas"; no dia em que ela mesma subir, viram dez.)*
@@ -164,4 +179,4 @@ atualizado: 2026-09-04
 - `node --check` não pega erro de escopo.
 
 ## Ligações
-[[ARQ - Furos nas regras v16]] · [[ARQ - Erros de implementacao 03092026]] · [[ARQ - Entregue e nao subiu 03092026]] · [[ARQ - Auditoria de seguranca 03092026]] · [[ARQ - Incidentes e cacadas de bug]] · [[A3 - Dados e Regras]] · [[R - Historico de regras do Firestore]] · [[R - Verificacao publica de parceiro]]
+[[ARQ - Furos nas regras v16]] · [[ARQ - Erros de implementacao 03092026]] · [[ARQ - Entregue e nao subiu 03092026]] · [[ARQ - Auditoria de seguranca 03092026]] · [[ARQ - Incidentes e cacadas de bug]] · [[A3 - Dados e Regras]] · [[R - Historico de regras do Firestore]] · [[R - Verificacao publica de parceiro]] · [[R - Terminologia visivel ao cliente]] · [[R - Voz oficial das videoaulas]] · [[R - Marcas de versao no ar]] · [[ARQ - Incidente - colisao de entregas no painel do parceiro]]
