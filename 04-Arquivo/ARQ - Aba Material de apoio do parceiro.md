@@ -1,7 +1,7 @@
 ---
 type: arquivo
 status: no-ar
-area: A - Programa de Parceiros
+area: A13 - Material de apoio do parceiro
 tags: [parceiro, material-de-apoio, panfleto, qr, conar]
 atualizado: 2026-09-11
 ---
@@ -44,4 +44,4 @@ sobre a **2026-09-10-icones-nivel** (conferida no GitHub antes da entrega).
 - Trocar "Atualizado há 7 dias" por "Atualizado agora" no celular desenhado do panfleto e do vídeo
 - Arte do panfleto em resolução de impressão (1748x2480 ou maior), se existir o original
 
-Relacionado: [[R - Regras de ouro]]
+Relacionado: [[A13 - Material de apoio do parceiro]] · [[R - Regras de ouro]]

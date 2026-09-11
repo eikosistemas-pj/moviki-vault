@@ -1,7 +1,7 @@
 ---
 type: moc
 tags: [areas]
-atualizado: 2026-09-03
+atualizado: 2026-09-11
 ---
 
 # Índice de Áreas
@@ -20,3 +20,4 @@ Responsabilidade contínua, sem data de fim. Se uma nota daqui ganhou prazo e cr
 - [[A10 - Conformidade e LGPD]]
 - [[A11 - Marca e Design System]]
 - [[A12 - Atendimento e vozes do Moviki]]
+- [[A13 - Material de apoio do parceiro]]
