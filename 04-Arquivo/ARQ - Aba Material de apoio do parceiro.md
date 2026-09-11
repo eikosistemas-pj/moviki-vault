@@ -21,7 +21,7 @@ sobre a **2026-09-10-icones-nivel** (conferida no GitHub antes da entrega).
 - **Panfleto com QR sem arquivo por parceiro**: uma arte só; o QR do parceiro é desenhado por cima no navegador dele, na posição do catálogo (`qr:{x,y,l}`). Mesmo destino do crachá, `moviki.com.br/v/apelido`, com `utm_source=panfleto&utm_medium=qr` para o GA4 separar quem veio do papel. Embaixo do QR vai o endereço escrito.
 - **Mesmas portas do link**: baixar e enviar só com cadastro aprovado, aulas concluídas e compromisso de divulgação aceito. Lido do estado já pintado na tela (`.mvTravado`, `#condBox.ok`).
 - **Toda legenda começa com #publi** e já leva o link do parceiro (`{link}`).
-- **Celular**: botão Enviar manda o arquivo direto para WhatsApp/Instagram (Web Share com arquivo) e copia a legenda junto.
+- **Botões Instagram, Facebook e WhatsApp em cada material** (marca **2026-09-11-postar**). Instagram e Facebook não aceitam postar imagem por link vindo de site: no celular o toque abre a lista de apps do próprio aparelho com o ARQUIVO já anexado e a legenda copiada — ele toca na rede e cai na tela de postar. No computador: a rede abre numa aba, o arquivo baixa e a legenda vai para a área de transferência. Safari: se o arquivo ainda não estava pronto, o 1º toque prepara e o botão pisca "Toque de novo".
 - **Peso**: na abertura do painel só o catálogo (7 KB, 6 s depois). Capas WebP de 320 px (20 a 36 KB) só quando a aba abre. Arquivo cheio só na prévia.
 - Estrutura no ar com subpastas (`capas/`, `feed/`, `panfletos/`, `stories/`); arquivo novo entra em pasta que já existe.
 - Vídeo: MP4 até 20 MB, solto em `material/` com a capa; maior vai como anexo de Release do GitHub. 1º vídeo: `video-cada-negocio-tem-sua-rotina.mp4` (27 MB → 6,4 MB), catálogo `2026-09-11-2`.
@@ -39,7 +39,8 @@ sobre a **2026-09-10-icones-nivel** (conferida no GitHub antes da entrega).
 
 ## Pendências
 - NO AR em 11/09 (conferido clonando): `parceiro.html` 2026-09-11-material, `icones/material*.png` e `material/` inteira. Registrar em [[R - Marcas de versao no ar]]
-- Subir o vídeo (`material/`: mp4 + capa + `catalogo.json`)
+- Vídeo no ar em 11/09 (catálogo `2026-09-11-2`)
+- Subir `parceiro.html` 2026-09-11-postar (botões de postar)
 - Trocar "Atualizado há 7 dias" por "Atualizado agora" no celular desenhado do panfleto e do vídeo
 - Arte do panfleto em resolução de impressão (1748x2480 ou maior), se existir o original
 
