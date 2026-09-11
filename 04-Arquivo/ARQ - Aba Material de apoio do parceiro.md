@@ -1,6 +1,6 @@
 ---
 type: arquivo
-status: entregue-aguardando-upload
+status: no-ar
 area: A - Programa de Parceiros
 tags: [parceiro, material-de-apoio, panfleto, qr, conar]
 atualizado: 2026-09-11
@@ -23,12 +23,13 @@ sobre a **2026-09-10-icones-nivel** (conferida no GitHub antes da entrega).
 - **Toda legenda começa com #publi** e já leva o link do parceiro (`{link}`).
 - **Celular**: botão Enviar manda o arquivo direto para WhatsApp/Instagram (Web Share com arquivo) e copia a legenda junto.
 - **Peso**: na abertura do painel só o catálogo (7 KB, 6 s depois). Capas WebP de 320 px (20 a 36 KB) só quando a aba abre. Arquivo cheio só na prévia.
-- Vídeo: MP4 até 20 MB na pasta `material/videos/`; maior vai como anexo de Release do GitHub.
+- Estrutura no ar com subpastas (`capas/`, `feed/`, `panfletos/`, `stories/`); arquivo novo entra em pasta que já existe.
+- Vídeo: MP4 até 20 MB, solto em `material/` com a capa; maior vai como anexo de Release do GitHub. 1º vídeo: `video-cada-negocio-tem-sua-rotina.mp4` (27 MB → 6,4 MB), catálogo `2026-09-11-2`.
 
 ## Kit inicial (artes do Paulo)
-- 1 panfleto A5 (`panfletos/`, ampliado 2x para impressão: 2110x2982)
-- 5 feed 4:5 + 2 quadrados 1:1 (`feed/`)
-- 3 stories 9:16 (`stories/`)
+- 1 panfleto A5 (ampliado 2x para impressão: 2110x2982)
+- 5 feed 4:5 + 2 quadrados 1:1
+- 3 stories 9:16
 - 3 textos prontos: primeira mensagem ao comerciante, "você é mesmo do Moviki?", bio
 - De ~2 MB (PNG) para ~350 KB (JPG) por arte, sem diferença visível
 
@@ -37,8 +38,9 @@ sobre a **2026-09-10-icones-nivel** (conferida no GitHub antes da entrega).
 - QR do panfleto decodificado em tamanho cheio e comprimido como no WhatsApp (844 a 1604 px)
 
 ## Pendências
-- Subir o pacote no `moviki-app` e registrar a marca em [[R - Marcas de versao no ar]]
+- NO AR em 11/09 (conferido clonando): `parceiro.html` 2026-09-11-material, `icones/material*.png` e `material/` inteira. Registrar em [[R - Marcas de versao no ar]]
+- Subir o vídeo (`material/`: mp4 + capa + `catalogo.json`)
+- Trocar "Atualizado há 7 dias" por "Atualizado agora" no celular desenhado do panfleto e do vídeo
 - Arte do panfleto em resolução de impressão (1748x2480 ou maior), se existir o original
-- Vídeos: nenhum no kit inicial
 
 Relacionado: [[R - Regras de ouro]]
