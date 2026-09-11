@@ -40,7 +40,7 @@ sobre a **2026-09-10-icones-nivel** (conferida no GitHub antes da entrega).
 ## Pendências
 - NO AR em 11/09 (conferido clonando): `parceiro.html` 2026-09-11-material, `icones/material*.png` e `material/` inteira. Registrar em [[R - Marcas de versao no ar]]
 - Vídeo no ar em 11/09 (catálogo `2026-09-11-2`)
-- Subir `parceiro.html` 2026-09-11-postar (botões de postar)
+- `parceiro.html` 2026-09-11-postar NO AR em 11/09 (conferido clonando) e confirmado pelo Paulo
 - Trocar "Atualizado há 7 dias" por "Atualizado agora" no celular desenhado do panfleto e do vídeo
 - Arte do panfleto em resolução de impressão (1748x2480 ou maior), se existir o original
 
