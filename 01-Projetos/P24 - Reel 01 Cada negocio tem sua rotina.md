@@ -33,7 +33,7 @@ ver [[R - Voz oficial das videoaulas]].
 | Cena | Imagem | Dur | Status | Créditos |
 | --- | --- | --- | --- | --- |
 | 1 | `01_abertura_rotina.png` | 3 s | **Aprovada com ajuste de pós** | 14 |
-| 2 | `02_painel_clientes_informados.png` | 4 s | Preparada, aguardando upload | 19 previstos |
+| 2 | `02_painel_clientes_informados.png` | 4 s | Gerada, aguardando aprovação | 19 |
 | 3 | `03_recursos_em_um_so_lugar.png` | 5 s | Pendente | - |
 | 4 | `04_negocios_moveis_pontos_fixos.png` | 3 s | Pendente | - |
 | 5 | `05_card_final.png` | 3 s | Pendente | - |
@@ -55,6 +55,13 @@ ver [[R - Voz oficial das videoaulas]].
   - o último quadro do invertido é a imagem original (luzes acesas e loja
     aberta): **é o quadro da capa do Reel**.
 - Nova geração da Cena 1: **proibida**, sem consumo de créditos.
+
+## Cena 2 - arquivo gerado
+
+- `https://cdn.kairogen.ai/gallery/videos/6a85cb71af7328d006a48d4c/25754a7c-d231-49f5-b118-f36595797870.mp4`
+  (geração `6aa3737295bd5dc6e3d59bbc`), Kling V3.0 Pro, 4 s, 9:16, 1080p, sem som.
+- Plano B de pós, se a interface tremer: colar a tela da imagem original sobre o
+  monitor com rastreamento (screen replacement), sem nova geração.
 
 ## Ligações
 
