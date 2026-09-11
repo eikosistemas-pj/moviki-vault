@@ -1,6 +1,6 @@
 ---
 type: projeto
-status: ativo
+status: concluido
 prioridade: 2
 area: A5 - Programa de Parceiros
 prazo: 2026-09-15
@@ -10,30 +10,33 @@ atualizado: 2026-09-11
 
 # P24 - Aula de niveis e barras
 
-## Resultado esperado
+## Resultado
 Aula nova no painel do parceiro explicando o card "Seu nível" e as três barras
-da calculadora, numa aula só, com a voz Malu.
+da calculadora, numa aula só, com a voz Malu. **No ar em 11/09/2026.**
 
-## Feito em 11/09/2026
-- Vídeo `P11-parceiro-niveis.mp4` (2:34, 1080p, legenda queimada) + `.srt`.
-  Cena **P11** (P09 = crachá, P10 = conduta).
-- Aula NOVA, não substitui a de comissões. Chave `mod-parc-niveis`, módulo
-  "Seu nível", embutida no fim do card `#nvCard`.
-- `parceiro.html` `2026-09-11-aula-niveis`:
-  - barra 1 da calculadora aplica o % do nível (16/17/18% a partir de 26/51/101);
-  - linguagem corrigida: "ganhe mais", "ganhe bônus", "todo mês", "sua equipe";
-  - slot da aula com id vazio (invisível até o link chegar).
+| | |
+| --- | --- |
+| Cena | `P11-parceiro-niveis` (P09 = crachá, P10 = conduta) |
+| YouTube | `6E3z6cbOXJ4`, não listado |
+| Duração | 2:34 |
+| Chave | `mod-parc-niveis`, módulo "Seu nível" |
+| Onde aparece | fim do card `#nvCard` (visão geral) e tela de aulas |
+| Versão do painel | `parceiro.html` `2026-09-11-aula-niveis-id` |
+
+## O que veio junto no parceiro.html
+- Barra 1 da calculadora aplica o % do nível (16/17/18% a partir de 26/51/101).
+- Linguagem corrigida: "ganhe mais", "ganhe bônus", "todo mês", "sua equipe".
 - Narração: 23 falas, 23 créditos Kairogen.
 
 ## Definição de pronto
-- [ ] `parceiro.html` -> repo **moviki-app**, raiz, SUBSTITUI
-- [ ] Vídeo no YouTube, **não listado**, link enviado
-- [ ] `parceiro.html` com o id -> repo **moviki-app**, raiz, SUBSTITUI
-- [ ] Tabela de videoaulas atualizada
+- [x] `parceiro.html` com o slot -> moviki-app, raiz
+- [x] Vídeo no YouTube, não listado
+- [ ] `parceiro.html` com o id -> moviki-app, raiz, SUBSTITUI
+- [x] Tabela de videoaulas atualizada
 
 ## Consequência conhecida
-Com o id no ar, o selo de todo parceiro vira laranja "1 aula nova" e o card
-passa a "11 de 12". Ninguém é retrancado (`aulasEm` fica).
+Parceiros já formados veem "11 de 12" e o selo "1 aula nova". Ninguém é
+retrancado (`aulasEm` fica). Parceiro novo precisa das 12 para abrir o link.
 
 ## Ligações
 [[P19 - Plano de niveis do parceiro]] · [[P20 - Conserto do player e liberacao do link]] ·
