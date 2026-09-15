@@ -17,7 +17,7 @@ e [[P31 - Aba Financeiro no painel do lojista]].
 
 | Repositorio | Arquivo | Marca | Tipo |
 |---|---|---|---|
-| moviki | `404.html` | 2026-09-14-compra1 | SUBSTITUI |
+| moviki | `404.html` | 2026-09-15-compra3 | SUBSTITUI |
 
 Montado sobre a marca `2026-09-11-live1`, que era a que estava no GitHub.
 
@@ -55,16 +55,23 @@ Conferido no teste — cardapio inteiro, zero elemento novo.
 1. **Adicionar** em cada item com preco numerico valido. "a partir de 30", "sob
    consulta" e campo vazio continuam no cardapio, sem botao, com uma linha
    dizendo para chamar no WhatsApp.
-2. **Barra da sacola** presa no rodape da folha do cardapio — fora do corpo
+2. **Passo de quantidade no proprio item.** Assim que o item entra na sacola o
+   botao vira menos / quantidade / mais, com o subtotal do lado direito. Sem
+   isso o cliente clica "Adicionar" varias vezes sem enxergar quantas ja pediu e
+   so descobre na tela seguinte. No 1, o menos vira lixeira — "menos" ali
+   removeria o item sem avisar. Os dois lados (item e linha da sacola) chamam a
+   MESMA funcao de quantidade: duas contas separadas seriam dois jeitos de a
+   tela e o total discordarem.
+3. **Barra da sacola** presa no rodape da folha do cardapio — fora do corpo
    rolavel de proposito: dentro dele ela sumiria no meio da lista.
-3. **Uma folha de pedido com tres telas** (revisao, dados, pagamento). Telas em
+4. **Uma folha de pedido com tres telas** (revisao, dados, pagamento). Telas em
    folhas diferentes fariam o comprador perder o pedido ao voltar.
-4. **Pagamento**: valor com os centavos identificadores, copia-e-cola com botao
+5. **Pagamento**: valor com os centavos identificadores, copia-e-cola com botao
    de copiar, e o quadro **Confira antes de pagar** com nome e documento
    mascarado do recebedor.
-5. **Ja paguei**, com comprovante opcional reduzido no proprio navegador antes de
+6. **Ja paguei**, com comprovante opcional reduzido no proprio navegador antes de
    subir — o servidor recusa acima de ~1,7 MB e foto de celular passa disso.
-6. **Status em tempo real** a cada 8 s; quando o lojista confirma, a tela troca
+7. **Status em tempo real** a cada 8 s; quando o lojista confirma, a tela troca
    sozinha e a sacola esvazia.
 
 ## O que a pagina NAO faz, de proposito
@@ -75,7 +82,9 @@ Conferido no teste — cardapio inteiro, zero elemento novo.
 - **Nao monta o codigo Pix.** O copia-e-cola vem pronto do servidor.
 - **Nao escreve nada no Firestore.** Tudo passa por `api/pedido.js`.
 
-## O QR ficou de fora, e por que
+## O QR (resolvido na mesma noite)
+
+Entrou em [[ARQ - QR do Pix no cardapio 14092026]]. O registro do problema:
 
 O `mvqr.js` cobre as versoes **1 a 6**, nivel M — teto de 108 bytes. Um BR Code
 Pix real fica entre **130 e 190 bytes**, mesmo com chave curta: **nao cabe em
@@ -111,7 +120,6 @@ arquivo original.
 
 ## Falta para a Fase 1 fechar
 
-- QR do Pix no cardapio ([[P32 - QR do Pix no cardapio]]).
 - `sku` gerado pelo painel e regras v24 (`vendaAtiva` e `sku`).
 - Icones PNG 3D de Financeiro, Vender e Vendas.
 - Aulas 07R, 08R e 14.

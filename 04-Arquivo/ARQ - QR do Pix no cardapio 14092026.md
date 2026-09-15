@@ -18,7 +18,7 @@ P32, que nasceu e morreu na mesma noite.
 |---|---|---|---|
 | moviki | `mvqr.js` | 2026-09-14-mvqr2 | NOVO |
 | moviki-app | `mvqr.js` | 2026-09-14-mvqr2 | SUBSTITUI |
-| moviki | `404.html` | 2026-09-14-compra2 | SUBSTITUI |
+| moviki | `404.html` | 2026-09-15-compra3 | SUBSTITUI |
 
 O mesmo arquivo nos dois repositorios, de proposito: duas copias divergentes do
 gerador seriam dois lugares para consertar o mesmo bug — foi por isso que ele
