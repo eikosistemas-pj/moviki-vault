@@ -21,6 +21,38 @@ lojista Enterprise ja consegue explorar hoje.
 
 ---
 
+## PLACAR — atualizado em 15/09/2026, 20h40
+
+**BLOCO A: FECHADO POR INTEIRO.** Tudo no ar e conferido byte a byte no GitHub.
+
+| # | Estado | Onde ficou registrado |
+| --- | --- | --- |
+| A1 token do webhook | ✅ fechado | [[ARQ - Token de webhook por subconta e valor reconferido]] |
+| A2 retransmitir a live de outro | ✅ fechado | [[ARQ - Sessao da live no servidor]] |
+| A3 encerrada pelo Moviki | ✅ fechado | idem — provado no teste 5 |
+| A4 autoridade fora da mao do lojista | ✅ fechado | idem — `live_sessoes/{uid}` na RAIZ |
+| A5 auto-indicacao | ✅ fechado | [[ARQ - Token de webhook por subconta e valor reconferido]] |
+
+**Fase 2 — primeiro item entregue:**
+
+| # | Estado | Onde |
+| --- | --- | --- |
+| B1, B2 (parcial), B3, B6 | ✅ caiu junto com A4 | [[ARQ - Sessao da live no servidor]] |
+| **B5** freio do `api/live.js` | ✅ fechado | [[ARQ - Freio do api live - B5]] + [[ARQ - Ajuste do freio da live - B5a]] |
+| B2 lista "Lives no ar" do painel | ⬜ aberto | falta usar `live_adm_noar` |
+| B4, B7, B8, B9, B10 | ⬜ abertos | — |
+| B11, B12, B13 | ⬜ abertos | dinheiro do parceiro |
+| Bloco C | ⬜ aberto | — |
+
+**Regras v24 publicadas e provadas** contra o Firestore real (escrita negada,
+leitura permitida). **Cota de 2 lives no teste gratis** no ar, com carencia de
+15 min — [[P34 - Travas contra abuso do teste gratis]].
+
+⚠️ **A ressalva 1 deixou de valer para A2, A3 e B7:** as regras foram conferidas
+no Console e republicadas como v24. As demais ressalvas continuam de pe.
+
+---
+
 ## O padrao que explica quase tudo
 
 > **Toda decisao que importa mora num documento que o proprio vigiado escreve.**
@@ -282,10 +314,10 @@ transferencia.
 
 | Fase | O que | Por que agora |
 | --- | --- | --- |
-| 0 | **A1** (token do webhook) e **A5** (auto-indicacao) | nao sao da live: exploraveis hoje, mexem em dinheiro |
-| 1 | **A4** (`liveSessao` no servidor) | derruba A2, A3, B1, B2, B3, B6 e o teto de minutos |
-| 2 | **A3 imediato** (`live_bloqueios` no `adm_encerrar`) | 5 linhas, enquanto A4 nao fica pronto |
-| 3 | B4, B5, B7, B8, B9, B10 | custo e moderacao |
+| 0 | ~~**A1** e **A5**~~ ✅ | nao sao da live: exploraveis hoje, mexem em dinheiro |
+| 1 | ~~**A4** (sessao no servidor)~~ ✅ | derrubou A2, A3, B1, B2, B3, B6 e o teto de minutos |
+| 2 | ~~**A3 imediato**~~ ✅ | resolvido de vez pela fase 1 |
+| 3 | ~~B5~~ ✅ · B4, B7, B8, B9, B10 | custo e moderacao |
 | 4 | B11, B12, B13 | dinheiro do parceiro |
 | 5 | Bloco C | antes de divulgar a live em anuncio |
 
@@ -313,4 +345,7 @@ transferencia.
 
 [[A13 - Modo Live]] · [[A4 - Financeiro]] · [[P24 - Modo Live - lancamento]] ·
 [[P34 - Travas contra abuso do teste gratis]] ·
-[[R - Live - Arquitetura e arquivos]] · [[R - Live - Checkout Pix e subcontas Asaas]]
+[[R - Live - Arquitetura e arquivos]] · [[R - Live - Checkout Pix e subcontas Asaas]] ·
+[[ARQ - Sessao da live no servidor]] · [[ARQ - Freio do api live - B5]] ·
+[[ARQ - Ajuste do freio da live - B5a]] ·
+[[ARQ - Token de webhook por subconta e valor reconferido]]
