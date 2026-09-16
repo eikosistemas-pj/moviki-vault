@@ -1,7 +1,7 @@
 ---
 type: arquivo
 status: concluido
-area: A1 - Produto Moviki
+area: A1 - Produto e Paineis
 tags: [entrega, icones, material-de-apoio, live, design]
 atualizado: 2026-09-16
 ---
@@ -73,4 +73,4 @@ intactas, incluindo as coordenadas do QR do panfleto.
 ## Ligacoes
 
 [[R - Marcas de versao no ar]] · [[R - Design system e icones]] ·
-[[A1 - Produto Moviki]] · [[R - Regras de ouro]]
+[[A1 - Produto e Paineis]] · [[R - Regras de ouro]]
