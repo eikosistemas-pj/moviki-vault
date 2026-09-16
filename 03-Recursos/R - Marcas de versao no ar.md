@@ -3,99 +3,127 @@ type: recurso
 status: referencia
 area: A2 - Infraestrutura e Deploy
 tags: [deploy, versao, armadilha]
-atualizado: 2026-09-14
+atualizado: 2026-09-16
 ---
 
 # R - Marcas de versao no ar
 
-**Conferido clonando os quatro repositorios em 14/09/2026, ao fim do dia.** Esta
-tabela envelhece sozinha: a fonte de verdade e o repositorio, nunca este
-arquivo. No navegador, `F12` > Console > `MOVIKI_VERSAO`; valor antigo e cache,
-`Ctrl+Shift+R`. Em pagina com `script-src 'none'` (regras-da-live), a marca vive
-em `<meta name="moviki-versao">` e se le no F12 > Elements.
+**Conferido clonando os repositórios em 16/09/2026.** Esta tabela envelhece
+sozinha: a fonte de verdade é o repositório, nunca este arquivo. No navegador,
+`F12` > Console > `MOVIKI_VERSAO`; valor antigo é cache, `Ctrl+Shift+R`.
 
-## Repo `moviki` (moviki.com.br)
+Substitui a leitura de 14/09.
+
+## Repo `moviki` (www.moviki.com.br)
 
 | Arquivo | Marca |
 | --- | --- |
-| `comerciantes.html` | `2026-09-14-porta` |
-| `aovivo.html` | `2026-09-14-ocultar` |
-| `regras-da-live.html` | `2026-09-14-ocultar` |
-| `live.html` | `2026-09-12-beta1` |
-| `api/live.js` | `2026-09-12-beta1` |
-| `404.html` (pagina publica do negocio) | `2026-09-11-live1` |
-| `v.html` (verificacao do parceiro) | `2026-09-10-foto-parceiro` |
 | `index.html` (landing) | `2026-09-09-video` |
-| `lib/gauth.js` | `2026-09-04-gauth1` |
-| `api/og.js` | `2026-09-04-og-sa` |
-| `api/vitrine.js` | `2026-09-04-vitrine1` |
+| `comerciantes.html` | `2026-09-11-criarconta` |
+| `404.html` (página pública) | `2026-09-15-compra4` |
+| `v.html` (verificação) | `2026-09-10-foto-parceiro` |
+| `aovivo.html` (página de venda da live) | `2026-09-14-ocultar` |
+| `live.html` (página de quem assiste) | `2026-09-15-filtro` |
+| `regras-da-live.html` | `2026-09-11-regras1` |
+| `api/live.js` | `2026-09-15-b5a` |
+| `termos.html` · `privacidade.html` | `2026-09-12-live1` |
 | `descadastro.html` | `2026-09-03-appcheck` |
 | `enterprise.html` | `2026-08-27-ga4l2` |
 | `parceiros.html` | `2026-08-28-vikparceiros` |
 | `parceiros-ganhos.html` | `2026-08-27-conformidade` |
-| `premium.html` · `regulamento.html` · `termos.html` · `privacidade.html` · `excluir-conta.html` · `p.html` · `pp.html` | **sem marca** |
-| `vercel.json` | rotas `/aovivo` e `/regras-da-live` antes do curinga · **HSTS 1 ano** · **CSP `frame-ancestors 'self'`** (14/09) |
+| `lib/gauth.js` | `2026-09-04-gauth1` |
+| `api/og.js` | `2026-09-04-og-sa` — **marca mentirosa, ver alertas** |
+| `api/vitrine.js` | `2026-09-04-vitrine1` |
+| `vercel.json` | sem marca — contém `/v/:slug` e a rota `/aovivo` **antes** do curinga |
+| `livehero.webp` (103 KB) · `livehero.jpg` (140 KB) | sem marca |
+| `premium.html` · `regulamento.html` · `excluir-conta.html` · `p.html` · `pp.html` | **sem marca** |
 
 ## Repo `moviki-app` (app.moviki.com.br)
 
 | Arquivo | Marca |
 | --- | --- |
-| `index.html` (painel do lojista) | `2026-09-14-financeiro` |
-| `parceiro.html` | `2026-09-13-vikpainel` |
-| `live.html` (estudio) | `2026-09-12-www2` |
-| `eikoadm01.html` (painel do dono) | `2026-09-12-www1` |
-| `mvqr.js` | `2026-09-04-mvqr1` |
+| `index.html` (painel do lojista) | `2026-09-15-liveaulas2` |
+| `parceiro.html` | `2026-09-15-aulatrava` |
+| `live.html` (estúdio) | `2026-09-15-liveaulas` |
+| `liveaulas.js` | `2026-09-15-liveaulas2` |
+| `eikoadm01.html` (painel do dono) | `2026-09-15-conferir` |
 | `seja-parceiro.html` | `2026-09-04-conta-existente` |
-| `material/catalogo.json` | `2026-09-12-1` |
+| `mvqr.js` | `2026-09-04-mvqr1` |
+| `material/catalogo.json` | `versao: 2026-09-12-1` |
+| `icones/live.png` · `icones/material.png` | sem marca |
 | `404.html` | `2026-08-28-404vik` |
-| `vercel.json` | **HSTS 1 ano** · **CSP `frame-ancestors 'self'`** (14/09) |
-| `regulamento.html` | **sem marca** (conteudo na versao 1.1) |
+| `quiz/quiz-segmentos.js` | com Suplementos, Sushi e Ótica (10 abas / 31 opções) |
+| `regulamento.html` · `vercel.json` | **sem marca** (regulamento em conteúdo 1.1) |
 
 ## Repo `moviki-robo`
 
-**15 funcoes em `api/`.** O teto de 12 do plano Hobby deixou de existir com a
-assinatura do **Vercel Pro em 14/09/2026**.
-
 | Arquivo | Marca |
 | --- | --- |
-| `lib/checkout.js` | `2026-09-14-aceite` |
-| `lib/pix.js` | `2026-09-14-pixdireto` (NOVO) |
-| `lib/asaas.js` | `2026-09-14-falhafechada` |
-| `api/webhook.js` | `2026-09-14-fila1` |
-| `api/webhook-reprocessa.js` | `2026-09-14-repro1` (NOVO) |
-| `api/pedido.js` | `2026-09-14-porta1` (NOVO) |
-| `api/financeiro.js` | `2026-09-14-porta1` (NOVO) |
-| `api/pontos.js` | `2026-09-11-checkout1` |
-| `vercel.json` | 2 crons: `lembrete-trial` 0 12 · `webhook-reprocessa` 20 * * * * |
+| `lib/livesessao.js` | `2026-09-15-b5b` |
+| `lib/checkout.js` | `2026-09-15-whtoken` |
+| `api/pontos.js` | `2026-09-15-livesessao` |
+| `api/webhook.js` | `2026-09-15-escopo` |
+| `lib/meta.js` · `api/novo-cliente.js` | revisão de 05/09 — timeout de 6 s no `Lead`, 2,5 s no `Purchase`, linha do resultado da medição no aviso do Telegram |
 
-Demais arquivos sem marca propria: `lib/meta.js`, `lib/ga.js`,
-`lib/espelhoParceiro.js`, `lib/instagram.js`, `lib/firebase.js`,
-`lib/boasVindasParceiro.js`, `api/novo-cliente.js`, `api/novo-parceiro.js`,
-`api/criar-assinatura.js`, `api/ativar-trial.js`, `api/lembrete-trial.js`,
-`api/pagar-saque.js`, `api/parceiro-aprovado.js`, `api/upload-imagem.js`,
-`api/excluir-conta.js`, `api/exclusoes.js`.
+**12 funções em `api/` — no teto do plano Hobby.** O 13º arquivo derruba o deploy
+inteiro.
 
 ## Repo `moviki-assistente-social`
 
-`src/config.py` e `src/firestore.py` em 2026-09-04 — o robo nao fala mais com o
+`src/config.py` e `src/firestore.py` em 2026-09-04 — o robô não fala mais com o
 Firestore, consome `moviki.com.br/api/vitrine`.
 
-## Regras do Firestore
+## Firestore
 
-**v23**, publicada em 12/09/2026. Conferida linha a linha em 14/09: a Fase 1 do
-Financeiro **nao precisa de v24**.
+**Regras v24 publicadas**, sobre a v23 de 12/09. Cobre Modo Live, checkout Pix e
+a coleção de autoridade `live_sessoes`, na raiz. O Console é a verdade; a cópia
+no Project não prova o que está publicado.
 
-## ⚠️ Alertas desta leitura (14/09/2026)
+## Vercel
 
-- **`moviki-app/liveaulas.js` NAO EXISTE no repositorio.** A entrega de 13/09
-  (catalogo das 13 aulas do Modo Live) nunca subiu. O `live.html` no ar e o
-  `2026-09-12-www2`, sem o motor de aulas — ou seja, **as duas entregas de 13/09
-  do modulo de aulas estao perdidas**, nao so o catalogo.
-- **O MAPA-MESTRE afirma que o `liveaulas.js` "esta no ar sem id de video".**
-  Esta errado: ele nao esta no ar. Corrigir no proximo `/atualizarmapa`.
-- **O editor de foto do cardapio (`mvAjustarFoto`, marca `2026-09-11-fotoajuste`)
-  nao existe em nenhum dos dois arquivos** — nem no `index.html` do app nem no
-  `404.html` do site. Entrega perdida, precisa ser refeita sobre
-  `2026-09-14-financeiro`.
-- **O `404.html` do site esta em `2026-09-11-live1`** — e o arquivo da pagina
-  publica do negocio, onde o cardapio compravel vai entrar.
+`LIVE_SEGREDO` existe nos projetos `moviki` e `moviki-robo` — **só em
+`Production`, não em `All Environments`**. Produção funciona. Um deploy de
+**Preview não tem o segredo**, e sem ele a live não começa, por desenho (falha
+fechada). Quem testar a live numa URL de preview vai ver "não consigo abrir a
+live", sem erro visível.
+
+## Alertas desta leitura
+
+- **`parceiro.html` é o arquivo mais disputado do projeto.** Em 11/09 a entrega da
+  aula P11 apagou a aba de material de apoio por ter sido montada sobre marca
+  velha. Antes de subir qualquer versão dele, abrir o arquivo no GitHub e ler a
+  marca **na hora** — ver [[ARQ - Incidente - aba de material apagada pela aula P11]]
+- **O pacote de imagens otimizadas (favicon de 949 KB → 10 KB) não tem marca de
+  versão** porque nenhum HTML mudou. Conferir pelo peso da página, não pela marca —
+  ver [[ARQ - O favicon de 949 KB]]
+- **`api/og.js` está no ar com conteúdo de 15/09 e marca de 04/09.** A prévia do
+  link da live funciona; a marca não subiu junto. É a armadilha desta própria
+  nota acontecendo — ver [[ARQ - Previa do link da live no WhatsApp 15092026]]
+- **As catorze aulas do Modo Live estão com `id`.** O módulo tem trava de três
+  aulas e está escondido pelo interruptor do beta — ver
+  [[ARQ - Videoaulas do Modo Live concluidas 15092026]]
+- **O briefing de 16/09 montado por outra sessão lista `moviki-app/live.html`
+  como `2026-09-15-sessao5` e `index.html` como `2026-09-15-aulatrava`.** As duas
+  marcas envelheceram: o módulo de aulas da live subiu por cima. Montar qualquer
+  entrega desses dois arquivos sobre a base do briefing **apaga o módulo de
+  aulas**, e o sintoma é silêncio
+- **O domínio principal na Vercel é o `www`.** O apex redireciona, e
+  redirecionamento entre origens quebra CORS — ver [[P30 - Decisao de dominio apex ou www]]
+
+## Regra de ouro que sustenta esta nota
+
+> **Marca de versão só vale se sobe junto com o conteúdo.** Arquivo que ganha
+> funcionalidade e mantém a marca antiga é pior que arquivo sem marca: afirma um
+> estado falso e o diagnóstico começa no lugar errado.
+>
+> **"Entregue" e "no ar" são estados diferentes, e só o repositório sabe qual é qual.**
+
+## Ligações
+
+[[A2 - Infraestrutura e Deploy]] · [[R - Regras de ouro]] ·
+[[R - Regras de ouro novas de 11 a 14092026]] ·
+[[ARQ - Modo Live no ar em beta fechado 12092026]] ·
+[[ARQ - Live escondida durante o beta 14092026]] ·
+[[ARQ - Previa do link da live no WhatsApp 15092026]] ·
+[[ARQ - Modulo de aulas da live com trava 15092026]] ·
+[[ARQ - Fase 2 da seguranca da live 15092026]]
