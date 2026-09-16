@@ -8,13 +8,10 @@ atualizado: 2026-09-16
 
 # R - Marcas de versao no ar
 
-**Conferido clonando os cinco repositorios em 16/09/2026, 05h.** Esta tabela
-envelhece sozinha: a fonte de verdade e o repositorio, nunca este arquivo. No
-navegador, `F12` > Console > `MOVIKI_VERSAO`; valor antigo e cache,
-`Ctrl+Shift+R`.
-
-Substitui a leitura da madrugada de 16/09, que ja nasceu velha: os paineis
-andaram cinco vezes depois dela.
+**Conferido clonando os repositorios em 16/09/2026, 05h**, com as entregas da
+tarde somadas por cima. Esta tabela envelhece sozinha: a fonte de verdade e o
+repositorio, nunca este arquivo. No navegador, `F12` > Console >
+`MOVIKI_VERSAO`; valor antigo e cache, `Ctrl+Shift+R`.
 
 ## Repo `moviki` (www.moviki.com.br)
 
@@ -24,9 +21,9 @@ andaram cinco vezes depois dela.
 | `comerciantes.html` | `2026-09-16-filmelive` |
 | `aovivo.html` (venda da live) | `2026-09-16-aovivo8-publica` |
 | `live.html` (quem assiste) | `2026-09-16-csp1` |
+| `404.html` (pagina publica) | `2026-09-16-capavideo` |
 | `api/live.js` | `2026-09-16-teto3` |
 | `api/og.js` | `2026-09-15-og` |
-| `404.html` | `2026-09-15-compra4` |
 | `mvqr.js` | `2026-09-14-mvqr2` |
 | `termos.html` · `privacidade.html` | `2026-09-12-live1` |
 | `regras-da-live.html` | `2026-09-11-regras1` |
@@ -47,12 +44,12 @@ do parceiro.
 
 | Arquivo | Marca |
 | --- | --- |
+| `index.html` (painel do lojista) | `2026-09-16-cena` |
+| `parceiro.html` | `2026-09-16-trilha` |
 | `eikoadm01.html` (painel do dono) | `2026-09-16-consumo3` |
-| `parceiro.html` | `2026-09-16-wafoto` |
-| `index.html` (painel do lojista) | `2026-09-15-liveaulas2` |
-| `live.html` (estudio) | `2026-09-15-liveaulas` |
-| `liveaulas.js` | `2026-09-15-liveaulas2` |
-| `material/catalogo.json` | `versao: 2026-09-16-qr` |
+| `liveaulas.js` | `2026-09-16-pixnovo` |
+| `live.html` (estudio) | `2026-09-16-pixfinanceiro` |
+| `material/catalogo.json` | `versao: 2026-09-16-caticones` |
 | `mvqr.js` | `2026-09-14-mvqr2` |
 | `seja-parceiro.html` | `2026-09-04-conta-existente` |
 | `404.html` | `2026-08-28-404vik` |
@@ -62,12 +59,11 @@ do parceiro.
 
 | Arquivo | Marca |
 | --- | --- |
-| `lib/catalogoPainel.js` | `2026-09-16-1` |
+| `lib/catalogoPainel.js` | `2026-09-16-8` |
 
-`MARCAS_CONFERIDAS` dentro desse arquivo: lojista `2026-09-15-liveaulas2`,
-parceiro `2026-09-15-aulatrava`. **O parceiro no ar esta em `wafoto`** — ou
-seja, o Vik esta em modo cauteloso agora. Ver
-[[ARQ - Incidente - modo cauteloso do Vik ligado sem aviso]].
+`MARCAS_CONFERIDAS` dentro desse arquivo: lojista `2026-09-16-cena`, parceiro
+`2026-09-16-trilha` — **iguais as marcas dos paineis acima**. Enquanto as duas
+baterem, o Vik responde em modo normal.
 
 Os outros arquivos do repo (`api/chat.js`, `lib/prompt*.js`, `lib/memoria.js`,
 `lib/segurancaVik.js`) nao tem marca nenhuma.
@@ -76,18 +72,27 @@ Os outros arquivos do repo (`api/chat.js`, `lib/prompt*.js`, `lib/memoria.js`,
 
 | Arquivo | Marca |
 | --- | --- |
+| `api/upload-imagem.js` | `2026-09-16-capatiktok` |
+| `lib/checkout.js` | `2026-09-16-subfechada` |
 | `api/pagar-saque.js` | `2026-09-16-saque1` |
 | `api/pontos.js` | `2026-09-15-livesessao` |
 | `api/webhook.js` | `2026-09-15-escopo` |
 | `lib/livesessao.js` | `2026-09-15-b5b` |
 | `lib/asaas.js` | `2026-09-14-falhafechada` |
-| `lib/checkout.js` | `2026-09-14` |
 | `lib/pix.js` | `2026-09-14-pixdireto` |
 | `api/financeiro.js` · `api/pedido.js` | `2026-09-14-porta1` |
 | `api/webhook-reprocessa.js` | `2026-09-14-repro1` |
 
-**12 funcoes em `api/` — no teto do plano Hobby da Vercel.** Funcao nova entra
-como etapa de uma existente, nunca como arquivo novo.
+**15 funcoes em `api/`** (conferido clonando em 16/09): `ativar-trial`,
+`criar-assinatura`, `excluir-conta`, `exclusoes`, `financeiro`,
+`lembrete-trial`, `novo-cliente`, `novo-parceiro`, `pagar-saque`,
+`parceiro-aprovado`, `pedido`, `pontos`, `upload-imagem`,
+`webhook-reprocessa`, `webhook`.
+
+> **Funcao nova entra como etapa de uma existente, nunca como arquivo novo.**
+> Em 16/09 a capa do TikTok quase virou `api/video-capa.js`; foi dobrada dentro
+> do `upload-imagem.js` como `tipo:'tiktok'`. Ver
+> [[ARQ - Capa do TikTok automatica 16092026]].
 
 ## Repo `moviki-assistente-social`
 
@@ -99,26 +104,16 @@ como etapa de uma existente, nunca como arquivo novo.
 **Regras v25 publicadas em 16/09/2026**, sobre a v24 de 15/09. O Console e a
 verdade.
 
-## Entregue e AINDA NAO no ar em 16/09/2026, 05h
-
-| Repo | Arquivo | Marca entregue |
-| --- | --- | --- |
-| `moviki` | `icones-premium/live.png` (NOVO) | — |
-| `moviki` | `comerciantes.html` | `2026-09-16-iconelive` |
-| `moviki-app` | `icones/cat-*.png` (12 NOVOS) | — |
-| `moviki-app` | `material/catalogo.json` | `2026-09-16-caticones` |
-| `moviki-app` | `parceiro.html` | `2026-09-16-caticones` |
-| `moviki-ai` | `lib/catalogoPainel.js` | `2026-09-16-2` |
-
 ## Alertas desta leitura
 
-- **O modo cauteloso do Vik ligou duas vezes em dois dias sem ninguem ver.**
 - **`premium.html` e `enterprise.html` continuam sem marca e sem uma linha
   sobre o Modo Live** — e `premium.html` e a landing que recebe trafego pago.
 - **`p.html` e `pp.html` ganharam metatag de previa em 16/09 e continuam sem
   marca de versao.** Sao os links mais compartilhados do projeto.
 - `regulamento.html` dos dois repos esta em conteudo 1.1 **sem marca** —
   diagnosticar por marca ali da a resposta errada.
+- A capa automatica do TikTok **so pode ser testada no ar**: o dominio do
+  TikTok e bloqueado no ambiente onde o codigo e escrito.
 
 ## Regra de ouro que sustenta esta nota
 
@@ -136,5 +131,5 @@ verdade.
 
 [[A2 - Infraestrutura e Deploy]] · [[R - Regras de ouro]] ·
 [[R - Checklist de deploy]] ·
-[[ARQ - Incidente - modo cauteloso do Vik ligado sem aviso]] ·
-[[ARQ - Icones 3D das categorias e da live 16092026]]
+[[ARQ - Capa do TikTok automatica 16092026]] ·
+[[ARQ - Tela escura na escolha da cena 16092026]]
