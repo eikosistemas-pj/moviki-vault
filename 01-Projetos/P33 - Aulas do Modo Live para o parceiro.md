@@ -2,16 +2,16 @@
 type: projeto
 status: ativo
 area: A14 - Material de apoio do parceiro
-tags: [parceiro, videoaulas, live, trava, gaveta, conformidade]
-prioridade: 2
-prazo: dia do lancamento do Modo Live
-atualizado: 2026-09-15
+tags: [parceiro, videoaulas, live, conformidade, producao]
+prioridade: 1
+prazo: 2026-09-18
+atualizado: 2026-09-16
 ---
 
 # P33 — Aulas do Modo Live para o parceiro
 
-Dar ao parceiro o conhecimento da venda ao vivo **sem transformar o painel dele
-num curso de estúdio** e **sem expor a live antes do dia D**.
+Substitui a versão de 15/09. Duas coisas mudaram: **a gaveta caiu** e **o
+roteiro passou a ter uma versão só, conferida contra o código no ar**.
 
 Continua [[A14 - Material de apoio do parceiro]] · depende de
 [[P28 - Videoaulas do Modo Live]] e de [[P24 - Modo Live - lancamento]] ·
@@ -19,239 +19,143 @@ irmão de [[P32 - Material de apoio da live para o parceiro]].
 
 ---
 
-## 1. A resposta técnica pedida: o que o teste grátis dá de live
+## 1. Por que nenhuma aula de live entrou no painel do parceiro até hoje
 
-Conferido em 15/09/2026 lendo `moviki/api/live.js` e `moviki-app/live.html` —
-não de memória.
+Não foi esquecimento. Foram quatro causas somadas:
 
-| Pergunta | Resposta no código |
-| --- | --- |
-| Quantas lives no teste grátis? | **Não existe limite de quantidade.** Nenhum contador de lives por dia, semana ou mês em nenhuma camada |
-| O que limita, então? | **A duração de cada live.** `NIVEIS.premium.limiteMin = 60` → 1 hora por transmissão |
-| Sacolinha no teste | **5 produtos** (`sacolaMax: 5`) |
-| Pix dentro da live no teste | **Não.** Pix é `ehEnterprise`, sem exceção para teste |
-| Por quanto tempo | Os **30 dias** do teste grátis, 1x por conta |
-| Enterprise, para comparar | 180 min por live, sacolinha de 20, Pix ligado |
+1. **Decisão de gaveta, de 15/09.** Título de aula é texto do HTML, legível no
+   fonte com ou sem id de vídeo. Com a live em beta fechado pelo teto de 10
+   subcontas do Asaas, subir a estrutura "sem os links" era a mesma porta
+   lateral que expôs `aovivo.html` em 14/09. Gaveta = fora do repositório.
+2. **A ordem de produção pôs o parceiro por último.** O aparato Playwright da
+   live é a maior parte do trabalho e serve às duas frentes: fase 2 eram as 14
+   aulas do lojista, fase 3 era a `mod-parc-live`. A fase 2 foi entregue em
+   15/09 (`liveaulas.js`, 14 ids no ar). **A fase 3 nunca rodou** — o chat
+   fechou antes.
+3. **O motor de aulas do `parceiro.html` não sabia o que é aula opcional.**
+   `todas()` percorre todo módulo com `id`, e a Divulgação — link, materiais,
+   crachá — só abre com 90% de todas. Ligar as 14 do lojista sem a flag faria a
+   trava saltar de 13 para 27 aulas, em cima do parceiro novo, que é quem
+   importa.
+4. **O guarda-corpo virou explicação.** O documento de estado no ar registra
+   *"`MvLiveAulas` no `parceiro.html`: zero, e está certo — não acrescente"*.
+   É regra anticolisão, escrita para a entrega do material não apagar o painel
+   do lojista. Lida fora de contexto, parece decisão de conteúdo.
 
-**A frase certa para o parceiro falar:** *"No teste grátis você já pode fazer
-live, quantas quiser, de até uma hora cada, com até cinco produtos na sacolinha.
-Receber por Pix dentro da live é do plano Enterprise."*
+## 2. O que mudou em 16/09 — a gaveta não protege mais nada
 
-### Duas armadilhas achadas ao conferir
+- `index.html`, `comerciantes.html` e `/aovivo` foram reposicionados em live
+  commerce, **públicos**. O eixo da marca é "Seu negócio no mapa. E em vídeo."
+- O material de apoio tem **peças de live prontas** esperando subida.
+- Resultado: o parceiro é hoje **o único elo da cadeia que não sabe falar do
+  produto que a home anuncia** — e é ele quem posta com `#publi`.
 
-1. **O teste grátis é vendido como "30 dias de Pró", mas na live ele entra como
-   Premium** (`if (periodo === 'trial') return NIVEIS.premium`). O parceiro que
-   ler a tabela de planos vai dizer que não tem live no teste — e vai estar
-   errado. A aula precisa dizer isso com todas as letras.
-2. **O teto de 60 minutos só existe na tela do estúdio** (`limiteMin*60` no
-   relógio do `live.html`), não no servidor. Já está registrado como pendência
-   em [[P24 - Modo Live - lancamento]]. **Consequência para esta nota:** a aula
-   fala "até uma hora" como regra do plano, nunca como trava técnica — e nenhuma
-   peça de divulgação promete "live ilimitada".
+**Inversão do risco:** o perigo deixou de ser expor a live cedo demais e passou
+a ser **peça de live na mão do parceiro sem a aula que diz o que não pode ser
+prometido**. Por isso a `mod-parc-live` entra **antes ou junto** com a subida
+das peças de live, nunca depois.
 
----
+## 3. Decisão vigente (não reabrir)
 
-## 2. A crítica ao plano original
+- **Uma aula nova obrigatória:** `mod-parc-live` — *"A venda ao vivo: o que é e
+  como falar dela"*, ~2:50. Módulo próprio **Venda ao vivo**, sem `sel`.
+  Conta para a trava, porque é a aula de conformidade da live — par exato da
+  `mod-parc-conduta`.
+- **Módulo opcional "Conhecer o estúdio por dentro":** as 14 aulas do lojista,
+  mesmos ids do YouTube. **Não conta para a trava nem para o selo.**
+- **Motor:** flag `opcional:true`; `todas()` e `quantos()` ignoram módulo
+  opcional; a tela mostra o opcional depois dos obrigatórios, com contador
+  separado e sem visto verde cobrando conclusão; progresso continua em
+  `parceiros/{uid}.aulasVistas`.
+- **Ganho de quebra:** dali em diante, aula de aprofundamento deixa de ser
+  imposto sobre a ativação do parceiro.
 
-A ideia do Paulo em 15/09: *uma aula de introdução para o parceiro e, depois
-dela, jogar o parceiro para assistir a sequência de aulas que já foi produzida
-para o cliente.*
+## 4. O número que o roteiro fala — conferido no código, não na memória
 
-A primeira metade está certa. A segunda, do jeito descrito, quebra três coisas.
+Havia **duas versões do mesmo roteiro** em circulação: o P33 de 15/09 dizia
+*"quantas lives quiser"*; o handoff do mesmo dia dizia *"duas lives"*, na
+expectativa da P34.
 
-### 2.1 A trava da Divulgação passaria de 12 para 25 aulas
+**Vale a segunda, e agora por fato consumado:** `moviki-robo/lib/livesessao.js`
+já traz `COTA_TRIAL = 2`, carência de 15 minutos para reabrir sem consumir cota,
+e o estúdio já mostra *"Teste grátis: esta é a sua live 1 de 2"*.
 
-`todas()` no `parceiro.html` percorre **todos** os módulos com `id` e a
-Divulgação — link, materiais e crachá — só abre com 90% de **todas** elas.
-As 13 aulas do Modo Live somam 12 a 13 minutos. Somadas às 12 atuais, o parceiro
-novo passaria a precisar de **~25 aulas** para conseguir o próprio link.
-
-É a pior coisa que se pode fazer com a ativação de parceiro: o cadastro acontece
-no impulso, e o link é o que transforma impulso em ação. *Aula nova não retranca
-quem já tem `aulasEm`* — o estrago é inteiro no parceiro novo, que é exatamente
-quem importa.
-
-### 2.2 O parceiro não vai operar o estúdio — ele vende
-
-As 13 aulas ensinam **a fazer live**: virar a câmera, marcar a sacolinha, ligar
-o cupom, gravar corte. O parceiro não transmite. Ele precisa saber **o que a
-live faz, para quem serve, em que plano está e como falar dela sem prometer
-resultado**. Ensinar operação para quem não opera é o caminho mais curto para
-ele não assistir nada.
-
-### 2.3 Nada disso pode subir hoje
-
-O Modo Live está em beta fechado por causa do teto de 10 subcontas no Asaas, e a
-auditoria de 14/09 registra *"Painel do parceiro e material de apoio: conferido,
-zero menções"*. O título de uma aula dentro do `MOVIKI_TUTORIAIS` é **texto do
-HTML** — legível por qualquer um que abra o fonte, com ou sem `id` de vídeo.
-Subir a estrutura "sem os links" **não é gaveta**: é a mesma porta lateral que
-pegou `aovivo.html` e `regras-da-live.html`.
-
-**Vale aqui a mesma decisão da P32: gaveta = fora do repositório.**
-
----
-
-## 3. A solução — obrigatório curto, opcional profundo
-
-### 3.1 Uma aula nova, e só uma, conta para a trava
-
-`mod-parc-live` — *"A venda ao vivo: o que é e como falar dela"*, ~2:40.
-Módulo próprio **Venda ao vivo**, sem `sel` (não existe seção de live no painel
-do parceiro), na mesma lógica da abertura e da conduta.
-
-Ela entra na trava porque é a aula que diz **o que não pode ser prometido** sobre
-a live — o par exato da `mod-parc-conduta`. Conformidade é sempre obrigatória.
-
-### 3.2 As 13 do lojista entram como módulo OPCIONAL
-
-Módulo **"Conhecer o estúdio por dentro"**, com as mesmas 13 aulas do Modo Live
-(os mesmos `id` do YouTube — vídeo não listado embute em qualquer página), com
-um aviso de uma linha: *"São as aulas que o lojista vê. Assista se quiser mostrar
-o Moviki por dentro na hora da visita."*
-
-**Isso exige uma mudança no motor**, que hoje não sabe a diferença:
-
-- marcar o módulo com `opcional:true`;
-- `todas()` e `quantos()` passam a ignorar módulo opcional → a trava e o selo
-  continuam contando **13 aulas** (12 atuais + a nova), não 26;
-- a tela de aulas mostra o módulo opcional depois dos obrigatórios, com o
-  contador separado e sem visto verde puxando cobrança.
-
-O progresso continua em `parceiros/{uid}.aulasVistas` — sem regra nova, porque
-as chaves opcionais caem no mesmo array.
-
-**Ganho de quebra:** o motor passa a aceitar qualquer aula de aprofundamento no
-futuro sem tocar na trava. Hoje, toda aula nova é um imposto sobre a ativação.
-
-### 3.3 O que a introdução cobre — e o que ela não cobre
-
-| Cobre | Não cobre |
-| --- | --- |
-| O que o lojista consegue fazer ao vivo, em uma frase | Como operar qualquer aba do estúdio |
-| Planos: live no Premium e no Enterprise; Pix só no Enterprise | Preço de tarifa do Asaas (envelhece) |
-| O teste grátis com live em nível Premium, 1 h, 5 produtos | Número de lives (não existe limite; não citar número) |
-| A objeção "não tenho seguidores" | Promessa de venda, alcance ou faturamento |
-| Onde pegar as peças prontas: aba Material de apoio | Qualquer coisa que dependa do link dele estar destravado |
-| Que existe um módulo opcional com as aulas do lojista | Quantas aulas existem (a lista cresce) |
-
----
-
-## 4. O roteiro — `mod-parc-live`
-
-Voz **Malu** (Kairogen). No texto que vai para o motor, "Moviki" vira
-**"Mo-víki"**; a legenda e o `.srt` mantêm a grafia certa.
-
-> Agora o Moviki tem venda ao vivo, e isso muda a conversa que você tem com o
-> lojista.
->
-> Funciona assim: o lojista entra ao vivo pelo próprio celular, direto do painel.
-> Sem aplicativo novo, sem estúdio, sem número mínimo de seguidores.
->
-> A página dele ganha uma faixa vermelha escrito AO VIVO, e ele tem um endereço
-> só da live, para mandar no grupo do bairro e no status.
->
-> Quem assiste vê o produto na tela, com o preço, e um botão para pedir. E
-> conversa com o lojista pelo chat, na hora.
->
-> A venda ao vivo está no Premium e no Enterprise.
->
-> E presta atenção nesta parte, porque é a que mais gera dúvida: no período de
-> teste, a live já funciona, no nível Premium. Transmissão de até uma hora, com
-> até cinco produtos na lista de venda. O lojista pode experimentar antes de
-> pagar qualquer coisa.
->
-> Receber por Pix dentro da live é do Enterprise. Ali o cliente paga sem sair da
-> transmissão, e o dinheiro cai numa conta no nome do lojista. Nunca na conta do
-> Moviki.
->
-> O Moviki não cobra comissão sobre a venda do lojista.
->
-> Agora, o que você não pode falar.
->
-> Não prometa venda, faturamento, número de clientes nem alcance. Nem seu, nem
-> dele. Você descreve a ferramenta — nunca o resultado.
->
-> Não diga que basta ligar a câmera que a audiência aparece. Quem chama o público
-> é o lojista, pelo WhatsApp dele, pelo grupo dele, pelos clientes que ele já tem.
->
-> E é essa a resposta para a frase que você mais vai ouvir: "mas eu não tenho
-> seguidores". Ele não precisa ter. O Moviki é o palco; o megafone ele já tem.
->
-> Na aba Material de apoio você encontra as artes, os vídeos e as mensagens
-> prontas sobre a venda ao vivo, com o seu link já dentro da legenda.
->
-> E se você quiser conhecer a ferramenta por dentro, aqui nas aulas tem um módulo
-> opcional com as mesmas aulas que o lojista assiste. Ele não tranca nada: é para
-> quando você quiser mostrar o Moviki funcionando, na frente do lojista.
-
-**Tela:** painel do lojista com o botão Fazer live · página pública com a faixa
-AO VIVO · tela de quem assiste, com produto e chat · tabela de planos ·
-aba Material de apoio do parceiro com as peças da live.
-
-⚠️ **Nenhum valor, nome ou documento real entra no quadro.** Conta de
-demonstração, como em toda aula.
-
----
-
-## 5. Sequenciamento — a correção que economiza uma produção inteira
-
-O plano original produziria a introdução do parceiro **antes** das 13 do lojista.
-Isso custa duas montagens do mesmo aparato.
-
-Metade das cenas da introdução é live rodando: câmera falsa no Chromium
-(`--use-fake-device-for-media-stream`), `api/live.js` de mentira devolvendo nível
-e endereços, vídeo local no lugar do WebRTC do Cloudflare e **segunda aba**
-gravando a tela de quem assiste. **Esse aparato é a maior parte do trabalho** —
-e é exatamente o mesmo das 13 aulas do lojista.
-
-**Ordem certa: um bloco de produção só, 14 vídeos.**
-
-| Fase | O que | Depende de |
+| Item | Valor no ar | Onde |
 | --- | --- | --- |
-| 1 | Aparato Playwright da live (câmera falsa, `api/live.js` de mentira, segunda aba) | — |
-| 2 | 13 aulas do lojista → `liveaulas.js` | fase 1 |
-| 3 | `mod-parc-live` (introdução do parceiro) | fase 1 |
-| 4 | `parceiro.html` com `opcional:true` no motor + os dois módulos novos | fases 2 e 3 |
-| 5 | Paulo sobe os 14 no YouTube, **não listados**, e manda os links | fases 2 e 3 |
-| 6 | Ids entram em `liveaulas.js` e no `parceiro.html`; `moviki-videoaulas-no-ar.md` atualizado na mesma entrega | fase 5 |
-| 7 | **Gaveta** até o dia D | — |
+| Lives no teste grátis | **2** | `lib/livesessao.js` (`COTA_TRIAL`) |
+| Reabrir em até 15 min | não consome cota | `lib/livesessao.js` (`CARENCIA_MS`) |
+| Nível da live no teste | **Premium** | `moviki/api/live.js` |
+| Duração Premium | 60 min | `NIVEIS.premium.limiteMin` |
+| Sacolinha Premium | 5 produtos | `NIVEIS.premium.sacolaMax` |
+| Pix na live | só Enterprise | `moviki-robo/lib/checkout.js` |
+| Plano pago | sem limite de quantidade | `lib/livesessao.js` |
 
----
+> **Regra de ouro que nasce daqui:** roteiro vive em **um** documento. Handoff
+> aponta para ele, nunca o copia. Roteiro duplicado vira duas verdades, e a que
+> for gravada é a errada.
 
-## 6. Gaveta e dia D
+### A armadilha que a aula precisa desarmar
 
-Nada de live no `parceiro.html` antes do lançamento — **nem título de aula**.
+O teste é vendido como **"30 DIAS DE PRÓ"**, mas na live entra como **Premium**.
+O parceiro que ler a tabela de planos vai dizer ao lojista que não tem live no
+teste — e vai estar errado. O roteiro diz isso com todas as letras.
 
-O `parceiro.html` é o arquivo mais disputado do projeto (quatro conversas
-entregaram versões dele no mesmo dia em 10/09; a colisão de 11/09 apagou a aba
-de material de apoio). Por isso:
+## 5. Roteiro final — `mod-parc-live`
 
-- a versão de destino se reconfere **no GitHub, na hora de subir** — hoje está
-  `2026-09-15-matcategoria`;
-- o arquivo do dia D é montado sobre a marca que estiver no ar **naquele
-  momento**, nunca sobre a cópia desta conversa;
-- o sintoma da colisão é **silêncio**: a tela abre normal e o recurso não está lá.
+Voz **Malu** (`fhtZMBwha5du5OxuvexO`). No texto do motor, "Moviki" vira
+**"Mo-víki"**; legenda e `.srt` mantêm a grafia certa.
 
-**No dia D entram juntos, num movimento só:** `liveaulas.js` com os ids ·
-`parceiro.html` com o motor opcional e os dois módulos · as 9 peças da
-[[P32 - Material de apoio da live para o parceiro]] · `catalogo.json` com `novo`
-zerado nos 17 itens antigos.
+| # | Fala | Tela |
+| --- | --- | --- |
+| 1 | Agora o Moviki tem venda ao vivo, e isso muda a conversa que você tem com o lojista. Funciona assim: o lojista entra ao vivo pelo próprio celular, direto do painel. Sem aplicativo novo, sem estúdio, sem número mínimo de seguidores. | painel do lojista, botão Fazer live |
+| 2 | A página dele ganha uma faixa vermelha escrito AO VIVO, e ele tem um endereço só da live, para mandar no grupo do bairro e no status. Quem assiste vê o produto na tela, com o preço, e um botão para pedir. E conversa com o lojista pelo chat, na hora. | página pública com a faixa · tela de quem assiste |
+| 3 | A venda ao vivo está no Premium e no Enterprise. E presta atenção nesta parte, porque é a que mais gera dúvida. No período de teste, a live já funciona. Mesmo a gente chamando o teste de trinta dias de Pró, na live ele entra no nível Premium. | tabela de planos |
+| 4 | São duas lives, de até uma hora cada, com até cinco produtos na lista de venda. Dá para o lojista experimentar antes de pagar qualquer coisa. Assinando, deixa de ter limite de quantidade. | aviso de cota no estúdio |
+| 5 | Receber por Pix dentro da live é do Enterprise. Ali o cliente paga sem sair da transmissão, e o dinheiro cai numa conta no nome do lojista. Nunca na conta do Moviki. O Moviki não cobra comissão sobre a venda do lojista. | checkout na live, com rodapé "recurso Enterprise" |
+| 6 | Agora, o que você não pode falar. Não prometa venda, faturamento, número de clientes nem alcance. Nem seu, nem dele. Você descreve a ferramenta — nunca o resultado. | cartela de conduta |
+| 7 | Não diga que basta ligar a câmera que a audiência aparece. Quem chama o público é o lojista: pelo WhatsApp dele, pelo grupo dele, pelos clientes que ele já tem. | cartela de conduta |
+| 8 | E é essa a resposta para a frase que você mais vai ouvir: "mas eu não tenho seguidores". Ele não precisa ter. O Moviki é o palco; o megafone ele já tem. | cartela |
+| 9 | Na aba Material de apoio você encontra as artes, os vídeos e as mensagens prontas sobre a venda ao vivo, com o seu link já dentro da legenda. | aba Material de apoio, categoria da live |
+| 10 | E se você quiser conhecer a ferramenta por dentro, aqui nas aulas tem um módulo opcional com as mesmas aulas que o lojista assiste. Ele não tranca nada: é para quando você quiser mostrar o Moviki funcionando, na frente do lojista. | tela de aulas com o módulo opcional |
 
----
+⚠️ **Conta de demonstração sempre.** Nenhum valor, nome, documento ou chave Pix
+real entra no quadro.
 
-## 7. Pendências que esta nota abre
+## 6. Estado da produção — CONCLUÍDA em 16/09
 
-- [ ] Decidir se o teto de 60 min sobe para o servidor antes de a live ser
-      divulgada pelo parceiro (hoje só na tela) — [[P24 - Modo Live - lancamento]]
-- [ ] Corrigir a comunicação "teste grátis = Pró" onde ela conflita com a live
-      em nível Premium (tabela de planos, Vik, `aovivo.html`)
-- [ ] Montar o aparato Playwright da live (fase 1) — é o gargalo real de tudo
-- [ ] `parceiro.html`: flag `opcional` em `todas()`, `quantos()` e na tela de aulas
+- **Narração:** voz Malu, dez blocos, 20 créditos Kairogen.
+- **Vídeo:** `mod-parc-live.mp4`, **2:23**, mais o `.srt`. Cenas em cartelas e
+  mockup na identidade do painel, gravadas quadro a quadro em Chromium a 25 fps.
+  Não é captura do estúdio real — a aula é conceitual, o parceiro não transmite.
+- **No ar:** YouTube não listado, id **`H1vk5wAil78`**.
+- **Painel:** `parceiro.html` marca `2026-09-16-liveparc2`, com o motor opcional,
+  o módulo Venda ao vivo e o módulo opcional das 14 aulas do lojista.
+  A trava da Divulgação passou de 12 para **13** aulas.
+- **Falta só:** `MARCAS_CONFERIDAS` do Vik na mesma rodada do painel.
+
+## 7. O que não pode entrar
+
+- Prometer faturamento, número de vendas, alcance ou resultado.
+- Sugerir que basta ligar a live para aparecer audiência.
+- Dizer que os cortes saem automáticos.
+- A palavra "trial" — é "teste grátis" ou "período de teste".
+- Dizer **quantas** aulas existem. A lista cresce; vídeo não se corrige com deploy.
+- Nível, medalha ou escada de parceiro em peça que saia do painel logado.
+
+## 8. Pendências que esta nota deixa
+
+- [ ] Montar `.mp4` + `.srt` da `mod-parc-live`
+- [ ] `parceiro.html`: `opcional:true` em `todas()`, `quantos()` e na tela
+- [ ] Teto de 60 min ainda é só de tela, não do servidor — [[P24 - Modo Live - lancamento]]
+- [ ] 12 das 14 aulas do lojista foram gravadas com a câmera acelerada. Vão
+      aparecer para o parceiro no módulo opcional. Regravar é decisão aberta.
+- [ ] A aula 07 do lojista (`mod-live-pix`) cita a tarifa do Asaas. É a única
+      que envelhece, e o módulo opcional a expõe ao parceiro.
 
 ## Ligações
 
 [[A14 - Material de apoio do parceiro]] · [[A13 - Modo Live]] ·
 [[P24 - Modo Live - lancamento]] · [[P28 - Videoaulas do Modo Live]] ·
 [[P32 - Material de apoio da live para o parceiro]] ·
+[[P34 - Travas contra abuso do teste gratis]] ·
 [[R - Live - Arquitetura e arquivos]]

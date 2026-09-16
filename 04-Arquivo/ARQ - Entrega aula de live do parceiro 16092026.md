@@ -15,14 +15,13 @@ Detalhe e roteiro em [[P33 - Aulas do Modo Live para o parceiro]].
 
 | Repo | Pasta | Arquivo | Ação | Marca nova | Montado sobre |
 | --- | --- | --- | --- | --- | --- |
-| moviki-app | / | `parceiro.html` | SUBSTITUI | `2026-09-16-liveparc` | `2026-09-16-caticones` |
+| moviki-app | / | `parceiro.html` | SUBSTITUI | `2026-09-16-liveparc2` | `2026-09-16-caticones` |
 | — | — | `mod-parc-live.mp4` + `.srt` | vídeo novo | — | — |
 
 ## O que mudou no painel
 
-- Módulo **Venda ao vivo** (obrigatório, sem `sel`) com a aula `mod-parc-live`.
-  Entra **sem `id`**: aula sem id não aparece e não conta para a trava. O id
-  entra quando o vídeo subir no YouTube.
+- Módulo **Venda ao vivo** (obrigatório, sem `sel`) com a aula `mod-parc-live`,
+  id **`H1vk5wAil78`**, 2:23. A trava da Divulgação passou de 12 para **13**.
 - Módulo **Conhecer o estúdio por dentro**, com `opcional:true` e as 14 aulas
   do lojista.
 - Motor: `obrigatorios()` e `opcionais()` novos; `todas()`, `quantos()` e
@@ -57,16 +56,17 @@ controle. LF preservado.
 
 | Cenário | Resultado |
 | --- | --- |
-| Tela de aulas com o catálogo novo | contador **0 de 12**, 26 itens na lista |
+| Tela de aulas com o catálogo novo | contador **0 de 13**, 27 itens na lista |
 | Faixa do módulo opcional | "Opcional · Conhecer o estúdio por dentro (0 de 14)" |
 | Assistir **uma opcional** | contador e selo não mudam · cadeado continua · chave **é salva** |
 | Assistir as 12 obrigatórias | 12 de 12 · cadeado cai · selo "Aulas em dia" · a opcional continua salva |
-| Com o id da aula nova publicado | contador vira **0 de 13** |
+| Selo do parceiro novo | "Conclua as 13 para liberar o seu link" |
 | Parceiro já formado (`aulasEm`) | "1 aula nova · seu link continua liberado" — **não retranca** |
 
 ## Produção do vídeo
 
-- Voz **Malu**, dez blocos, 20 créditos Kairogen. 2:23 no total.
+- Voz **Malu**, dez blocos, 20 créditos Kairogen. 2:23 no total. YouTube não
+  listado: `H1vk5wAil78`.
 - Cenas: cartelas e mockup em HTML/CSS na identidade do painel, gravadas quadro
   a quadro em Chromium a 25 fps. **Não** é captura do estúdio real — a aula do
   parceiro é conceitual, ele não opera a live.
@@ -77,8 +77,6 @@ controle. LF preservado.
 
 ## O que fica pendente
 
-- [ ] Id do YouTube da `mod-parc-live` → entra no `parceiro.html` numa segunda
-      entrega, montada sobre a marca que estiver no ar naquele momento.
 - [ ] `moviki-ai/lib/catalogoPainel.js`: `MARCAS_CONFERIDAS` do parceiro para
       `2026-09-16-liveparc`, mais a descrição do módulo de aulas da live no
       painel do parceiro. **Sem isso o Vik entra em modo cauteloso de novo.**
