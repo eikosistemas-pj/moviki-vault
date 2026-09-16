@@ -21,7 +21,7 @@ Detalhamento por achado: [[P35 - Auditoria de seguranca do Modo Live]].
 ## 1. Onde o trabalho parou (16/09/2026, madrugada)
 
 O **Bloco A inteiro** da auditoria esta fechado e no ar. A **fase 2** comecou:
-B5 fechado, e o lote 1A (B8, B9, C5) esta **entregue mas NAO subido**.
+**B5, B8, B9 e C5 fechados e no ar**, conferidos byte a byte.
 
 O objetivo agora e um so: **fechar o que trava a abertura da live** e por no ar.
 Nao e fechar os 30 achados.
@@ -35,7 +35,7 @@ Nao e fechar os 30 achados.
 | moviki-robo | `api/webhook.js` | `2026-09-15-escopo` |
 | moviki-robo | `api/pontos.js` | `2026-09-15-livesessao` |
 | moviki | `api/live.js` | `2026-09-15-b5a` |
-| moviki | `live.html` | `2026-09-15-sessao1` |
+| moviki | `live.html` | `2026-09-15-filtro` |
 | moviki-app | `live.html` (estudio) | `2026-09-15-sessao5` |
 | moviki-app | `index.html` | `2026-09-15-aulatrava` |
 | moviki-app | `parceiro.html` | `2026-09-15-aulatrava` |
@@ -46,12 +46,17 @@ Nao e fechar os 30 achados.
 ⚠️ **So em `Production`, nao em `All Environments`.** Producao funciona; um
 deploy de **Preview nao tem o segredo** e a live nao comeca (falha fechada).
 
-## 3. ⚠️ PRONTO E NAO SUBIDO — lote 1A
+## 3. ✅ LOTE 1A — NO AR E TESTADO (16/09, madrugada)
 
-`moviki-lote1a-filtro-15092026.zip` → **`moviki/live.html`, SUBSTITUI, marca
-`2026-09-15-filtro`**. Montado sobre a `sessao1`.
+`moviki/live.html`, marca **`2026-09-15-filtro`**. Conferido byte a byte contra
+o GitHub: identico ao entregue.
 
-**Se o zip se perder, o que ele muda — refazer assim:**
+**Testado na live real** (`moviki.com.br/live/karina`), com o Paulo
+transmitindo: video, oferta relampago com contador, cupom `LIVE10`, sacolinha
+com dois produtos, chat com duas mensagens — **e as FOTOS aparecendo**, que era
+o unico risco de regressao do C5. Veredito do Paulo: "tudo ok".
+
+**O que este lote mudou — para nao ser desfeito por engano:**
 
 1. **B8, na exibicao do chat.** Era
    `if(m.tipo!=='venda' && mvProibido(m.texto)) return;` — tudo que fosse
@@ -68,8 +73,9 @@ deploy de **Preview nao tem o segredo** e a live nao comeca (falha fechada).
    depois por `el.style.backgroundImage` (CSSOM), nos dois lugares que usam
    `fotoDiv` (produto em destaque e sacolinha).
 
-**Risco de regressao:** so a foto do produto. A validacao nova e mais estrita
-de proposito. Se sumir foto de alguem, pedir a URL antes de afrouxar.
+⚠️ **Nao afrouxar `fotoOk()` sem olhar a URL.** A validacao e estrita de
+proposito: e ela que fecha o C5. Se um dia sumir a foto de algum lojista, pedir
+**a URL** antes de mexer — no teste real as fotos apareceram normalmente.
 
 ## 4. FILA — em ordem de urgencia real, nao pela numeracao
 
@@ -78,7 +84,7 @@ de proposito. Se sumir foto de alguem, pedir a URL antes de afrouxar.
 
 | Lote | Achados | Arquivos | Por que |
 | --- | --- | --- | --- |
-| **1A** | B8, B9, **C5** | `moviki/live.html` | ✅ pronto, falta subir |
+| ~~**1A**~~ | ~~B8, B9, C5~~ | `moviki/live.html` | ✅ **no ar e testado** |
 | **1B** | **B2**, **B10** | `moviki-app/eikoadm01.html` | abrir a live com a moderacao cega e o pior cenario |
 | **1C** | **B4**, **B7** | `moviki/api/live.js` + regras v25 | custo faturado por qualquer um |
 | **1D** | **B11, B12, B13** | `moviki-robo/api/pagar-saque.js` + regras | nao e da live: **saque pago em dobro, hoje** |
