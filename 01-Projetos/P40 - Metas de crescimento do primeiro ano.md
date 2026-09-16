@@ -48,9 +48,12 @@ Pequeno, mas **cresce com a base** e ja esta somado na projecao abaixo.
 | Mix | 60% Pro · 30% Premium · 10% Enterprise |
 | Preco | Pro 39,90 · Premium 69,90 · Enterprise 129,90 |
 | Ticket medio | R$ 57,90 |
-| Margem media por cliente | **R$ 44,52** |
+| Margem media por cliente | **R$ 44,43** |
 | Imposto | 6% sobre a receita bruta |
-| Comissao de parceiro | 15%, em **metade** dos clientes |
+| Comissao de parceiro, nivel 1 | **15,3% medio**, em metade dos clientes (ver a escada abaixo) |
+| Comissao de nivel 2 | 7,5% do 1o pagamento, em 40% dos clientes de parceiro |
+| Comissao de nivel 3 | 5% do 1o pagamento, em 15% dos clientes de parceiro |
+| Bonus de marco | R$ 25 a cada parceiro que cruza o degrau Prata |
 | Tarifa Asaas | R$ 2,00 por cobranca |
 | Video | Premium 1.200 min/mes · Enterprise 3.000 min/mes |
 | Custo fixo | R$ 1.755, mais R$ 300 a cada 200 lojistas |
@@ -59,32 +62,68 @@ Pequeno, mas **cresce com a base** e ja esta somado na projecao abaixo.
 
 | Mes | Ativos | Receita | Custo | Lucro | Acumulado |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | 50 | R$ 2.895 | R$ 2.435 | R$ 460 | R$ 460 |
-| 2 | 98 | R$ 5.645 | R$ 3.091 | R$ 2.554 | R$ 3.014 |
-| 3 | 143 | R$ 8.258 | R$ 3.710 | R$ 4.548 | R$ 7.562 |
-| 4 | 185 | R$ 10.740 | R$ 4.297 | R$ 6.443 | R$ 14.005 |
-| 5 | 226 | R$ 13.098 | R$ 5.155 | R$ 7.943 | R$ 21.948 |
-| 6 | 265 | R$ 15.338 | R$ 5.686 | R$ 9.652 | R$ 31.600 |
-| 7 | 302 | R$ 17.466 | R$ 6.189 | R$ 11.277 | R$ 42.877 |
-| 8 | 337 | R$ 19.488 | R$ 6.668 | R$ 12.820 | R$ 55.697 |
-| 9 | 370 | R$ 21.409 | R$ 7.123 | R$ 14.286 | R$ 69.983 |
-| 10 | 401 | R$ 23.233 | R$ 7.855 | R$ 15.379 | R$ 85.362 |
-| 11 | 431 | R$ 24.966 | R$ 8.265 | R$ 16.702 | R$ 102.063 |
-| **12** | **460** | **R$ 26.613** | **R$ 8.655** | **R$ 17.959** | **R$ 120.022** |
+| 1 | 50 | R$ 2.895 | R$ 2.513 | R$ 382 | R$ 382 |
+| 2 | 98 | R$ 5.645 | R$ 3.174 | R$ 2.471 | R$ 2.853 |
+| 3 | 143 | R$ 8.258 | R$ 3.796 | R$ 4.462 | R$ 7.314 |
+| 4 | 185 | R$ 10.740 | R$ 4.388 | R$ 6.352 | R$ 13.667 |
+| 5 | 226 | R$ 13.098 | R$ 5.249 | R$ 7.849 | R$ 21.515 |
+| 6 | 265 | R$ 15.338 | R$ 5.783 | R$ 9.555 | R$ 31.070 |
+| 7 | 302 | R$ 17.466 | R$ 6.290 | R$ 11.176 | R$ 42.247 |
+| 8 | 337 | R$ 19.488 | R$ 6.772 | R$ 12.716 | R$ 54.963 |
+| 9 | 370 | R$ 21.409 | R$ 7.229 | R$ 14.179 | R$ 69.142 |
+| 10 | 401 | R$ 23.233 | R$ 7.964 | R$ 15.269 | R$ 84.411 |
+| 11 | 431 | R$ 24.966 | R$ 8.377 | R$ 16.590 | R$ 101.001 |
+| **12** | **460** | **R$ 26.613** | **R$ 8.769** | **R$ 17.844** | **R$ 118.845** |
 
-**Faturamento do ano: R$ 189.150. Lucro acumulado: R$ 120.022.**
+**Faturamento do ano: R$ 189.150. Lucro acumulado: R$ 118.845.**
 
 ⚠️ **12 x 50 nao da 600.** Com 5% de saida por mes, a base fecha em **460**. O
 churn nao aparece no discurso de ninguem e e ele que decide o tamanho do ano.
+
+## O Programa de Parceiros inteiro, dentro da conta
+
+A primeira versao deste documento tinha **so o nivel 1**. Refeito com a escada
+completa:
+
+| O que | Como entra | Custo no ano |
+| --- | --- | ---: |
+| **Nivel 1** | recorrente, todo mes, sobre a base vinda de parceiro | R$ 13.200 |
+| **Escada de niveis** | 15% no Bronze e Prata, 16% do Ouro para cima — media de **15,3%** | +R$ 473 |
+| **Nivel 2** | 7,5%, **uma vez**, no 1o pagamento | +R$ 521 |
+| **Nivel 3** | 5%, **uma vez**, no 1o pagamento | +R$ 130 |
+| **Bonus de marco** | R$ 25 / 50 / 150 / 300, uma vez por degrau, por parceiro | +R$ 239 |
+| **TOTAL** | | **R$ 15.360** |
+
+**O programa inteiro custa R$ 1.174 a mais no ano do que a conta anterior — 0,98%
+do lucro.** A razao e estrutural, e vale ficar registrada:
+
+> **O nivel 1 e recorrente; os niveis 2 e 3 sao pagos UMA vez, sobre o primeiro
+> pagamento.** Um bonus unico de 7,5% sobre uma mensalidade nao se compara a uma
+> comissao de 15% que volta todo mes. O que parece "comissao de tres niveis"
+> custa, na pratica, quase o mesmo que a de um nivel so.
+
+### O pior caso, para nao restar duvida
+
+100% dos clientes vindos de parceiro, **todos** com nivel 2 e nivel 3 na cadeia,
+e a comissao de nivel 1 no teto de **18%** (Esmeralda):
+
+| | Lucro no mes 12 | Acumulado no ano |
+| --- | ---: | ---: |
+| Cenario da tabela | R$ 17.844 | R$ 118.845 |
+| **Pior caso possivel** | **R$ 14.802** | **R$ 95.815** |
+
+**Cabe na margem com folga.** E esse pior caso so acontece se o programa der
+muito certo — 100% de aquisicao por parceiro e parceiros no topo da escada. O
+custo maior chega junto com o volume que o gerou.
 
 ### O mesmo ano com o preco de hoje
 
 | | Preco novo | Preco de hoje |
 | --- | ---: | ---: |
 | Faturamento do ano | R$ 189.150 | R$ 155.828 |
-| Lucro acumulado | R$ 120.022 | R$ 91.203 |
+| Lucro acumulado | R$ 118.845 | R$ 90.186 |
 
-**A mudanca de preco vale R$ 28.818 no primeiro ano** — e o trabalho de venda e
+**A mudanca de preco vale R$ 28.659 no primeiro ano** — e o trabalho de venda e
 exatamente o mesmo.
 
 ## A conta que falta na projecao: o custo de trazer os 50
@@ -95,10 +134,10 @@ estao no painel hoje. **Nao vao.** Com o teto de aquisicao de R$ 92 por cliente
 
 | Custo por cliente | Aquisicao/mes | Lucro no mes 12 | Acumulado no ano | Meses no vermelho |
 | ---: | ---: | ---: | ---: | --- |
-| R$ 0 (so a pe e parceiro) | R$ 0 | R$ 17.959 | R$ 120.022 | nenhum |
-| R$ 40 | R$ 2.000 | R$ 15.959 | R$ 96.022 | mes 1 |
-| R$ 60 | R$ 3.000 | R$ 14.959 | R$ 84.022 | meses 1 e 2 |
-| R$ 92 (o teto) | R$ 4.600 | R$ 13.359 | R$ 64.822 | meses 1 a 3 |
+| R$ 0 (so a pe e parceiro) | R$ 0 | R$ 17.844 | R$ 118.845 | nenhum |
+| R$ 40 | R$ 2.000 | R$ 15.844 | R$ 94.845 | mes 1 |
+| R$ 60 | R$ 3.000 | R$ 14.844 | R$ 82.845 | meses 1 e 2 |
+| R$ 92 (o teto) | R$ 4.600 | R$ 13.244 | R$ 63.645 | meses 1 a 3 |
 
 **O negocio se paga em qualquer um dos quatro.** O que muda e o tamanho do
 buraco inicial: no pior caso sao tres meses no vermelho antes de virar.
@@ -125,7 +164,7 @@ buraco inicial: no pior caso sao tres meses no vermelho antes de virar.
 | **143 ativos · lucro de R$ 4.500/mes** | fim do trimestre 1 | da para reinvestir em midia sem tirar do bolso |
 | **265 ativos · lucro de R$ 9.650/mes** | fim do semestre | o programa de parceiros comeca a girar sozinho |
 | **370 ativos · lucro de R$ 14.300/mes** | fim do trimestre 3 | cabe pro-labore de verdade na conta |
-| **460 ativos · R$ 26.600/mes de receita** | fim do ano | R$ 120 mil acumulados |
+| **460 ativos · R$ 26.600/mes de receita** | fim do ano | R$ 119 mil acumulados |
 
 ### O indicador que vale mais que todos
 
@@ -141,4 +180,5 @@ primeiro cliente e mais importante que comemorar entrada.
       lancamento)
 - [ ] Definir o orcamento mensal de aquisicao — a projecao assume R$ 0 a R$ 4.600
 - [ ] Medir a conversao teste -> pago a partir do primeiro cliente real
+- [ ] Medir quantos clientes vem com nivel 2 e 3 na cadeia — hoje sao 40% e 15% de estimativa
 - [ ] Refazer esta projecao com **dado medido** depois de 60 dias de venda
