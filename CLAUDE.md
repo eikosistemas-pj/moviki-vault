@@ -4,6 +4,9 @@ Este arquivo é lido pelo Claude Code no início de toda sessão. Ele vale para 
 
 > **REGRA DE SINCRONIZAÇÃO (17/09/2026).** As seis cópias são idênticas e precisam continuar idênticas. Alteração no mapa atualiza **os seis repositórios no mesmo ciclo** — nunca um e "os outros depois". Foi exatamente isso que fez as cópias divergirem duas vezes em 17/09: uma foi atualizada e as outras ficaram para depois. "Depois" não aconteceu.
 >
+>
+> A mesma regra vale para as duas cadeiras transversais da equipe: `.claude/skills/gabinete/` e `.claude/skills/guarda/` (seção 15). E conferir se as cópias batem deixou de depender de disciplina: virou a **primeira tarefa do Gabinete em toda sessão**.
+>
 > A cópia existe em todos porque a sessão do Claude Code começa em **um** repositório e lê o mapa dali sozinha. Quem trabalha no `moviki-robo` precisa da tabela de planos e das coleções; quem trabalha no `moviki` precisa das regras de LGPD da vitrine. Centralizar num repositório só obrigaria a pedir anexo em toda sessão — fricção permanente no Paulo para resolver um problema de disciplina de quem edita.
 
 > Levantado por leitura direta dos repositórios em 17/09/2026. O que não foi possível confirmar está marcado como **a confirmar**.
@@ -64,7 +67,7 @@ Este arquivo é lido pelo Claude Code no início de toda sessão. Ele vale para 
 - **Visitante** abre `moviki.com.br/{slug}` → `moviki /api/og` monta a página do negócio.
 - **Cliente manda mensagem no WhatsApp** → `moviki-ai /api/atendimento` (não sabe quem está falando, só conhece o catálogo). **Teto de 30 mensagens por telefone por dia** (`ATENDIMENTO_LIMITE_DIA` no Vercel). Ao estourar, manda uma vez o caminho humano e fica calado até a virada do dia (UTC).
 - **Lojista usa a caixa de mensagens do painel** → `moviki-ai /api/chat` (sabe quem está falando, lê os dados reais da conta).
-- **Rotinas de rede social** → `moviki-assistente-social` roda por Actions, lê `negocios` e publica.
+- **Rotinas de rede social** → `moviki-assistente-social` roda por Actions, lê a vitrine (`moviki.com.br/api/vitrine`) e o catálogo do material de apoio (`app.moviki.com.br/material/catalogo.json`) e publica.
 
 ### Fronteiras que não se cruzam
 
@@ -129,14 +132,19 @@ As **regras do Firestore e do Storage** ficam versionadas em `moviki-app/firebas
 - `/api/lembrete-trial` — todo dia às 12:00 UTC
 - `/api/webhook-reprocessa` — a cada hora, aos 20 minutos
 
-**GitHub Actions (`moviki-assistente-social`):** `feed.yml`, `reel.yml`, `manutencao.yml`
+**GitHub Actions (`moviki-assistente-social`):** `feed.yml` (seg a sex), `story.yml` (2 por dia, desde 22/09/2026), `reel.yml` (ter e sáb), `manutencao.yml`. Repositório público: não gasta a cota de minutos do plano gratuito.
 
 Regras da publicação:
 
 - Todo texto passa por `compliance.garantir()` antes de publicar. Sem exceção.
 - Texto reserva é obrigatório e precisa estar limpo. Falha de IA nunca fura o calendário: sai o texto reserva.
 - Instagram é prioridade; Facebook é best-effort e nunca derruba o ciclo.
-- Imagem não é gerada por IA na hora de publicar — compõe sobre fundo já aprovado.
+- Imagem não é gerada por IA na hora de publicar. **Desde 22/09/2026 feed, story e reel usam o banco do Material de apoio do parceiro**: `tipo: feed` → feed, `tipo: story` → story, `tipo: video` 9:16 de 3 a 90 s → reel. A peça vai ao ar como está, com a legenda convertida para a voz da marca (sai `#publi`, `{link}` vira link da bio). Peça com "link deste parceiro" impresso ou falado fica fora (`MATERIAL_EXCLUIR` no robô).
+- **Reel e story também saem na Página do Facebook** (antes, com `SO_FACEBOOK` ligado, o reel não publicava nada desde 24/08).
+- **Brecha dos criadores:** peça de influenciador entra em feed, story e reel quando ele **autoriza** no painel **e** o Moviki **aprova** — as duas chaves, sempre. Fonte desligada até existir o secret `CRIADORES_URL` (endpoint no site, conta só leitura). Crédito "Conteúdo de @arroba" obrigatório; até metade dos posts de cada formato. Contrato em `moviki-assistente-social/conteudo/CRIADORES-CONTRATO.md`.
+- Calendário do feed: sexta = card de pauta de parceiro; o resto = peça do material. Material fora do ar → card de pauta, o calendário não fura.
+- **Vitrine de lojista DESLIGADA** (`VITRINE_POR_SEMANA` = 0) enquanto a base real for zero: os negócios com opt-in são contas de teste, e publicá-los é prova social falsa. No primeiro lojista real, criar o secret `VITRINE_POR_SEMANA=1` (1 post por semana).
+- Vitrine e card de pauta saem na **moldura padrão Moviki** (marinho, mapa neon, botão verde). A cor do lojista não entra; o banco `assets/fundos` foi aposentado. Conta demo e slug derivado de e-mail nunca entram na vitrine.
 - Vídeo não entra no git: asset de release + ponteiro em `conteudo/reels.md`.
 
 ## 10. Planos e preços
@@ -277,7 +285,31 @@ Regras da nota:
 3. **`MOVIKI_MAPA_MESTRE.md` é citado pelos repositórios mas não existe em nenhum deles** — vivia num Project do Claude. Este arquivo passa a ser o mapa mestre, dentro do repositório, onde o Claude Code lê sozinho.
 4. O comando `/atualizarmapa` dos arquivos antigos foi mantido em espírito: **ao terminar uma alteração relevante, atualizar a seção correspondente deste arquivo no mesmo Pull Request.**
 
-## 15. Histórico de decisões
+## 15. A equipe — quem cuida de quê
+
+Desde 17/09/2026 o Moviki tem um time de especialistas gravado nos repositórios. Cada cadeira é dona de uma parte da empresa, já sabe as regras da área dela e trabalha sozinha dentro delas. O Paulo convoca pelo nome (`/gabinete`, `/tesouraria`, …), ou pede o que quer e o Gabinete convoca por ele.
+
+| Cadeira | De que cuida | Onde mora |
+|---|---|---|
+| **Gabinete** | Coordenação, memória, mapa mestre, ordem de aprovação dos Pull Requests | Nos cinco repositórios de código |
+| **Guarda** | Segurança, regras do Firestore e do Storage, LGPD, segredos | Nos cinco (com veto em todos) |
+| **Tesouraria** | Dinheiro: assinatura, Asaas, webhook, comissão, saque, preço | `moviki-robo` |
+| **Vitrine** | Site público, página de cada negócio, live pública, SEO, termos | `moviki` |
+| **Balcão** | Painel do lojista, live do lojista, videoaulas, painel do dono | `moviki-app` |
+| **Canal** | Parceiros: recrutamento, painel, material de apoio, treinamento | `moviki-app` |
+| **Atendimento** | Atendentes de IA do WhatsApp e da caixa do painel | `moviki-ai` |
+| **Praça** | Publicação no Instagram e no Facebook, calendário, compliance | `moviki-assistente-social` |
+
+Como o time funciona:
+
+- **Cada cadeira mora no repositório que governa.** Quem abre uma sessão no `moviki-robo` já recebe a Tesouraria sabendo as regras do dinheiro, sem precisar explicar nada.
+- **Gabinete e Guarda moram em todos**, porque coordenação e vazamento não respeitam fronteira de repositório. Por isso entram na regra de sincronização do topo deste arquivo.
+- **Toda cadeira tem escrito o que decide sozinha e o que sobe para o Paulo.** Ordem direta dele vence a regra da cadeira; quando a ordem colide com dinheiro ou segurança, a cadeira explica o risco em uma frase, pede confirmação e registra no histórico que foi decisão consciente.
+- **A skill `material-de-apoio` continua existindo** como ferramenta do Canal para a aba de artes do parceiro.
+- **Cadeira parada 60 dias** o Gabinete traz para revisão: ou ganha trabalho recorrente, ou é fundida com outra. Especialista que ninguém chama vira arquivo morto e polui toda sessão.
+- **Criar, fundir ou aposentar cadeira é decisão do Paulo.**
+
+## 16. Histórico de decisões
 
 - 16/09/2026: plano trimestral aposentado.
 - 17/09/2026: `moviki-ai` separado do `moviki-robo` para isolar o teto de 12 funções do plano Hobby e proteger o robô do dinheiro.
@@ -288,4 +320,8 @@ Regras da nota:
 - 17/09/2026: regras do Firestore e do Storage trazidas para dentro do repositório (`moviki-app/firebase/`). Antes viviam só no console do Firebase: sem revisão, sem histórico e sem como voltar de uma alteração feita por engano.
 - 17/09/2026: curinga `match /{documento=**}` removido de `negocios/{uid}` (regras v26). Ele anulava em silêncio o `hasOnly` do cadastro, deixava público o e-mail do lojista em `estado/liveAceite`, e faria qualquer subcoleção futura nascer pública. Regras passaram a ter teste automático.
 - 17/09/2026: teto de uso criado no atendente do WhatsApp. Ele falava com desconhecido sem limite nenhum, e cada mensagem é uma chamada paga à Anthropic — a assinatura da Meta barra chamada forjada, não pessoa real insistindo.
+- 17/09/2026: videoaulas — a biblioteca "Aulas da live" deixou de ser repintada por cima do vídeo que está tocando (era isso que fazia a aula cortar sozinha perto do fim), e as aulas da live passaram a medir **caminho percorrido** em vez de posição da agulha, como o painel do lojista e o do parceiro já faziam desde 15/09. Arrastar o vídeo até o fim deixou de marcar a aula como assistida; o quanto falta passou a aparecer numa barra, porque trava sem medidor visível vira reclamação. O progresso de cada aula agora sobrevive a fechar e recarregar a página (fica no navegador, por conta, nunca no banco).
 - 17/09/2026: mapa mantido em **cópia completa nos seis repositórios**, com regra explícita de sincronização no topo deste arquivo. Cogitou-se centralizar numa cópia só, com ponteiro nas outras; descartado porque obrigaria a pedir anexo do `moviki-app` em toda sessão iniciada em outro repositório — fricção permanente para resolver um problema que é de disciplina de quem edita, não de estrutura.
+- 17/09/2026: mapa divergiu pela **terceira vez** — a linha das videoaulas existia só na cópia do `moviki-app`. Corrigido, e a conferência das seis cópias deixou de ser disciplina de quem edita: virou a primeira tarefa do Gabinete em toda sessão. Regra sem dono é regra que volta a quebrar.
+- 17/09/2026: **equipe de especialistas criada** — oito cadeiras, cada uma dona de uma parte da empresa, gravadas dentro dos repositórios. Antes, toda sessão começava sem saber as regras da área que ia mexer, e o Paulo era o único ponto de memória do negócio. O time nasceu completo por decisão dele, contra a recomendação de começar com três: fica valendo a revisão aos 60 dias para a cadeira que não tiver uso.
+- 22/09/2026: **feed padronizado sobre o Material de apoio.** Os posts saíam cada um de um jeito: fundo de foto sem relação com o negócio, etiqueta na cor do lojista, frase escrita por cima do rosto da pessoa. Além disso foram ao ar o e-mail de um lojista como link (slug derivado de e-mail), a conta demo como se fosse negócio real, UF errada ("Curitiba - PA") e "TÁ ABERTO AGORA" sem o robô saber se estava aberto. Agora o feed publica as peças do material, a vitrine tem moldura única e teto semanal — **desligada até o primeiro lojista real**, porque os negócios com opt-in eram todos contas de teste — e esses quatro erros estão barrados com teste. No mesmo dia: story diário, reel também na Página do Facebook (estava parado desde 24/08 por um "exclusivo do Instagram" que não era verdade) e a brecha para peças de criadores com duas chaves — autorização dele e aprovação do Moviki.
