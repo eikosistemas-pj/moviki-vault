@@ -16,7 +16,12 @@ atualizado: 2026-09-24
 - 2 peças `video`, ambas `novo: true`:
   - `video-shopping-moda` — 0:39, 17,8 MB
   - `video-shopping-esportes` — 0:38, 17,3 MB
-- `catalogo.json` versão **`2026-09-24-shopping3`** (capas em `material/capas/<id>.webp`, padrão das outras 79 peças): 92 entradas. Os 2 vídeos aparecem também em "Para qualquer negócio" > Vídeos por entrada duplicada no catálogo (`<id>-geral`, `categoria: geral`, mesmo arquivo e mesma capa) — o HTML aceita uma categoria só por peça, e assim o `parceiro.html` não foi tocado.
+- Os vídeos ficam **só** em "Lojas de shopping" — categorias secas, decisão do Paulo em 24/09 ([[ARQ - Categorias secas no material de apoio 24092026]]). A cópia provisória em "Para qualquer negócio" (`-geral`, catálogo `shopping3`) saiu no catálogo `2026-09-24-secas`.
+- Capas em `material/capas/<id>.webp`, padrão das outras peças.
+
+## Incidente da subida
+
+Vídeo em 0:00 e capa em branco no primeiro teste: os arquivos não estavam no caminho do catálogo. Resolvido subindo cada arquivo **entrando na pasta** no GitHub, sem arrastar a pasta `material/`.
 
 ## Regras aplicadas
 
@@ -32,5 +37,5 @@ atualizado: 2026-09-24
 
 ## Ligações
 
-[[ARQ - Videos de loja de shopping 24092026]] · [[R - Marcas de versao no ar]] ·
+[[ARQ - Videos de loja de shopping 24092026]] · [[ARQ - Categorias secas no material de apoio 24092026]] · [[R - Marcas de versao no ar]] ·
 [[R - Marcas de versao no ar em 24092026]] · [[A1 - Produto e Paineis]]
